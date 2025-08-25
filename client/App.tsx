@@ -17,7 +17,7 @@ import Admin from "./pages/Admin";
 import Profile from "./pages/Profile";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
-import AdvancedLicenses from "./pages/AdvancedLicenses";
+import Licenses from "./pages/Licenses";
 import { Navigation } from "./components/Navigation";
 
 const queryClient = new QueryClient();
