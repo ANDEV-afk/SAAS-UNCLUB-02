@@ -630,7 +630,7 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-instagram-pink/12 via-instagram-purple/12 to-instagram-orange/12 dark:from-gray-900 dark:via-instagram-purple/25 dark:to-instagram-pink/20">
+    <div className="min-h-screen" style={{backgroundColor: '#0D0D0D'}}>
       {/* GenZ Particles */}
       <GenZParticles />
 
