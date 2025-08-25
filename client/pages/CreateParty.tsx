@@ -150,7 +150,7 @@ export default function CreateParty() {
           animate={{ opacity: 1, y: 0 }}
         >
           <motion.h1
-            className="text-5xl font-black bg-gradient-to-r from-unclub-blue via-unclub-pink to-unclub-red bg-clip-text text-transparent mb-4"
+            className="text-5xl font-black bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan bg-clip-text text-transparent mb-4"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
