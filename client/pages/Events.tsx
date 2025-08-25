@@ -457,93 +457,91 @@ const EventCard = ({
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className="group"
     >
-      <AnimatedCard
-        effects={["sparkles", "shimmer"]}
-        intensity="medium"
-        className="group"
-      >
-        <Card className="genz-event-card overflow-hidden">
-          <div className="relative overflow-hidden">
-            <Image
-              src={event.image}
-              alt={event.title}
-              className="w-full h-48 object-cover"
-              animated={true}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="absolute top-4 left-4">
-              <Badge
-                variant={getCategoryBadgeVariant(event.category) as any}
-                size="lg"
-                glow="strong"
-                className="shimmer-effect"
-              >
-                {event.category}
-              </Badge>
-            </div>
-            {event.featured && (
-              <div className="absolute top-4 right-4">
-                <Badge
-                  variant="neon-party"
-                  size="lg"
-                  glow="strong"
-                  className="animate-float"
-                >
-                  ⭐ Featured
-                </Badge>
-              </div>
-            )}
+      <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 shadow-xl hover:shadow-2xl">
+        {/* Image Section */}
+        <div className="relative overflow-hidden h-48">
+          <Image
+            src={event.image}
+            alt={event.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+
+          {/* Category Badge */}
+          <div className="absolute top-4 left-4">
+            <Badge
+              variant={getCategoryBadgeVariant(event.category) as any}
+              className="px-3 py-1.5 text-xs font-semibold rounded-full"
+            >
+              {event.category}
+            </Badge>
           </div>
 
-          <CardContent className="p-6">
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <Calendar className="w-4 h-4" />
-              {event.date}
+          {/* Star Rating in top right */}
+          {event.featured && (
+            <div className="absolute top-4 right-4">
+              <div className="flex items-center gap-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1">
+                <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                <span className="text-white text-xs font-medium">{event.rating}</span>
+              </div>
             </div>
+          )}
 
-            <h3 className="font-bold text-lg text-white mb-2 group-hover:text-aesthetic-cyan transition-colors duration-300">
-              {event.title}
-            </h3>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+        </div>
 
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-              <MapPin className="w-4 h-4" />
-              {event.location}
-            </div>
+        {/* Content Section */}
+        <div className="p-6 space-y-4">
+          {/* Date */}
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <Calendar className="w-4 h-4" />
+            <span>{event.date}</span>
+          </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
-                  ${event.price}
-                </span>
-                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+          {/* Title */}
+          <h3 className="text-white font-bold text-xl leading-tight group-hover:text-blue-400 transition-colors duration-300">
+            {event.title}
+          </h3>
+
+          {/* Location */}
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <MapPin className="w-4 h-4" />
+            <span>{event.location}</span>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="flex items-center justify-between pt-2">
+            {/* Price and Stats */}
+            <div className="space-y-2">
+              <div className="text-2xl font-bold text-white">
+                ${event.price}
+              </div>
+              <div className="flex items-center gap-4 text-gray-400 text-sm">
+                <div className="flex items-center gap-1">
                   <Users className="w-4 h-4" />
-                  {event.attendees}
+                  <span>{event.attendees}</span>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                  {event.rating}
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                  <span>{event.rating}</span>
                 </div>
               </div>
+            </div>
 
+            {/* Book Button */}
+            <Link to={`/event/${event.id}`}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex-shrink-0"
               >
-                <Link to={`/event/${event.id}`}>
-                  <Button
-                    size="sm"
-                    className="genz-button text-xs px-3 py-1.5 whitespace-nowrap"
-                  >
-                    🎟️ Book Now
-                  </Button>
-                </Link>
+                <Button className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-6 py-2 rounded-xl transition-all duration-300">
+                  BOOK NOW
+                </Button>
               </motion.div>
-            </div>
-          </CardContent>
-        </Card>
-      </AnimatedCard>
+            </Link>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
