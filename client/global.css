@@ -333,22 +333,20 @@
     transform: translateY(0px);
   }
 
-  /* Neon cyan UI elements (keeping for backwards compatibility) */
+  /* Simple cyan UI elements */
   .neon-cyan-bg {
-    background: linear-gradient(135deg, #8A2BE2, #00FFFF);
-    color: #000000;
+    background: #06B6D4;
+    color: #FFFFFF;
     font-family: "Satoshi", sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
     transition: all 0.3s ease;
   }
 
   .neon-cyan-bg:hover {
-    background: linear-gradient(135deg, #9A4BF2, #1AFFFF);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6), 0 0 60px rgba(0, 255, 255, 0.3);
-    transform: translateY(-2px) scale(1.03);
+    background: #0891B2;
+    transform: translateY(-2px);
   }
 
   /* Category filter pills with Magenta → Electric Violet → Cyan gradient */
