@@ -139,7 +139,7 @@ export default function CreateParty() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-unclub-blue/20 via-unclub-pink/20 to-unclub-red/20 pt-20">
+    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 pt-20">
       <GenZParticles />
 
       <div className="max-w-4xl mx-auto px-6 py-8">
