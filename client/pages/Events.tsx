@@ -221,7 +221,7 @@ const FilterPanel = ({
               <div className="space-y-6">
                 {/* Category Filter */}
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                  <h4 className="subheading-text font-medium mb-3">
                     Categories
                   </h4>
                   <div className="space-y-3">
