@@ -457,93 +457,93 @@ const EventCard = ({
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className="group"
     >
-      <AnimatedCard
-        effects={["sparkles", "shimmer"]}
-        intensity="medium"
-        className="group"
-      >
-        <Card className="genz-event-card overflow-hidden">
-          <div className="relative overflow-hidden">
-            <Image
-              src={event.image}
-              alt={event.title}
-              className="w-full h-48 object-cover"
-              animated={true}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="absolute top-4 left-4">
-              <Badge
-                variant={getCategoryBadgeVariant(event.category) as any}
-                size="lg"
-                glow="strong"
-                className="shimmer-effect"
-              >
-                {event.category}
-              </Badge>
-            </div>
-            {event.featured && (
-              <div className="absolute top-4 right-4">
-                <Badge
-                  variant="neon-party"
-                  size="lg"
-                  glow="strong"
-                  className="animate-float"
-                >
-                  ⭐ Featured
-                </Badge>
-              </div>
-            )}
+      <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 shadow-xl hover:shadow-2xl">
+        {/* Image Section */}
+        <div className="relative overflow-hidden h-48">
+          <Image
+            src={event.image}
+            alt={event.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+
+          {/* Category Badge */}
+          <div className="absolute top-4 left-4">
+            <Badge
+              variant={getCategoryBadgeVariant(event.category) as any}
+              className="px-3 py-1.5 text-xs font-semibold rounded-full"
+            >
+              {event.category}
+            </Badge>
           </div>
 
-          <CardContent className="p-6">
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <Calendar className="w-4 h-4" />
-              {event.date}
-            </div>
-
-            <h3 className="font-bold text-lg text-white mb-2 group-hover:text-aesthetic-cyan transition-colors duration-300">
-              {event.title}
-            </h3>
-
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-              <MapPin className="w-4 h-4" />
-              {event.location}
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
-                  ${event.price}
-                </span>
-                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                  <Users className="w-4 h-4" />
-                  {event.attendees}
-                </div>
-                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
+          {/* Star Rating in top right */}
+          {event.featured && (
+            <div className="absolute top-4 right-4">
+              <div className="flex items-center gap-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1">
+                <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                <span className="text-white text-xs font-medium">
                   {event.rating}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+        </div>
+
+        {/* Content Section */}
+        <div className="p-6 space-y-4">
+          {/* Date */}
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <Calendar className="w-4 h-4" />
+            <span>{event.date}</span>
+          </div>
+
+          {/* Title */}
+          <h3 className="text-white font-bold text-xl leading-tight group-hover:text-blue-400 transition-colors duration-300">
+            {event.title}
+          </h3>
+
+          {/* Location */}
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <MapPin className="w-4 h-4" />
+            <span>{event.location}</span>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="flex items-center justify-between pt-2">
+            {/* Price and Stats */}
+            <div className="space-y-2">
+              <div className="text-2xl font-bold text-white">
+                ${event.price}
+              </div>
+              <div className="flex items-center gap-4 text-gray-400 text-sm">
+                <div className="flex items-center gap-1">
+                  <Users className="w-4 h-4" />
+                  <span>{event.attendees}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                  <span>{event.rating}</span>
                 </div>
               </div>
+            </div>
 
+            {/* Book Button */}
+            <Link to={`/event/${event.id}`}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex-shrink-0"
               >
-                <Link to={`/event/${event.id}`}>
-                  <Button
-                    size="sm"
-                    className="genz-button text-xs px-3 py-1.5 whitespace-nowrap"
-                  >
-                    🎟️ Book Now
-                  </Button>
-                </Link>
+                <Button className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-6 py-2 rounded-xl transition-all duration-300">
+                  BOOK NOW
+                </Button>
               </motion.div>
-            </div>
-          </CardContent>
-        </Card>
-      </AnimatedCard>
+            </Link>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
@@ -618,25 +618,25 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#0D0D0D" }}>
-      {/* GenZ Particles */}
-      <GenZParticles />
+    <div className="min-h-screen bg-gray-950">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.05),transparent_50%)]" />
 
       {/* Header */}
       <motion.div
-        className="bg-black/20 backdrop-blur-md border-b border-white/10 mt-16 sm:mt-20"
+        className="relative bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50 mt-16 sm:mt-20"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-6">
+        <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
-              <h1 className="neon-heading text-3xl lg:text-4xl mb-2 leading-tight">
-                🎉 Discover Epic Events 🎉
+              <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2 leading-tight">
+                Discover Events
               </h1>
-              <p className="body-text text-base lg:text-lg leading-relaxed">
-                Find your next unforgettable experience!
+              <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
+                Find your next unforgettable experience
               </p>
             </div>
 
@@ -649,7 +649,7 @@ export default function Events() {
                   variant="outline"
                   size="sm"
                   onClick={() => setIsFilterOpen(true)}
-                  className="lg:hidden neon-cyan-bg"
+                  className="lg:hidden bg-gray-800/50 border-gray-700/50 text-gray-300 hover:bg-gray-700/50 hover:text-white"
                 >
                   <SlidersHorizontal className="w-4 h-4 mr-2" />
                   Filters
@@ -665,7 +665,11 @@ export default function Events() {
                     variant={viewMode === "grid" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("grid")}
-                    className={`rounded-xl ${viewMode === "grid" ? "neon-cyan-bg" : ""}`}
+                    className={`rounded-xl ${
+                      viewMode === "grid"
+                        ? "bg-blue-600 text-white"
+                        : "border-gray-600 text-gray-400 hover:text-white"
+                    }`}
                   >
                     <Grid className="w-4 h-4" />
                   </Button>
@@ -678,7 +682,11 @@ export default function Events() {
                     variant={viewMode === "list" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("list")}
-                    className={`rounded-xl ${viewMode === "list" ? "neon-cyan-bg" : ""}`}
+                    className={`rounded-xl ${
+                      viewMode === "list"
+                        ? "bg-blue-600 text-white"
+                        : "border-gray-600 text-gray-400 hover:text-white"
+                    }`}
                   >
                     <List className="w-4 h-4" />
                   </Button>
@@ -695,55 +703,16 @@ export default function Events() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan rounded-3xl p-6 lg:p-8 mb-8 mt-4 text-white overflow-hidden relative shadow-2xl"
+          className="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6 lg:p-8 mb-8 mt-4 overflow-hidden"
         >
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(15)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-full bg-white/10"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  width: `${10 + Math.random() * 20}px`,
-                  height: `${10 + Math.random() * 20}px`,
-                }}
-                animate={{
-                  y: [0, -20, 0],
-                  opacity: [0.3, 0.8, 0.3],
-                }}
-                transition={{
-                  duration: 2 + Math.random() * 3,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
-
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h2 className="neon-heading text-3xl mb-2">
-                🌟 Ready to Host Your Own Epic Event? 🌟
+              <h2 className="text-2xl font-bold text-white mb-2">
+                Ready to Host Your Own Event?
               </h2>
-              <p className="body-text text-lg text-white/90">
-                Join thousands of successful hosts earning money while creating
-                amazing experiences!
+              <p className="text-gray-400 text-lg">
+                Join thousands of successful hosts creating amazing experiences
               </p>
-              <div className="flex items-center gap-6 mt-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                    <span className="text-black font-bold">$</span>
-                  </div>
-                  <span>Earn $1K+ per event</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
-                    <span className="text-black font-bold">⭐</span>
-                  </div>
-                  <span>98% success rate</span>
-                </div>
-              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -753,9 +722,9 @@ export default function Events() {
               >
                 <Button
                   onClick={() => (window.location.href = "/dashboard")}
-                  className="genz-button px-8 py-4 text-lg font-black"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300"
                 >
-                  🚀 START HOSTING NOW!
+                  Start Hosting
                 </Button>
               </motion.div>
               <motion.div
@@ -764,9 +733,9 @@ export default function Events() {
               >
                 <Button
                   variant="outline"
-                  className="border-white/50 text-white hover:bg-white/10 px-6 py-4 rounded-2xl font-bold backdrop-blur-sm"
+                  className="border-gray-600 text-gray-300 hover:bg-gray-800 px-6 py-3 rounded-xl font-semibold"
                 >
-                  📖 Learn More
+                  Learn More
                 </Button>
               </motion.div>
             </div>
@@ -815,17 +784,17 @@ export default function Events() {
             >
               <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <div className="relative flex-1">
-                  <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                  <Search className="absolute left-3 top-3 w-5 h-5 text-gray-500" />
                   <Input
                     placeholder="Search events, locations..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm focus:bg-white dark:focus:bg-gray-800 transition-colors rounded-xl shadow-md text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                    className="pl-10 bg-gray-900/80 border border-gray-700/50 backdrop-blur-sm focus:border-gray-600 transition-colors rounded-xl text-white placeholder:text-gray-500"
                   />
                 </div>
 
                 <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-48 border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-md text-gray-900 dark:text-gray-100">
+                  <SelectTrigger className="w-48 bg-gray-900/80 border border-gray-700/50 backdrop-blur-sm rounded-xl text-white">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -854,8 +823,10 @@ export default function Events() {
                       variant="ghost"
                       size="sm"
                       onClick={() => setSelectedCategory(category)}
-                      className={`category-pill ${
-                        selectedCategory === category ? "active" : ""
+                      className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+                        selectedCategory === category
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white border border-gray-700/50"
                       }`}
                     >
                       {category}
@@ -872,7 +843,7 @@ export default function Events() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="body-text">
+              <p className="text-gray-400 text-sm">
                 Found {sortedEvents.length} events
                 {selectedCategory !== "All" && ` in ${selectedCategory}`}
               </p>

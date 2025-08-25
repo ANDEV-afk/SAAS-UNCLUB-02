@@ -33,7 +33,7 @@ import { useTheme } from "next-themes";
 const navItems = [
   {
     name: "Events",
-    path: "/",
+    path: "/events",
     icon: Calendar,
     gradient: "from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan",
   },
@@ -129,12 +129,7 @@ export function Navigation() {
       </div>
 
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 shadow-2xl"
-        style={{
-          background:
-            "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
-          backdropFilter: "blur(20px)",
-        }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-border/20 shadow-2xl bg-background/80 backdrop-blur-md"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, type: "spring", damping: 20 }}
@@ -200,16 +195,15 @@ export function Navigation() {
                 </motion.div>
                 <div className="hidden sm:block">
                   <motion.span
-                    className="display-text text-2xl sm:text-3xl font-black bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent"
+                    className="display-text text-2xl sm:text-3xl font-black text-foreground"
                     whileHover={{
-                      backgroundImage:
-                        "linear-gradient(45deg, #fff, #e0f7ff, #fff)",
+                      scale: 1.05,
                     }}
                   >
                     UnClub
                   </motion.span>
                   <motion.div
-                    className="accent-text text-xs font-bold text-white/90 tracking-wider uppercase"
+                    className="accent-text text-xs font-bold text-muted-foreground tracking-wider uppercase"
                     animate={{
                       opacity: [0.7, 1, 0.7],
                     }}
@@ -227,7 +221,10 @@ export function Navigation() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
               {navItems.map((item) => {
-                const isActive = location.pathname === item.path;
+                // Handle special case where both "/" and "/events" should show Events as active
+                const isActive =
+                  location.pathname === item.path ||
+                  (item.path === "/events" && location.pathname === "/");
                 return (
                   <motion.div
                     key={item.path}
@@ -241,8 +238,8 @@ export function Navigation() {
                       <motion.div
                         className={`relative px-3 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-all duration-300 ${
                           isActive
-                            ? "text-white shadow-2xl bg-gradient-to-r from-purple-500/30 to-pink-500/30 border border-purple-400/50 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
-                            : "text-white/80 hover:text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 hover:border hover:border-purple-400/30 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]"
+                            ? "text-primary-foreground shadow-2xl bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 border border-aesthetic-violet/50 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                            : "text-muted-foreground hover:text-foreground hover:bg-gradient-to-r hover:from-aesthetic-violet/20 hover:to-aesthetic-cyan/20 hover:border hover:border-aesthetic-violet/30 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]"
                         }`}
                         whileHover={{
                           backgroundImage: isActive
@@ -327,7 +324,7 @@ export function Navigation() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="rounded-2xl border border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-white transition-all duration-300 px-3 py-2 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                      className="rounded-2xl border border-aesthetic-violet/30 bg-aesthetic-violet/10 hover:bg-aesthetic-violet/20 text-foreground transition-all duration-300 px-3 py-2 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
                     >
                       <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
@@ -448,7 +445,7 @@ export function Navigation() {
                         setUserProfile({ name: "John Doe", avatar: null });
                       }, 2000);
                     }}
-                    className="bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(115,115,175,0.6)]"
+                    className="bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-primary-foreground rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(115,115,175,0.6)]"
                   >
                     <motion.span className="text-sm sm:text-base flex items-center gap-2">
                       <Sparkles className="w-4 h-4" />
@@ -469,7 +466,7 @@ export function Navigation() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="rounded-2xl border border-aesthetic-violet/30 bg-aesthetic-violet/10 hover:bg-aesthetic-violet/20 text-white px-3 py-2 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(115,115,175,0.5)]"
+                className="rounded-2xl border border-aesthetic-violet/30 bg-aesthetic-violet/10 hover:bg-aesthetic-violet/20 text-foreground px-3 py-2 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(115,115,175,0.5)]"
               >
                 <motion.div
                   animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
@@ -499,7 +496,7 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              className="fixed top-16 left-0 right-0 bg-gradient-to-br from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan z-50 md:hidden rounded-b-3xl mx-2 shadow-2xl"
+              className="fixed top-16 left-0 right-0 bg-card/95 backdrop-blur-xl border border-border/20 z-50 md:hidden rounded-b-3xl mx-2 shadow-2xl"
               initial={{ y: -400, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -400, opacity: 0, scale: 0.95 }}
@@ -519,9 +516,10 @@ export function Navigation() {
                         to={item.path}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={`flex items-center space-x-4 px-4 py-3 rounded-2xl font-bold transition-all duration-300 ${
-                          isActive
-                            ? "bg-white/30 text-white shadow-lg border border-white/40"
-                            : "text-white/90 hover:bg-white/20 hover:text-white hover:border hover:border-white/30"
+                          location.pathname === item.path ||
+                          (item.path === "/events" && location.pathname === "/")
+                            ? "bg-primary/20 text-primary-foreground shadow-lg border border-primary/40"
+                            : "text-muted-foreground hover:bg-accent hover:text-accent-foreground hover:border hover:border-accent"
                         }`}
                       >
                         <motion.div whileHover={{ rotate: 15, scale: 1.1 }}>
