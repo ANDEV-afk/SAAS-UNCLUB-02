@@ -222,7 +222,10 @@ export function Navigation() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
               {navItems.map((item) => {
-                const isActive = location.pathname === item.path;
+                // Handle special case where both "/" and "/events" should show Events as active
+                const isActive =
+                  location.pathname === item.path ||
+                  (item.path === "/events" && location.pathname === "/");
                 return (
                   <motion.div
                     key={item.path}
