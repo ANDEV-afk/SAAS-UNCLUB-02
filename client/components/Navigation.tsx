@@ -458,11 +458,7 @@ export function Navigation() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`rounded-xl border px-3 py-2 ${
-                  theme === "dark"
-                    ? "text-gray-300 hover:bg-gray-800/50 border-gray-600/50 hover:text-gray-100 bg-gray-800/70"
-                    : "text-white hover:bg-white/30 border-white/30 bg-white/20"
-                }`}
+                className="rounded-2xl border border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-white px-3 py-2 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
               >
                 <motion.div
                   animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
