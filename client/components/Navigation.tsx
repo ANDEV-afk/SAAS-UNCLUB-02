@@ -328,7 +328,7 @@ export function Navigation() {
                       animate={{ scale: 1 }}
                       className="absolute -top-2 -right-2"
                     >
-                      <Badge className="w-5 h-5 p-0 text-xs bg-gradient-to-r from-red-500 to-pink-500 text-white border-2 border-white rounded-full shadow-lg">
+                      <Badge className="w-5 h-5 p-0 text-xs bg-gradient-to-r from-aesthetic-magenta to-aesthetic-electric text-white border-2 border-white rounded-full shadow-lg">
                         <motion.span
                           animate={{
                             scale: [1, 1.2, 1],
