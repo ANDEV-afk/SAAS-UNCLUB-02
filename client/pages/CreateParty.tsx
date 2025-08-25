@@ -36,42 +36,42 @@ const partyTypes = [
     id: "house-party",
     name: "House Party",
     emoji: "🏠",
-    gradient: "from-unclub-blue to-party-blue",
+    gradient: "from-aesthetic-violet to-aesthetic-electric",
     description: "Intimate vibes at your place",
   },
   {
     id: "pool-party",
     name: "Pool Party",
     emoji: "🏊‍♀️",
-    gradient: "from-unclub-pink to-party-pink",
+    gradient: "from-aesthetic-cyan to-aesthetic-electric",
     description: "Make a splash this summer",
   },
   {
     id: "rooftop",
     name: "Rooftop Vibes",
     emoji: "🌆",
-    gradient: "from-unclub-red to-party-red",
+    gradient: "from-aesthetic-magenta to-aesthetic-violet",
     description: "Sky-high party energy",
   },
   {
     id: "beach-party",
     name: "Beach Party",
     emoji: "🏖️",
-    gradient: "from-party-electric to-unclub-hotpink",
+    gradient: "from-aesthetic-electric to-aesthetic-cyan",
     description: "Sand, sun, and good times",
   },
   {
     id: "birthday",
     name: "Birthday Bash",
     emoji: "🎂",
-    gradient: "from-unclub-blue to-unclub-pink",
+    gradient: "from-aesthetic-violet to-aesthetic-cyan",
     description: "Celebrate another year of awesome",
   },
   {
     id: "game-night",
     name: "Game Night",
     emoji: "🎮",
-    gradient: "from-party-red to-unclub-coral",
+    gradient: "from-aesthetic-magenta to-aesthetic-electric",
     description: "Level up your social game",
   },
 ];
@@ -139,7 +139,7 @@ export default function CreateParty() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-unclub-blue/20 via-unclub-pink/20 to-unclub-red/20 pt-20">
+    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 pt-20">
       <GenZParticles />
 
       <div className="max-w-4xl mx-auto px-6 py-8">
@@ -150,7 +150,7 @@ export default function CreateParty() {
           animate={{ opacity: 1, y: 0 }}
         >
           <motion.h1
-            className="text-5xl font-black bg-gradient-to-r from-unclub-blue via-unclub-pink to-unclub-red bg-clip-text text-transparent mb-4"
+            className="text-5xl font-black bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan bg-clip-text text-transparent mb-4"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -180,13 +180,13 @@ export default function CreateParty() {
           {[1, 2, 3, 4].map((step) => (
             <motion.div
               key={step}
-              className={`flex items-center gap-2 ${step <= currentStep ? "text-unclub-blue" : "text-gray-400"}`}
+              className={`flex items-center gap-2 ${step <= currentStep ? "text-aesthetic-violet" : "text-gray-400"}`}
               whileHover={{ scale: 1.05 }}
             >
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
                   step <= currentStep
-                    ? "bg-gradient-to-r from-unclub-blue to-unclub-pink text-white shadow-lg"
+                    ? "bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan text-white shadow-lg"
                     : "bg-gray-200 text-gray-500"
                 }`}
               >
@@ -235,8 +235,8 @@ export default function CreateParty() {
                         onClick={() => setSelectedPartyType(type.id)}
                         className={`relative cursor-pointer rounded-3xl p-6 text-center border-2 transition-all duration-300 ${
                           selectedPartyType === type.id
-                            ? "border-unclub-blue bg-gradient-to-br from-unclub-blue/10 to-unclub-pink/10 shadow-xl"
-                            : "border-gray-200 hover:border-unclub-pink/50 hover:shadow-lg"
+                            ? "border-aesthetic-violet bg-gradient-to-br from-aesthetic-violet/10 to-aesthetic-cyan/10 shadow-xl"
+                            : "border-gray-200 hover:border-aesthetic-electric/50 hover:shadow-lg"
                         }`}
                       >
                         <div className="text-4xl mb-3">{type.emoji}</div>
@@ -249,7 +249,7 @@ export default function CreateParty() {
 
                         {selectedPartyType === type.id && (
                           <motion.div
-                            className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-unclub-blue to-unclub-pink rounded-full flex items-center justify-center"
+                            className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan rounded-full flex items-center justify-center"
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                           >

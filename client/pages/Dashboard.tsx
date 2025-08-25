@@ -784,7 +784,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-red-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20">
       {/* Mega Hero Section */}
       <motion.div
-        className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 overflow-hidden"
+        className="relative bg-gradient-to-br from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -838,7 +838,7 @@ export default function Dashboard() {
               >
                 CREATE
                 <br />
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-aesthetic-cyan to-aesthetic-electric bg-clip-text text-transparent">
                   EPIC
                 </span>
                 <br />
@@ -847,7 +847,7 @@ export default function Dashboard() {
 
               <p className="text-2xl text-white/90 mb-8 leading-relaxed">
                 Turn your ideas into{" "}
-                <span className="font-bold text-yellow-300">
+                <span className="font-bold text-aesthetic-cyan">
                   unforgettable experiences
                 </span>{" "}
                 that people will talk about forever!
@@ -860,7 +860,7 @@ export default function Dashboard() {
                 >
                   <Button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
+                    className="bg-gradient-to-r from-aesthetic-cyan to-aesthetic-electric hover:from-aesthetic-electric hover:to-aesthetic-cyan text-black px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
                   >
                     🎉 CREATE MY EVENT NOW!
                   </Button>
@@ -881,17 +881,19 @@ export default function Dashboard() {
 
               <div className="flex items-center gap-8 mt-8 text-white/80">
                 <div className="text-center">
-                  <div className="text-3xl font-black text-yellow-300">
+                  <div className="text-3xl font-black text-aesthetic-cyan">
                     15.2K
                   </div>
                   <div className="text-sm">Happy Attendees</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-yellow-300">98%</div>
+                  <div className="text-3xl font-black text-aesthetic-cyan">
+                    98%
+                  </div>
                   <div className="text-sm">Success Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-yellow-300">
+                  <div className="text-3xl font-black text-aesthetic-cyan">
                     $89K
                   </div>
                   <div className="text-sm">Earned</div>
@@ -939,7 +941,7 @@ export default function Dashboard() {
           transition={{ delay: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent mb-4">
             Your Event Empire 👑
           </h2>
           <p className="text-xl text-gray-600">
@@ -1016,17 +1018,17 @@ export default function Dashboard() {
           <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl border-0 shadow-2xl">
             <CardHeader className="pb-8">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-3xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent flex items-center gap-3">
+                <CardTitle className="text-3xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent flex items-center gap-3">
                   <Sparkles className="w-8 h-8 text-purple-500" />
                   Your Epic Events
                 </CardTitle>
                 <div className="flex items-center gap-3">
-                  <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full px-4 py-2 font-bold">
+                  <Badge className="bg-gradient-to-r from-aesthetic-electric to-aesthetic-cyan text-white rounded-full px-4 py-2 font-bold">
                     🔥 {recentEvents.length} Active Events
                   </Badge>
                   <Button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl font-bold px-6 py-3"
+                    className="bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan text-white rounded-2xl font-bold px-6 py-3"
                   >
                     <Plus className="w-5 h-5 mr-2" />
                     Create New
@@ -1267,7 +1269,7 @@ export default function Dashboard() {
                 >
                   <Button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 text-white px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
+                    className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
                   >
                     <Rocket className="w-6 h-6 mr-3" />
                     CREATE ANOTHER EPIC EVENT! 🎉

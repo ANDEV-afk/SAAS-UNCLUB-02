@@ -396,7 +396,7 @@ const EventCard = ({
                       >
                         {event.category}
                       </Badge>
-                      <h3 className="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">
+                      <h3 className="font-bold text-lg text-white group-hover:text-aesthetic-cyan transition-colors duration-300">
                         {event.title}
                       </h3>
                     </div>
@@ -502,7 +502,7 @@ const EventCard = ({
               {event.date}
             </div>
 
-            <h3 className="font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">
+            <h3 className="font-bold text-lg text-white mb-2 group-hover:text-aesthetic-cyan transition-colors duration-300">
               {event.title}
             </h3>
 
@@ -695,7 +695,7 @@ export default function Events() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-3xl p-6 lg:p-8 mb-8 mt-4 text-white overflow-hidden relative shadow-2xl"
+          className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan rounded-3xl p-6 lg:p-8 mb-8 mt-4 text-white overflow-hidden relative shadow-2xl"
         >
           <div className="absolute inset-0 overflow-hidden">
             {[...Array(15)].map((_, i) => (

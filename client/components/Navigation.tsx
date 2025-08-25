@@ -16,6 +16,7 @@ import {
   Bell,
   Zap,
   Sparkles,
+  Crown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -34,25 +35,32 @@ const navItems = [
     name: "Events",
     path: "/",
     icon: Calendar,
-    gradient: "from-party-blue via-unclub-electric to-party-neon",
+    gradient: "from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan",
   },
   {
     name: "Discover",
     path: "/discover",
     icon: Home,
-    gradient: "from-unclub-blue via-unclub-pink to-unclub-red",
+    gradient: "from-aesthetic-cyan via-aesthetic-electric to-aesthetic-violet",
+  },
+  {
+    name: "Licenses",
+    path: "/licenses",
+    icon: Crown,
+    gradient:
+      "from-aesthetic-magenta via-aesthetic-violet to-aesthetic-electric",
   },
   {
     name: "Create",
     path: "/dashboard",
     icon: Plus,
-    gradient: "from-unclub-pink via-party-red to-unclub-coral",
+    gradient: "from-aesthetic-electric via-aesthetic-magenta to-aesthetic-cyan",
   },
   {
     name: "Profile",
     path: "/profile",
     icon: User,
-    gradient: "from-party-electric via-unclub-hotpink to-party-pink",
+    gradient: "from-aesthetic-violet via-aesthetic-cyan to-aesthetic-electric",
   },
 ];
 
@@ -328,7 +336,7 @@ export function Navigation() {
                       animate={{ scale: 1 }}
                       className="absolute -top-2 -right-2"
                     >
-                      <Badge className="w-5 h-5 p-0 text-xs bg-gradient-to-r from-red-500 to-pink-500 text-white border-2 border-white rounded-full shadow-lg">
+                      <Badge className="w-5 h-5 p-0 text-xs bg-gradient-to-r from-aesthetic-magenta to-aesthetic-electric text-white border-2 border-white rounded-full shadow-lg">
                         <motion.span
                           animate={{
                             scale: [1, 1.2, 1],
@@ -346,7 +354,7 @@ export function Navigation() {
                 </DialogTrigger>
                 <DialogContent className="max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-0 rounded-3xl">
                   <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent">
                       🔔 Notifications
                     </DialogTitle>
                   </DialogHeader>
@@ -398,7 +406,7 @@ export function Navigation() {
                   className="relative"
                 >
                   <Link to="/profile">
-                    <div className="relative w-10 h-10 rounded-full border-2 border-purple-400/50 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center hover:border-purple-400 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]">
+                    <div className="relative w-10 h-10 rounded-full border-2 border-aesthetic-violet/50 bg-gradient-to-br from-aesthetic-violet/20 to-aesthetic-cyan/20 flex items-center justify-center hover:border-aesthetic-violet transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
                       {userProfile.avatar ? (
                         <img
                           src={userProfile.avatar}
@@ -409,15 +417,15 @@ export function Navigation() {
                         <User className="w-5 h-5 text-white" />
                       )}
 
-                      {/* Neon ring animation */}
+                      {/* Aesthetic ring animation */}
                       <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-purple-400/30"
+                        className="absolute inset-0 rounded-full border-2 border-aesthetic-violet/30"
                         animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.5, 0.8, 0.5],
+                          scale: [1, 1.15, 1],
+                          opacity: [0.4, 0.7, 0.4],
                         }}
                         transition={{
-                          duration: 2,
+                          duration: 2.5,
                           repeat: Infinity,
                           ease: "easeInOut",
                         }}
@@ -440,7 +448,7 @@ export function Navigation() {
                         setUserProfile({ name: "John Doe", avatar: null });
                       }, 2000);
                     }}
-                    className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]"
+                    className="bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(115,115,175,0.6)]"
                   >
                     <motion.span className="text-sm sm:text-base flex items-center gap-2">
                       <Sparkles className="w-4 h-4" />
@@ -461,7 +469,7 @@ export function Navigation() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="rounded-2xl border border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-white px-3 py-2 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                className="rounded-2xl border border-aesthetic-violet/30 bg-aesthetic-violet/10 hover:bg-aesthetic-violet/20 text-white px-3 py-2 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(115,115,175,0.5)]"
               >
                 <motion.div
                   animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
@@ -491,7 +499,7 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              className="fixed top-16 left-0 right-0 bg-gradient-to-br from-unclub-blue via-unclub-pink to-unclub-red z-50 md:hidden rounded-b-3xl mx-2 shadow-2xl"
+              className="fixed top-16 left-0 right-0 bg-gradient-to-br from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan z-50 md:hidden rounded-b-3xl mx-2 shadow-2xl"
               initial={{ y: -400, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -400, opacity: 0, scale: 0.95 }}
@@ -536,7 +544,7 @@ export function Navigation() {
                       to="/profile"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <Button className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg">
+                      <Button className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg">
                         <User className="w-5 h-5 mr-2" />
                         {userProfile.name}
                       </Button>
@@ -552,7 +560,7 @@ export function Navigation() {
                           setUserProfile({ name: "John Doe", avatar: null });
                         }, 2000);
                       }}
-                      className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg"
+                      className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg"
                     >
                       <Sparkles className="w-5 h-5 mr-2" />
                       Join the Party 🎉
@@ -566,11 +574,11 @@ export function Navigation() {
                         setIsMobileMenuOpen(false);
                         setIsNotificationOpen(true);
                       }}
-                      className="w-full bg-purple-500/25 hover:bg-purple-500/40 text-white rounded-2xl border border-purple-400/40 font-bold py-3 relative"
+                      className="w-full bg-aesthetic-violet/25 hover:bg-aesthetic-violet/40 text-white rounded-2xl border border-aesthetic-violet/40 font-bold py-3 relative"
                     >
                       <Bell className="w-4 h-4 mr-2" />
                       Notifications
-                      <Badge className="absolute -top-2 -right-2 w-5 h-5 p-0 text-xs bg-gradient-to-r from-red-500 to-pink-500 text-white border border-white rounded-full">
+                      <Badge className="absolute -top-2 -right-2 w-5 h-5 p-0 text-xs bg-gradient-to-r from-aesthetic-magenta to-aesthetic-electric text-white border border-white rounded-full">
                         3
                       </Badge>
                     </Button>
