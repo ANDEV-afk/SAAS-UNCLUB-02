@@ -186,7 +186,7 @@ export default function CreateParty() {
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
                   step <= currentStep
-                    ? "bg-gradient-to-r from-unclub-blue to-unclub-pink text-white shadow-lg"
+                    ? "bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan text-white shadow-lg"
                     : "bg-gray-200 text-gray-500"
                 }`}
               >
