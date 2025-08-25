@@ -442,6 +442,51 @@
     animation: gradient-rotate 2s ease-in-out infinite;
   }
 
+  /* Floating gradient blobs for background */
+  .floating-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.1;
+    animation: float-blob 6s ease-in-out infinite;
+  }
+
+  .floating-blob.violet {
+    background: linear-gradient(135deg, #8A2BE2, #9A4BF2);
+  }
+
+  .floating-blob.cyan {
+    background: linear-gradient(135deg, #00FFFF, #1AFFFF);
+  }
+
+  /* Keyframe animations */
+  @keyframes gradient-rotate {
+    0% {
+      background: linear-gradient(135deg, #8A2BE2, #00FFFF);
+    }
+    50% {
+      background: linear-gradient(135deg, #00FFFF, #8A2BE2, #9A4BF2);
+    }
+    100% {
+      background: linear-gradient(135deg, #8A2BE2, #00FFFF);
+    }
+  }
+
+  @keyframes float-blob {
+    0%, 100% {
+      transform: translateX(0) translateY(0) scale(1);
+    }
+    25% {
+      transform: translateX(20px) translateY(-20px) scale(1.1);
+    }
+    50% {
+      transform: translateX(-15px) translateY(-30px) scale(0.9);
+    }
+    75% {
+      transform: translateX(10px) translateY(-10px) scale(1.05);
+    }
+  }
+
   .glass-card {
     @apply bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10;
     @apply shadow-2xl shadow-black/10 dark:shadow-black/20;
