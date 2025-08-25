@@ -446,7 +446,7 @@ export function Navigation() {
                         setUserProfile({ name: "John Doe", avatar: null });
                       }, 2000);
                     }}
-                    className="bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(115,115,175,0.6)]"
+                    className="bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-primary-foreground rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(115,115,175,0.6)]"
                   >
                     <motion.span className="text-sm sm:text-base flex items-center gap-2">
                       <Sparkles className="w-4 h-4" />
