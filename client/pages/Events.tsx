@@ -616,9 +616,9 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#0D0D0D" }}>
-      {/* GenZ Particles */}
-      <GenZParticles />
+    <div className="min-h-screen bg-gray-950">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.05),transparent_50%)]" />
 
       {/* Header */}
       <motion.div
