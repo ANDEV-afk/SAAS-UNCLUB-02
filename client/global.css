@@ -157,7 +157,7 @@
   body {
     @apply antialiased;
     background-color: #0d0d0d; /* Force dark navy background */
-    color: #e5e5e5; /* Light grey text */
+    color: #f0f0f0; /* Brighter light text for better visibility */
     font-family:
       "General Sans",
       -apple-system,
