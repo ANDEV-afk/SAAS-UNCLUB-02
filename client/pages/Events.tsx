@@ -673,7 +673,7 @@ export default function Events() {
                     variant={viewMode === "grid" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("grid")}
-                    className="rounded-xl"
+                    className={`rounded-xl ${viewMode === "grid" ? "neon-cyan-bg" : ""}`}
                   >
                     <Grid className="w-4 h-4" />
                   </Button>
