@@ -205,7 +205,7 @@ const FilterPanel = ({
           >
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <h3 className="subheading-text text-lg font-semibold">
                   Filters
                 </h3>
                 <Button
