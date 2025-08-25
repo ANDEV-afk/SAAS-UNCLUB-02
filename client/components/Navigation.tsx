@@ -33,7 +33,7 @@ import { useTheme } from "next-themes";
 const navItems = [
   {
     name: "Events",
-    path: "/",
+    path: "/events",
     icon: Calendar,
     gradient: "from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan",
   },
