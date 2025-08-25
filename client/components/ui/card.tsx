@@ -16,7 +16,7 @@ const cardVariants = cva(
           "hover:border-white/30 dark:hover:border-white/20",
           "hover:shadow-3xl hover:shadow-black/20 dark:hover:shadow-black/30",
           "hover:scale-105 hover:-translate-y-2",
-          "group"
+          "group",
         ],
         neon: [
           "rounded-2xl backdrop-blur-xl bg-white/5 dark:bg-black/20",
@@ -30,7 +30,7 @@ const cardVariants = cva(
           "before:mask-composite before:[mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)]",
           "before:[mask-composite:exclude]",
           "before:animate-pulse",
-          "group"
+          "group",
         ],
         glow: [
           "rounded-2xl backdrop-blur-xl bg-gradient-to-br from-white/20 via-white/10 to-transparent",
@@ -41,21 +41,23 @@ const cardVariants = cva(
           "hover:scale-105 hover:-translate-y-2",
           "hover:bg-gradient-to-br hover:from-white/30 hover:via-white/15 hover:to-white/5",
           "dark:hover:from-white/15 dark:hover:via-white/8 dark:hover:to-white/3",
-          "group"
-        ]
+          "group",
+        ],
       },
       glow: {
         none: "",
         subtle: "hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]",
-        medium: "hover:drop-shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:drop-shadow-[0_0_50px_rgba(168,85,247,0.2)]",
-        strong: "hover:drop-shadow-[0_0_35px_rgba(168,85,247,0.5)] hover:drop-shadow-[0_0_70px_rgba(168,85,247,0.3)]"
-      }
+        medium:
+          "hover:drop-shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:drop-shadow-[0_0_50px_rgba(168,85,247,0.2)]",
+        strong:
+          "hover:drop-shadow-[0_0_35px_rgba(168,85,247,0.5)] hover:drop-shadow-[0_0_70px_rgba(168,85,247,0.3)]",
+      },
     },
     defaultVariants: {
       variant: "default",
-      glow: "none"
-    }
-  }
+      glow: "none",
+    },
+  },
 );
 
 export interface CardProps
@@ -69,7 +71,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       className={cn(cardVariants({ variant, glow }), className)}
       {...props}
     />
-  )
+  ),
 );
 Card.displayName = "Card";
 

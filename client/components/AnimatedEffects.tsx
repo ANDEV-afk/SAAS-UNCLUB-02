@@ -67,7 +67,7 @@ export const Sparkles = ({
               key={sparkle.id}
               className={cn(
                 "absolute pointer-events-none select-none",
-                sparkleSize
+                sparkleSize,
               )}
               style={{
                 left: `${sparkle.x}%`,
@@ -153,7 +153,10 @@ export const Confetti = ({
   };
 
   return (
-    <div className={cn("relative overflow-hidden", className)} {...eventHandlers}>
+    <div
+      className={cn("relative overflow-hidden", className)}
+      {...eventHandlers}
+    >
       {children}
       <AnimatePresence>
         {isTriggered &&
@@ -325,12 +328,22 @@ export const AnimatedCard = ({
   }
 
   if (effects.includes("sparkles")) {
-    const density = intensity === "subtle" ? "low" : intensity === "medium" ? "medium" : "high";
+    const density =
+      intensity === "subtle"
+        ? "low"
+        : intensity === "medium"
+          ? "medium"
+          : "high";
     content = <Sparkles density={density}>{content}</Sparkles>;
   }
 
   if (effects.includes("confetti")) {
-    const density = intensity === "subtle" ? "low" : intensity === "medium" ? "medium" : "high";
+    const density =
+      intensity === "subtle"
+        ? "low"
+        : intensity === "medium"
+          ? "medium"
+          : "high";
     content = <Confetti density={density}>{content}</Confetti>;
   }
 

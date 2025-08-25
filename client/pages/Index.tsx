@@ -114,78 +114,82 @@ const EventCard = ({
         intensity="high"
         className="group"
       >
-        <Card variant="neon" glow="strong" className="overflow-hidden rounded-2xl border-0">
+        <Card
+          variant="neon"
+          glow="strong"
+          className="overflow-hidden rounded-2xl border-0"
+        >
           <div className="relative overflow-hidden">
-          <motion.img
-            src={event.image}
-            alt={event.title}
-            className="w-full h-48 object-cover"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-          <div className="absolute top-4 left-4">
-            <Badge
-              variant={getCategoryBadgeVariant(event.category) as any}
-              size="xl"
-              glow="strong"
-              className="animate-neon-pulse"
-            >
-              {event.category}
-            </Badge>
-          </div>
-          <div className="absolute top-4 right-4">
-            <motion.div
-              className="bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Star className="w-4 h-4 text-yellow-500 fill-current" />
-            </motion.div>
-          </div>
-        </div>
-
-        <CardContent className="p-6">
-          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-            <Calendar className="w-4 h-4" />
-            {event.date}
+            <motion.img
+              src={event.image}
+              alt={event.title}
+              className="w-full h-48 object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            />
+            <div className="absolute top-4 left-4">
+              <Badge
+                variant={getCategoryBadgeVariant(event.category) as any}
+                size="xl"
+                glow="strong"
+                className="animate-neon-pulse"
+              >
+                {event.category}
+              </Badge>
+            </div>
+            <div className="absolute top-4 right-4">
+              <motion.div
+                className="bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+              </motion.div>
+            </div>
           </div>
 
-          <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-            {event.title}
-          </h3>
-
-          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-            <MapPin className="w-4 h-4" />
-            {event.location}
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
-                {event.price}
-              </span>
-              <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                <Users className="w-4 h-4" />
-                {event.attendees}
-              </div>
+          <CardContent className="p-6">
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
+              <Calendar className="w-4 h-4" />
+              {event.date}
             </div>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex-shrink-0"
-            >
-              <Link to={`/event/${event.id}`}>
-                <Button
-                  size="sm"
-                  className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
-                >
-                  🎟️ Get Tickets
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </CardContent>
+            <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              {event.title}
+            </h3>
+
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <MapPin className="w-4 h-4" />
+              {event.location}
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
+                  {event.price}
+                </span>
+                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                  <Users className="w-4 h-4" />
+                  {event.attendees}
+                </div>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex-shrink-0"
+              >
+                <Link to={`/event/${event.id}`}>
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
+                  >
+                    🎟️ Get Tickets
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+          </CardContent>
         </Card>
       </AnimatedCard>
     </motion.div>

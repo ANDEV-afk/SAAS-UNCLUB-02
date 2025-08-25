@@ -100,30 +100,37 @@ export default {
         },
         "neon-pulse": {
           "0%, 100%": {
-            boxShadow: "0 0 20px rgba(168, 85, 247, 0.3), 0 0 40px rgba(168, 85, 247, 0.1)",
+            boxShadow:
+              "0 0 20px rgba(168, 85, 247, 0.3), 0 0 40px rgba(168, 85, 247, 0.1)",
           },
           "50%": {
-            boxShadow: "0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(168, 85, 247, 0.2), 0 0 80px rgba(236, 72, 153, 0.1)",
+            boxShadow:
+              "0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(168, 85, 247, 0.2), 0 0 80px rgba(236, 72, 153, 0.1)",
           },
         },
         "glow-rotate": {
           "0%": {
-            background: "linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316)",
+            background:
+              "linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316)",
           },
           "25%": {
-            background: "linear-gradient(135deg, #ec4899, #ef4444, #f97316, #a855f7)",
+            background:
+              "linear-gradient(135deg, #ec4899, #ef4444, #f97316, #a855f7)",
           },
           "50%": {
-            background: "linear-gradient(225deg, #ef4444, #f97316, #a855f7, #ec4899)",
+            background:
+              "linear-gradient(225deg, #ef4444, #f97316, #a855f7, #ec4899)",
           },
           "75%": {
-            background: "linear-gradient(315deg, #f97316, #a855f7, #ec4899, #ef4444)",
+            background:
+              "linear-gradient(315deg, #f97316, #a855f7, #ec4899, #ef4444)",
           },
           "100%": {
-            background: "linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316)",
+            background:
+              "linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316)",
           },
         },
-        "shimmer": {
+        shimmer: {
           "0%": {
             transform: "translateX(-100%)",
           },
@@ -131,7 +138,7 @@ export default {
             transform: "translateX(100%)",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": {
             transform: "translateY(0px)",
           },
@@ -147,7 +154,7 @@ export default {
             transform: "translateY(-15px)",
           },
         },
-        "sparkle": {
+        sparkle: {
           "0%": {
             transform: "scale(0) rotate(0deg)",
             opacity: "0",
@@ -177,10 +184,10 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "neon-pulse": "neon-pulse 2s ease-in-out infinite",
         "glow-rotate": "glow-rotate 4s ease-in-out infinite",
-        "shimmer": "shimmer 2s linear infinite",
-        "float": "float 3s ease-in-out infinite",
+        shimmer: "shimmer 2s linear infinite",
+        float: "float 3s ease-in-out infinite",
         "float-delayed": "float-delayed 3s ease-in-out infinite 1s",
-        "sparkle": "sparkle 1.5s ease-in-out infinite",
+        sparkle: "sparkle 1.5s ease-in-out infinite",
         "confetti-fall": "confetti-fall 3s linear infinite",
       },
     },

@@ -68,7 +68,10 @@ export function Navigation() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userProfile, setUserProfile] = useState({ name: 'User', avatar: null });
+  const [userProfile, setUserProfile] = useState({
+    name: "User",
+    avatar: null,
+  });
   const location = useLocation();
   const navigate = useNavigate();
   const { scrollY } = useScroll();
@@ -120,7 +123,8 @@ export function Navigation() {
       <motion.nav
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 shadow-2xl"
         style={{
-          background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+          background:
+            "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
           backdropFilter: "blur(20px)",
         }}
         initial={{ y: -100 }}
@@ -285,7 +289,8 @@ export function Navigation() {
                             animate={{ scale: 1, x: "-50%" }}
                             transition={{ duration: 0.3 }}
                             style={{
-                              boxShadow: "0 0 15px rgba(168, 85, 247, 0.8), 0 0 30px rgba(236, 72, 153, 0.6)"
+                              boxShadow:
+                                "0 0 15px rgba(168, 85, 247, 0.8), 0 0 30px rgba(236, 72, 153, 0.6)",
                             }}
                           />
                         )}
@@ -409,12 +414,12 @@ export function Navigation() {
                         className="absolute inset-0 rounded-full border-2 border-purple-400/30"
                         animate={{
                           scale: [1, 1.2, 1],
-                          opacity: [0.5, 0.8, 0.5]
+                          opacity: [0.5, 0.8, 0.5],
                         }}
                         transition={{
                           duration: 2,
                           repeat: Infinity,
-                          ease: "easeInOut"
+                          ease: "easeInOut",
                         }}
                       />
                     </div>
@@ -428,18 +433,16 @@ export function Navigation() {
                 >
                   <Button
                     onClick={() => {
-                      navigate('/auth');
+                      navigate("/auth");
                       // Simulate login success for demo
                       setTimeout(() => {
                         setIsLoggedIn(true);
-                        setUserProfile({ name: 'John Doe', avatar: null });
+                        setUserProfile({ name: "John Doe", avatar: null });
                       }, 2000);
                     }}
                     className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]"
                   >
-                    <motion.span
-                      className="text-sm sm:text-base flex items-center gap-2"
-                    >
+                    <motion.span className="text-sm sm:text-base flex items-center gap-2">
                       <Sparkles className="w-4 h-4" />
                       Join Party
                     </motion.span>
@@ -529,7 +532,10 @@ export function Navigation() {
                   className="pt-4"
                 >
                   {isLoggedIn ? (
-                    <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Link
+                      to="/profile"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
                       <Button className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg">
                         <User className="w-5 h-5 mr-2" />
                         {userProfile.name}
@@ -539,11 +545,11 @@ export function Navigation() {
                     <Button
                       onClick={() => {
                         setIsMobileMenuOpen(false);
-                        navigate('/auth');
+                        navigate("/auth");
                         // Simulate login success for demo
                         setTimeout(() => {
                           setIsLoggedIn(true);
-                          setUserProfile({ name: 'John Doe', avatar: null });
+                          setUserProfile({ name: "John Doe", avatar: null });
                         }, 2000);
                       }}
                       className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg"

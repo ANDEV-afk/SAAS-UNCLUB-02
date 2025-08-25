@@ -1633,16 +1633,18 @@ export default function EventDetail() {
                                 </p>
                                 {(review as any).images && (
                                   <div className="flex gap-2 mb-3">
-                                    {(review as any).images.map((image: string, imgIndex: number) => (
-                                      <Image
-                                        key={imgIndex}
-                                        src={image}
-                                        alt={`Review photo by ${review.name}`}
-                                        className="w-20 h-20 object-cover rounded-xl"
-                                        animated={true}
-                                        whileHover={{ scale: 1.1 }}
-                                      />
-                                    ))}
+                                    {(review as any).images.map(
+                                      (image: string, imgIndex: number) => (
+                                        <Image
+                                          key={imgIndex}
+                                          src={image}
+                                          alt={`Review photo by ${review.name}`}
+                                          className="w-20 h-20 object-cover rounded-xl"
+                                          animated={true}
+                                          whileHover={{ scale: 1.1 }}
+                                        />
+                                      ),
+                                    )}
                                   </div>
                                 )}
                                 <div className="flex items-center gap-4 text-sm text-gray-600">

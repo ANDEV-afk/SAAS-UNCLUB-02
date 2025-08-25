@@ -270,19 +270,25 @@
 
   .neon-border {
     position: relative;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
     backdrop-filter: blur(20px);
     border-radius: 1rem;
   }
 
   .neon-border::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     padding: 2px;
     background: linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316);
     border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     mask-composite: exclude;
     animation: glow-rotate 4s ease-in-out infinite;
   }
@@ -293,7 +299,7 @@
   }
 
   .sparkle-container::after {
-    content: '✨';
+    content: "✨";
     position: absolute;
     top: 10%;
     right: 10%;
@@ -304,7 +310,7 @@
   }
 
   .sparkle-container::before {
-    content: '⭐';
+    content: "⭐";
     position: absolute;
     bottom: 15%;
     left: 15%;
@@ -320,7 +326,7 @@
   }
 
   .confetti-container:hover::after {
-    content: '🎉';
+    content: "🎉";
     position: absolute;
     top: -10px;
     left: 20%;
@@ -329,7 +335,7 @@
   }
 
   .confetti-container:hover::before {
-    content: '🎊';
+    content: "🎊";
     position: absolute;
     top: -10px;
     right: 30%;
@@ -340,14 +346,14 @@
 
   .neon-glow {
     filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4))
-            drop-shadow(0 0 20px rgba(168, 85, 247, 0.2))
-            drop-shadow(0 0 30px rgba(236, 72, 153, 0.1));
+      drop-shadow(0 0 20px rgba(168, 85, 247, 0.2))
+      drop-shadow(0 0 30px rgba(236, 72, 153, 0.1));
   }
 
   .neon-glow-hover:hover {
     filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.6))
-            drop-shadow(0 0 30px rgba(168, 85, 247, 0.3))
-            drop-shadow(0 0 45px rgba(236, 72, 153, 0.2));
+      drop-shadow(0 0 30px rgba(168, 85, 247, 0.3))
+      drop-shadow(0 0 45px rgba(236, 72, 153, 0.2));
     transition: filter 0.3s ease;
   }
 
@@ -395,7 +401,7 @@
   }
 
   .shimmer-effect::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;

@@ -46,7 +46,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge, getCategoryBadgeVariant } from "@/components/ui/badge";
-import { Sparkles as SparklesEffect, Confetti, AnimatedCard, FloatingElements } from "@/components/AnimatedEffects";
+import {
+  Sparkles as SparklesEffect,
+  Confetti,
+  AnimatedCard,
+  FloatingElements,
+} from "@/components/AnimatedEffects";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -962,7 +967,11 @@ export default function Dashboard() {
                 intensity="high"
                 className="group"
               >
-                <Card variant="glassmorphism" glow="strong" className="rounded-3xl border-0 overflow-hidden">
+                <Card
+                  variant="glassmorphism"
+                  glow="strong"
+                  className="rounded-3xl border-0 overflow-hidden"
+                >
                   <CardContent className="p-8 text-center">
                     <motion.div
                       className={`w-20 h-20 bg-gradient-to-br ${stat.gradient} rounded-3xl flex items-center justify-center shadow-lg mx-auto mb-6`}
