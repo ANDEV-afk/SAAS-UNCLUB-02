@@ -514,9 +514,9 @@ const EventCard = ({
               {event.date}
             </div>
 
-            <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              {event.title}
-            </h3>
+            <h3 className="font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">
+            {event.title}
+          </h3>
 
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
               <MapPin className="w-4 h-4" />
