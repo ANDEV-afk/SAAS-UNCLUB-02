@@ -647,7 +647,7 @@ export default function Events() {
                   variant="outline"
                   size="sm"
                   onClick={() => setIsFilterOpen(true)}
-                  className="lg:hidden neon-cyan-bg"
+                  className="lg:hidden bg-gray-800/50 border-gray-700/50 text-gray-300 hover:bg-gray-700/50 hover:text-white"
                 >
                   <SlidersHorizontal className="w-4 h-4 mr-2" />
                   Filters
