@@ -5,7 +5,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Home,
   Calendar,
@@ -68,10 +68,11 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userProfile, setUserProfile] = useState({ name: 'User', avatar: null });
   const location = useLocation();
+  const navigate = useNavigate();
   const { scrollY } = useScroll();
   const { theme } = useTheme();
 
@@ -119,33 +120,33 @@ export function Navigation() {
       </div>
 
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/20 dark:border-gray-700/50 shadow-lg"
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 shadow-2xl"
         style={{
-          background:
-            theme === "dark"
-              ? `linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)), hsl(var(--background)))`
-              : `linear-gradient(135deg, hsl(var(--unclub-blue)), hsl(var(--unclub-pink)), hsl(var(--unclub-red)))`,
-          backdropFilter: "none",
+          background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+          backdropFilter: "blur(20px)",
         }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, type: "spring", damping: 20 }}
       >
-        {/* Animated background gradient overlay */}
+        {/* Animated neon glow overlay */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-unclub-blue/30 via-unclub-pink/30 to-unclub-red/30"
+          className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-cyan-500/10"
           animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
           }}
           transition={{
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
           style={{
-            backgroundSize: "200% 200%",
+            backgroundSize: "300% 300%",
           }}
         />
+
+        {/* Subtle neon border */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
@@ -230,8 +231,8 @@ export function Navigation() {
                       <motion.div
                         className={`relative px-3 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-all duration-300 ${
                           isActive
-                            ? "text-white shadow-2xl bg-white/30 border border-white/50"
-                            : "text-white/90 hover:text-white hover:bg-white/20 hover:border hover:border-white/30"
+                            ? "text-white shadow-2xl bg-gradient-to-r from-purple-500/30 to-pink-500/30 border border-purple-400/50 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                            : "text-white/80 hover:text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 hover:border hover:border-purple-400/30 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]"
                         }`}
                         whileHover={{
                           backgroundImage: isActive
@@ -281,10 +282,13 @@ export function Navigation() {
 
                         {isActive && (
                           <motion.div
-                            className="absolute -bottom-1 left-1/2 w-2 h-2 bg-white rounded-full"
+                            className="absolute -bottom-2 left-1/2 w-12 h-1 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 rounded-full"
                             initial={{ scale: 0, x: "-50%" }}
                             animate={{ scale: 1, x: "-50%" }}
                             transition={{ duration: 0.3 }}
+                            style={{
+                              boxShadow: "0 0 15px rgba(168, 85, 247, 0.8), 0 0 30px rgba(236, 72, 153, 0.6)"
+                            }}
                           />
                         )}
                       </motion.div>
