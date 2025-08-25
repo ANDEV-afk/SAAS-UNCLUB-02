@@ -693,55 +693,16 @@ export default function Events() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan rounded-3xl p-6 lg:p-8 mb-8 mt-4 text-white overflow-hidden relative shadow-2xl"
+          className="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6 lg:p-8 mb-8 mt-4 overflow-hidden"
         >
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(15)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-full bg-white/10"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  width: `${10 + Math.random() * 20}px`,
-                  height: `${10 + Math.random() * 20}px`,
-                }}
-                animate={{
-                  y: [0, -20, 0],
-                  opacity: [0.3, 0.8, 0.3],
-                }}
-                transition={{
-                  duration: 2 + Math.random() * 3,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
-
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h2 className="neon-heading text-3xl mb-2">
-                🌟 Ready to Host Your Own Epic Event? 🌟
+              <h2 className="text-2xl font-bold text-white mb-2">
+                Ready to Host Your Own Event?
               </h2>
-              <p className="body-text text-lg text-white/90">
-                Join thousands of successful hosts earning money while creating
-                amazing experiences!
+              <p className="text-gray-400 text-lg">
+                Join thousands of successful hosts creating amazing experiences
               </p>
-              <div className="flex items-center gap-6 mt-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                    <span className="text-black font-bold">$</span>
-                  </div>
-                  <span>Earn $1K+ per event</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
-                    <span className="text-black font-bold">⭐</span>
-                  </div>
-                  <span>98% success rate</span>
-                </div>
-              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -751,9 +712,9 @@ export default function Events() {
               >
                 <Button
                   onClick={() => (window.location.href = "/dashboard")}
-                  className="genz-button px-8 py-4 text-lg font-black"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300"
                 >
-                  🚀 START HOSTING NOW!
+                  Start Hosting
                 </Button>
               </motion.div>
               <motion.div
@@ -762,9 +723,9 @@ export default function Events() {
               >
                 <Button
                   variant="outline"
-                  className="border-white/50 text-white hover:bg-white/10 px-6 py-4 rounded-2xl font-bold backdrop-blur-sm"
+                  className="border-gray-600 text-gray-300 hover:bg-gray-800 px-6 py-3 rounded-xl font-semibold"
                 >
-                  📖 Learn More
+                  Learn More
                 </Button>
               </motion.div>
             </div>
