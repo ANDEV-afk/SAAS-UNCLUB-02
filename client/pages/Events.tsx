@@ -647,7 +647,7 @@ export default function Events() {
               <h1 className="neon-heading text-3xl lg:text-4xl mb-2 leading-tight">
                 🎉 Discover Epic Events 🎉
               </h1>
-              <p className="accent-text text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="body-text text-base lg:text-lg leading-relaxed">
                 Find your next unforgettable experience!
               </p>
             </div>
