@@ -280,16 +280,20 @@ export default function Index() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             Join thousands discovering{" "}
-            <span className="font-bold text-aesthetic-violet">amazing events</span>{" "}
+            <span className="font-bold text-aesthetic-violet">
+              amazing events
+            </span>{" "}
             and creating
             <span className="font-bold text-aesthetic-electric">
               {" "}
               unforgettable memories
             </span>{" "}
             every day! Whether you want to{" "}
-            <span className="font-bold text-aesthetic-cyan">attend</span> or{" "}
-            <span className="font-bold text-aesthetic-electric">host</span> - we've got
-            you covered! ✨
+            <span className="font-bold text-aesthetic-cyan">
+              attend
+            </span> or{" "}
+            <span className="font-bold text-aesthetic-electric">host</span> -
+            we've got you covered! ✨
           </motion.p>
 
           <motion.div
@@ -338,7 +342,9 @@ export default function Index() {
               ���� Trending Events Right Now
             </h2>
             <p className="accent-text text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-              Discover the hottest events in your area! From exclusive VIP experiences to community gatherings - these events are selling out fast! 💫
+              Discover the hottest events in your area! From exclusive VIP
+              experiences to community gatherings - these events are selling out
+              fast! 💫
             </p>
             <motion.div
               className="flex flex-wrap justify-center gap-3 mt-6"
@@ -346,7 +352,14 @@ export default function Index() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              {["🎵 Live Music", "🍷 Food & Wine", "🎨 Art Shows", "💻 Tech Meetups", "🏃‍♀️ Fitness", "🎭 Entertainment"].map((tag, index) => (
+              {[
+                "🎵 Live Music",
+                "🍷 Food & Wine",
+                "🎨 Art Shows",
+                "💻 Tech Meetups",
+                "🏃‍♀️ Fitness",
+                "🎭 Entertainment",
+              ].map((tag, index) => (
                 <motion.div
                   key={tag}
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -403,8 +416,12 @@ export default function Index() {
             </h2>
             <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8">
               Join thousands of successful hosts who've turned their ideas into
-              <span className="font-bold text-aesthetic-electric"> unforgettable experiences</span>!
-              Start your journey today and become part of the event revolution.
+              <span className="font-bold text-aesthetic-electric">
+                {" "}
+                unforgettable experiences
+              </span>
+              ! Start your journey today and become part of the event
+              revolution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
@@ -412,9 +429,7 @@ export default function Index() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link to="/dashboard">
-                  <Button
-                    className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
-                  >
+                  <Button className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white px-12 py-6 rounded-3xl text-xl font-black shadow-2xl">
                     ✨ CREATE EVENT NOW
                   </Button>
                 </Link>
@@ -450,16 +465,37 @@ export default function Index() {
               💪 Trusted by Event Professionals
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Join the community that's revolutionizing how events are discovered and created
+              Join the community that's revolutionizing how events are
+              discovered and created
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { number: "50K+", label: "Events Listed", icon: Calendar, color: "text-aesthetic-violet" },
-              { number: "1M+", label: "Happy Attendees", icon: Users, color: "text-aesthetic-electric" },
-              { number: "500+", label: "Cities Covered", icon: MapPin, color: "text-aesthetic-cyan" },
-              { number: "4.9", label: "Average Rating", icon: Star, color: "text-aesthetic-magenta" },
+              {
+                number: "50K+",
+                label: "Events Listed",
+                icon: Calendar,
+                color: "text-aesthetic-violet",
+              },
+              {
+                number: "1M+",
+                label: "Happy Attendees",
+                icon: Users,
+                color: "text-aesthetic-electric",
+              },
+              {
+                number: "500+",
+                label: "Cities Covered",
+                icon: MapPin,
+                color: "text-aesthetic-cyan",
+              },
+              {
+                number: "4.9",
+                label: "Average Rating",
+                icon: Star,
+                color: "text-aesthetic-magenta",
+              },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -479,7 +515,9 @@ export default function Index() {
                 <h3 className={`text-3xl font-bold ${stat.color} mb-2`}>
                   {stat.number}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 font-semibold">{stat.label}</p>
+                <p className="text-gray-700 dark:text-gray-300 font-semibold">
+                  {stat.label}
+                </p>
               </motion.div>
             ))}
           </div>

@@ -887,7 +887,9 @@ export default function Dashboard() {
                   <div className="text-sm">Happy Attendees</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-aesthetic-cyan">98%</div>
+                  <div className="text-3xl font-black text-aesthetic-cyan">
+                    98%
+                  </div>
                   <div className="text-sm">Success Rate</div>
                 </div>
                 <div className="text-center">

@@ -76,10 +76,7 @@ const licenseTypes = [
       "VIP guest management",
       "Live streaming capabilities",
     ],
-    limitations: [
-      "No white-label solution",
-      "Limited API access",
-    ],
+    limitations: ["No white-label solution", "Limited API access"],
     popular: true,
   },
   {
@@ -206,25 +203,31 @@ const clubStats = [
 export default function AdvancedLicenses() {
   const [selectedLicense, setSelectedLicense] = useState("professional");
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
+    "monthly",
+  );
 
   const handleAddOnToggle = (addOnId: string) => {
-    setSelectedAddOns(prev => 
-      prev.includes(addOnId) 
-        ? prev.filter(id => id !== addOnId)
-        : [...prev, addOnId]
+    setSelectedAddOns((prev) =>
+      prev.includes(addOnId)
+        ? prev.filter((id) => id !== addOnId)
+        : [...prev, addOnId],
     );
   };
 
   const calculateTotal = () => {
-    const selectedLicenseData = licenseTypes.find(l => l.id === selectedLicense);
+    const selectedLicenseData = licenseTypes.find(
+      (l) => l.id === selectedLicense,
+    );
     const licensePrice = selectedLicenseData?.monthlyPrice || 0;
     const addOnPrice = selectedAddOns.reduce((total, addOnId) => {
-      const addOn = addOns.find(a => a.id === addOnId);
-      const price = parseInt(addOn?.price.replace('$', '').replace('/month', '') || '0');
+      const addOn = addOns.find((a) => a.id === addOnId);
+      const price = parseInt(
+        addOn?.price.replace("$", "").replace("/month", "") || "0",
+      );
       return total + price;
     }, 0);
-    
+
     const monthly = licensePrice + addOnPrice;
     return billingCycle === "yearly" ? monthly * 12 * 0.8 : monthly; // 20% discount for yearly
   };
@@ -286,13 +289,13 @@ export default function AdvancedLicenses() {
                 LICENSES
               </span>
               <br />
-              🏆 UNLOCK POWER! 
+              🏆 UNLOCK POWER!
             </motion.h1>
 
             <p className="text-2xl text-white/90 mb-8 leading-relaxed max-w-4xl mx-auto">
               Take your event business to the{" "}
               <span className="font-bold text-aesthetic-cyan">next level</span>{" "}
-              with our advanced club licensing system. Unlock premium features, 
+              with our advanced club licensing system. Unlock premium features,
               advanced analytics, and enterprise-grade tools!
             </p>
 
@@ -301,9 +304,7 @@ export default function AdvancedLicenses() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button
-                  className="bg-gradient-to-r from-aesthetic-cyan to-white hover:from-white hover:to-aesthetic-cyan text-black px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
-                >
+                <Button className="bg-gradient-to-r from-aesthetic-cyan to-white hover:from-white hover:to-aesthetic-cyan text-black px-12 py-6 rounded-3xl text-xl font-black shadow-2xl">
                   🚀 START FREE TRIAL
                 </Button>
               </motion.div>
@@ -360,7 +361,9 @@ export default function AdvancedLicenses() {
                   <h3 className={`text-3xl font-black ${stat.color} mb-2`}>
                     {stat.value}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">{stat.label}</p>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {stat.label}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -374,18 +377,24 @@ export default function AdvancedLicenses() {
           transition={{ delay: 0.6 }}
           className="flex items-center justify-center gap-4 mb-12"
         >
-          <span className={`font-semibold ${billingCycle === 'monthly' ? 'text-aesthetic-violet' : 'text-gray-500'}`}>
+          <span
+            className={`font-semibold ${billingCycle === "monthly" ? "text-aesthetic-violet" : "text-gray-500"}`}
+          >
             Monthly
           </span>
           <Switch
-            checked={billingCycle === 'yearly'}
-            onCheckedChange={(checked) => setBillingCycle(checked ? 'yearly' : 'monthly')}
+            checked={billingCycle === "yearly"}
+            onCheckedChange={(checked) =>
+              setBillingCycle(checked ? "yearly" : "monthly")
+            }
             className="data-[state=checked]:bg-aesthetic-violet"
           />
-          <span className={`font-semibold ${billingCycle === 'yearly' ? 'text-aesthetic-violet' : 'text-gray-500'}`}>
+          <span
+            className={`font-semibold ${billingCycle === "yearly" ? "text-aesthetic-violet" : "text-gray-500"}`}
+          >
             Yearly
           </span>
-          {billingCycle === 'yearly' && (
+          {billingCycle === "yearly" && (
             <Badge className="bg-gradient-to-r from-aesthetic-magenta to-aesthetic-electric text-white ml-2">
               Save 20%!
             </Badge>
@@ -416,11 +425,11 @@ export default function AdvancedLicenses() {
                 intensity="medium"
                 className="h-full"
               >
-                <Card 
+                <Card
                   className={`h-full rounded-3xl border-2 transition-all duration-300 cursor-pointer ${
                     selectedLicense === license.id
-                      ? 'border-aesthetic-violet bg-gradient-to-br from-aesthetic-violet/10 to-aesthetic-cyan/10 shadow-2xl'
-                      : 'border-gray-200 hover:border-aesthetic-electric/50 hover:shadow-xl bg-white/90 dark:bg-gray-800/90'
+                      ? "border-aesthetic-violet bg-gradient-to-br from-aesthetic-violet/10 to-aesthetic-cyan/10 shadow-2xl"
+                      : "border-gray-200 hover:border-aesthetic-electric/50 hover:shadow-xl bg-white/90 dark:bg-gray-800/90"
                   }`}
                   onClick={() => setSelectedLicense(license.id)}
                 >
@@ -431,22 +440,23 @@ export default function AdvancedLicenses() {
                     >
                       <license.icon className="w-10 h-10 text-white" />
                     </motion.div>
-                    
+
                     <CardTitle className="text-2xl font-black text-gray-900 dark:text-white mb-2">
                       {license.name}
                     </CardTitle>
-                    
+
                     <div className="text-center mb-4">
                       <div className="text-4xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent">
                         {license.price}
                       </div>
-                      {billingCycle === 'yearly' && license.monthlyPrice > 0 && (
-                        <div className="text-sm text-gray-500 line-through">
-                          ${license.monthlyPrice}/month
-                        </div>
-                      )}
+                      {billingCycle === "yearly" &&
+                        license.monthlyPrice > 0 && (
+                          <div className="text-sm text-gray-500 line-through">
+                            ${license.monthlyPrice}/month
+                          </div>
+                        )}
                     </div>
-                    
+
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
                       {license.description}
                     </p>
@@ -488,11 +498,13 @@ export default function AdvancedLicenses() {
                       <Button
                         className={`w-full rounded-2xl font-bold py-3 ${
                           selectedLicense === license.id
-                            ? 'bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan text-white'
-                            : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
+                            ? "bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan text-white"
+                            : "bg-gray-100 hover:bg-gray-200 text-gray-800"
                         }`}
                       >
-                        {license.price === 'Custom' ? 'Contact Sales' : 'Select Plan'}
+                        {license.price === "Custom"
+                          ? "Contact Sales"
+                          : "Select Plan"}
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -512,7 +524,7 @@ export default function AdvancedLicenses() {
           <h3 className="text-3xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent text-center mb-8">
             🔥 Power-Up Your License
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {addOns.map((addOn, index) => (
               <motion.div
@@ -522,11 +534,11 @@ export default function AdvancedLicenses() {
                 transition={{ delay: 1.1 + index * 0.1 }}
                 whileHover={{ y: -5, scale: 1.02 }}
               >
-                <Card 
+                <Card
                   className={`rounded-3xl border-2 transition-all duration-300 cursor-pointer ${
                     selectedAddOns.includes(addOn.id)
-                      ? 'border-aesthetic-electric bg-gradient-to-br from-aesthetic-electric/10 to-aesthetic-cyan/10 shadow-xl'
-                      : 'border-gray-200 hover:border-aesthetic-violet/50 hover:shadow-lg bg-white/90 dark:bg-gray-800/90'
+                      ? "border-aesthetic-electric bg-gradient-to-br from-aesthetic-electric/10 to-aesthetic-cyan/10 shadow-xl"
+                      : "border-gray-200 hover:border-aesthetic-violet/50 hover:shadow-lg bg-white/90 dark:bg-gray-800/90"
                   }`}
                   onClick={() => handleAddOnToggle(addOn.id)}
                 >
@@ -544,19 +556,19 @@ export default function AdvancedLicenses() {
                         className="data-[state=checked]:bg-aesthetic-electric"
                       />
                     </div>
-                    
+
                     <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {addOn.name}
                     </h4>
-                    
+
                     <div className="text-2xl font-black text-aesthetic-electric mb-3">
                       {addOn.price}
                     </div>
-                    
+
                     <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
                       {addOn.description}
                     </p>
-                    
+
                     <div className="space-y-2">
                       {addOn.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start gap-2">
@@ -586,21 +598,25 @@ export default function AdvancedLicenses() {
               <h3 className="text-2xl font-black text-center mb-6 bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent">
                 💰 Your Investment Summary
               </h3>
-              
+
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between items-center">
                   <span className="font-semibold text-gray-700 dark:text-gray-300">
-                    {licenseTypes.find(l => l.id === selectedLicense)?.name} License
+                    {licenseTypes.find((l) => l.id === selectedLicense)?.name}{" "}
+                    License
                   </span>
                   <span className="font-bold text-aesthetic-violet">
-                    {licenseTypes.find(l => l.id === selectedLicense)?.price}
+                    {licenseTypes.find((l) => l.id === selectedLicense)?.price}
                   </span>
                 </div>
-                
-                {selectedAddOns.map(addOnId => {
-                  const addOn = addOns.find(a => a.id === addOnId);
+
+                {selectedAddOns.map((addOnId) => {
+                  const addOn = addOns.find((a) => a.id === addOnId);
                   return addOn ? (
-                    <div key={addOnId} className="flex justify-between items-center">
+                    <div
+                      key={addOnId}
+                      className="flex justify-between items-center"
+                    >
                       <span className="text-gray-600 dark:text-gray-400">
                         {addOn.name}
                       </span>
@@ -610,38 +626,39 @@ export default function AdvancedLicenses() {
                     </div>
                   ) : null;
                 })}
-                
-                {billingCycle === 'yearly' && calculateTotal() > 0 && (
+
+                {billingCycle === "yearly" && calculateTotal() > 0 && (
                   <div className="flex justify-between items-center text-green-600">
                     <span>Yearly Discount (20%)</span>
                     <span>-${((calculateTotal() / 0.8) * 0.2).toFixed(0)}</span>
                   </div>
                 )}
               </div>
-              
+
               <div className="border-t border-gray-200 dark:border-gray-600 pt-4 mb-6">
                 <div className="flex justify-between items-center">
                   <span className="text-xl font-black text-gray-900 dark:text-white">
-                    Total {billingCycle === 'yearly' ? 'per year' : 'per month'}:
+                    Total {billingCycle === "yearly" ? "per year" : "per month"}
+                    :
                   </span>
                   <span className="text-3xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent">
-                    {calculateTotal() > 0 ? `$${calculateTotal().toFixed(0)}` : 'Custom'}
+                    {calculateTotal() > 0
+                      ? `$${calculateTotal().toFixed(0)}`
+                      : "Custom"}
                   </span>
                 </div>
               </div>
-              
+
               <div className="space-y-3">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Button
-                    className="w-full bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white py-4 rounded-2xl text-lg font-bold shadow-xl"
-                  >
+                  <Button className="w-full bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white py-4 rounded-2xl text-lg font-bold shadow-xl">
                     🚀 Start Free 14-Day Trial
                   </Button>
                 </motion.div>
-                
+
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -654,9 +671,10 @@ export default function AdvancedLicenses() {
                   </Button>
                 </motion.div>
               </div>
-              
+
               <p className="text-center text-xs text-gray-500 mt-4">
-                No credit card required • Cancel anytime • Full feature access during trial
+                No credit card required • Cancel anytime • Full feature access
+                during trial
               </p>
             </CardContent>
           </Card>

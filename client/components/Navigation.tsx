@@ -47,7 +47,8 @@ const navItems = [
     name: "Licenses",
     path: "/licenses",
     icon: Crown,
-    gradient: "from-aesthetic-magenta via-aesthetic-violet to-aesthetic-electric",
+    gradient:
+      "from-aesthetic-magenta via-aesthetic-violet to-aesthetic-electric",
   },
   {
     name: "Create",

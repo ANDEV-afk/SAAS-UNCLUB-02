@@ -400,7 +400,11 @@
     position: absolute;
     inset: 0;
     padding: 1.5px;
-    background: linear-gradient(135deg, hsl(var(--electric-violet)), hsl(var(--aesthetic-cyan)));
+    background: linear-gradient(
+      135deg,
+      hsl(var(--electric-violet)),
+      hsl(var(--aesthetic-cyan))
+    );
     border-radius: inherit;
     mask:
       linear-gradient(#fff 0 0) content-box,
@@ -418,7 +422,12 @@
   }
 
   .genz-event-card:hover::before {
-    background: linear-gradient(135deg, hsl(var(--violet-primary)), hsl(var(--cyan-primary)), hsl(var(--electric-primary)));
+    background: linear-gradient(
+      135deg,
+      hsl(var(--violet-primary)),
+      hsl(var(--cyan-primary)),
+      hsl(var(--electric-primary))
+    );
     opacity: 1;
     animation: aesthetic-glow 3s ease-in-out infinite;
   }
@@ -443,13 +452,26 @@
   /* Keyframe animations */
   @keyframes aesthetic-glow {
     0% {
-      background: linear-gradient(135deg, hsl(var(--electric-violet)), hsl(var(--aesthetic-cyan)));
+      background: linear-gradient(
+        135deg,
+        hsl(var(--electric-violet)),
+        hsl(var(--aesthetic-cyan))
+      );
     }
     50% {
-      background: linear-gradient(135deg, hsl(var(--aesthetic-cyan)), hsl(var(--electric-violet)), hsl(var(--electric-blue)));
+      background: linear-gradient(
+        135deg,
+        hsl(var(--aesthetic-cyan)),
+        hsl(var(--electric-violet)),
+        hsl(var(--electric-blue))
+      );
     }
     100% {
-      background: linear-gradient(135deg, hsl(var(--electric-violet)), hsl(var(--aesthetic-cyan)));
+      background: linear-gradient(
+        135deg,
+        hsl(var(--electric-violet)),
+        hsl(var(--aesthetic-cyan))
+      );
     }
   }
 
@@ -496,7 +518,12 @@
     position: absolute;
     inset: 0;
     padding: 1.5px;
-    background: linear-gradient(45deg, hsl(var(--violet-primary)), hsl(var(--electric-blue)), hsl(var(--aesthetic-cyan)));
+    background: linear-gradient(
+      45deg,
+      hsl(var(--violet-primary)),
+      hsl(var(--electric-blue)),
+      hsl(var(--aesthetic-cyan))
+    );
     border-radius: inherit;
     mask:
       linear-gradient(#fff 0 0) content-box,
@@ -570,7 +597,12 @@
   }
 
   .neon-text {
-    background: linear-gradient(45deg, hsl(var(--violet-primary)), hsl(var(--electric-blue)), hsl(var(--aesthetic-cyan)));
+    background: linear-gradient(
+      45deg,
+      hsl(var(--violet-primary)),
+      hsl(var(--electric-blue)),
+      hsl(var(--aesthetic-cyan))
+    );
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
