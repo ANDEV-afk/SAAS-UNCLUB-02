@@ -197,7 +197,7 @@ const FilterPanel = ({
             onClick={onClose}
           />
           <motion.div
-            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-white dark:bg-gray-900 lg:bg-white/90 lg:dark:bg-gray-900/90 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-gray-200/50 dark:border-gray-700/50 overflow-y-auto"
+            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-black/80 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-white/20 overflow-y-auto"
             initial={{ x: -320 }}
             animate={{ x: 0 }}
             exit={{ x: -320 }}
@@ -205,7 +205,7 @@ const FilterPanel = ({
           >
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                <h3 className="subheading-text text-lg font-semibold">
                   Filters
                 </h3>
                 <Button
@@ -221,7 +221,7 @@ const FilterPanel = ({
               <div className="space-y-6">
                 {/* Category Filter */}
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                  <h4 className="subheading-text font-medium mb-3">
                     Categories
                   </h4>
                   <div className="space-y-3">
@@ -252,7 +252,7 @@ const FilterPanel = ({
 
                 {/* Price Range */}
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
+                  <h4 className="subheading-text font-medium mb-3">
                     Price Range
                   </h4>
                   <div className="px-2">
@@ -273,9 +273,7 @@ const FilterPanel = ({
 
                 {/* Date Filter */}
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
-                    Date
-                  </h4>
+                  <h4 className="subheading-text font-medium mb-3">Date</h4>
                   <Select
                     value={selectedDateRange}
                     onValueChange={setSelectedDateRange}
@@ -295,9 +293,7 @@ const FilterPanel = ({
 
                 {/* Rating Filter */}
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-3">
-                    Rating
-                  </h4>
+                  <h4 className="subheading-text font-medium mb-3">Rating</h4>
                   <div className="space-y-2">
                     {[5, 4, 3].map((rating) => (
                       <motion.div
@@ -338,7 +334,7 @@ const FilterPanel = ({
                 >
                   <Button
                     onClick={onApplyFilters}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl"
+                    className="w-full genz-button"
                   >
                     Apply Filters
                   </Button>
@@ -375,11 +371,7 @@ const EventCard = ({
           intensity="medium"
           className="group"
         >
-          <Card
-            variant="glassmorphism"
-            glow="medium"
-            className="overflow-hidden rounded-2xl border-0"
-          >
+          <Card className="genz-event-card overflow-hidden">
             <CardContent className="p-6">
               <div className="flex gap-6">
                 <motion.div
@@ -404,7 +396,7 @@ const EventCard = ({
                       >
                         {event.category}
                       </Badge>
-                      <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <h3 className="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">
                         {event.title}
                       </h3>
                     </div>
@@ -442,7 +434,7 @@ const EventCard = ({
                     <Link to={`/event/${event.id}`}>
                       <Button
                         size="sm"
-                        className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white rounded-lg font-semibold shadow-md transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
+                        className="genz-button text-xs px-3 py-1.5 whitespace-nowrap"
                       >
                         🎟️ Get Tickets
                       </Button>
@@ -470,11 +462,7 @@ const EventCard = ({
         intensity="medium"
         className="group"
       >
-        <Card
-          variant="neon"
-          glow="strong"
-          className="overflow-hidden rounded-2xl border-0"
-        >
+        <Card className="genz-event-card overflow-hidden">
           <div className="relative overflow-hidden">
             <Image
               src={event.image}
@@ -514,7 +502,7 @@ const EventCard = ({
               {event.date}
             </div>
 
-            <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <h3 className="font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">
               {event.title}
             </h3>
 
@@ -546,7 +534,7 @@ const EventCard = ({
                 <Link to={`/event/${event.id}`}>
                   <Button
                     size="sm"
-                    className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white rounded-lg font-semibold shadow-md transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
+                    className="genz-button text-xs px-3 py-1.5 whitespace-nowrap"
                   >
                     🎟️ Book Now
                   </Button>
@@ -630,13 +618,13 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-instagram-pink/12 via-instagram-purple/12 to-instagram-orange/12 dark:from-gray-900 dark:via-instagram-purple/25 dark:to-instagram-pink/20">
+    <div className="min-h-screen" style={{ backgroundColor: "#0D0D0D" }}>
       {/* GenZ Particles */}
       <GenZParticles />
 
       {/* Header */}
       <motion.div
-        className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50 mt-16 sm:mt-20"
+        className="bg-black/20 backdrop-blur-md border-b border-white/10 mt-16 sm:mt-20"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -644,10 +632,10 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
-              <h1 className="display-text text-3xl lg:text-4xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-2 leading-tight">
+              <h1 className="neon-heading text-3xl lg:text-4xl mb-2 leading-tight">
                 🎉 Discover Epic Events 🎉
               </h1>
-              <p className="accent-text text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="body-text text-base lg:text-lg leading-relaxed">
                 Find your next unforgettable experience!
               </p>
             </div>
@@ -661,7 +649,7 @@ export default function Events() {
                   variant="outline"
                   size="sm"
                   onClick={() => setIsFilterOpen(true)}
-                  className="lg:hidden"
+                  className="lg:hidden neon-cyan-bg"
                 >
                   <SlidersHorizontal className="w-4 h-4 mr-2" />
                   Filters
@@ -677,7 +665,7 @@ export default function Events() {
                     variant={viewMode === "grid" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("grid")}
-                    className="rounded-xl"
+                    className={`rounded-xl ${viewMode === "grid" ? "neon-cyan-bg" : ""}`}
                   >
                     <Grid className="w-4 h-4" />
                   </Button>
@@ -690,7 +678,7 @@ export default function Events() {
                     variant={viewMode === "list" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("list")}
-                    className="rounded-xl"
+                    className={`rounded-xl ${viewMode === "list" ? "neon-cyan-bg" : ""}`}
                   >
                     <List className="w-4 h-4" />
                   </Button>
@@ -735,10 +723,10 @@ export default function Events() {
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h2 className="display-text text-3xl font-black mb-2">
+              <h2 className="neon-heading text-3xl mb-2">
                 🌟 Ready to Host Your Own Epic Event? 🌟
               </h2>
-              <p className="accent-text text-lg text-white/90">
+              <p className="body-text text-lg text-white/90">
                 Join thousands of successful hosts earning money while creating
                 amazing experiences!
               </p>
@@ -765,7 +753,7 @@ export default function Events() {
               >
                 <Button
                   onClick={() => (window.location.href = "/dashboard")}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 rounded-2xl font-black text-lg shadow-lg"
+                  className="genz-button px-8 py-4 text-lg font-black"
                 >
                   🚀 START HOSTING NOW!
                 </Button>
@@ -863,15 +851,11 @@ export default function Events() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Button
-                      variant={
-                        selectedCategory === category ? "default" : "outline"
-                      }
+                      variant="ghost"
                       size="sm"
                       onClick={() => setSelectedCategory(category)}
-                      className={`rounded-full font-bold transition-all duration-300 ${
-                        selectedCategory === category
-                          ? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white shadow-lg transform scale-105"
-                          : "hover:bg-purple-100 hover:text-purple-700 hover:scale-105"
+                      className={`category-pill ${
+                        selectedCategory === category ? "active" : ""
                       }`}
                     >
                       {category}
@@ -888,7 +872,7 @@ export default function Events() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="body-text">
                 Found {sortedEvents.length} events
                 {selectedCategory !== "All" && ` in ${selectedCategory}`}
               </p>
@@ -923,10 +907,10 @@ export default function Events() {
                 <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Search className="w-8 h-8 text-gray-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                <h3 className="subheading-text text-xl font-semibold mb-2">
                   No events found
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="body-text">
                   Try adjusting your search or filters
                 </p>
               </motion.div>
