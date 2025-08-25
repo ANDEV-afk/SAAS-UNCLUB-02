@@ -34,7 +34,6 @@ import {
   Target,
   Trophy,
   Flame,
-  Magic,
   Megaphone,
   Copy,
   Check,
@@ -264,7 +263,7 @@ const CreateEventModal = ({
   ];
 
   const popularTags = [
-    "🌟 Premium",
+    "��� Premium",
     "🔥 Hot Event",
     "📸 Instagram-worthy",
     "🎁 Exclusive Access",
