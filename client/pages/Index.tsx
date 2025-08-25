@@ -12,7 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Badge, getCategoryBadgeVariant } from "@/components/ui/badge";
+import { Sparkles, Confetti, AnimatedCard } from "@/components/AnimatedEffects";
 import { GenZFloatingElements } from "@/components/GenZFloatingElements";
 import { FunctionalSearch } from "@/components/FunctionalSearch";
 import { useTheme } from "next-themes";
@@ -108,8 +109,13 @@ const EventCard = ({
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className="group"
     >
-      <Card className="overflow-hidden rounded-2xl border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-        <div className="relative overflow-hidden">
+      <AnimatedCard
+        effects={["sparkles", "confetti"]}
+        intensity="high"
+        className="group"
+      >
+        <Card variant="neon" glow="strong" className="overflow-hidden rounded-2xl border-0">
+          <div className="relative overflow-hidden">
           <motion.img
             src={event.image}
             alt={event.title}
@@ -118,7 +124,12 @@ const EventCard = ({
             transition={{ duration: 0.3 }}
           />
           <div className="absolute top-4 left-4">
-            <Badge className="bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-800">
+            <Badge
+              variant={getCategoryBadgeVariant(event.category) as any}
+              size="xl"
+              glow="strong"
+              className="animate-neon-pulse"
+            >
               {event.category}
             </Badge>
           </div>
@@ -175,7 +186,8 @@ const EventCard = ({
             </motion.div>
           </div>
         </CardContent>
-      </Card>
+        </Card>
+      </AnimatedCard>
     </motion.div>
   );
 };
