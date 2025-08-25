@@ -735,7 +735,7 @@ export default function Events() {
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h2 className="display-text text-3xl font-black mb-2">
+              <h2 className="neon-heading text-3xl mb-2">
                 🌟 Ready to Host Your Own Epic Event? 🌟
               </h2>
               <p className="accent-text text-lg text-white/90">
