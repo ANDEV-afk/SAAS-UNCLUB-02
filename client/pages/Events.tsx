@@ -686,7 +686,7 @@ export default function Events() {
                     variant={viewMode === "list" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("list")}
-                    className="rounded-xl"
+                    className={`rounded-xl ${viewMode === "list" ? "neon-cyan-bg" : ""}`}
                   >
                     <List className="w-4 h-4" />
                   </Button>
