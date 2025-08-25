@@ -663,7 +663,11 @@ export default function Events() {
                     variant={viewMode === "grid" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("grid")}
-                    className={`rounded-xl ${viewMode === "grid" ? "neon-cyan-bg" : ""}`}
+                    className={`rounded-xl ${
+                      viewMode === "grid"
+                        ? "bg-blue-600 text-white"
+                        : "border-gray-600 text-gray-400 hover:text-white"
+                    }`}
                   >
                     <Grid className="w-4 h-4" />
                   </Button>
@@ -676,7 +680,11 @@ export default function Events() {
                     variant={viewMode === "list" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setViewMode("list")}
-                    className={`rounded-xl ${viewMode === "list" ? "neon-cyan-bg" : ""}`}
+                    className={`rounded-xl ${
+                      viewMode === "list"
+                        ? "bg-blue-600 text-white"
+                        : "border-gray-600 text-gray-400 hover:text-white"
+                    }`}
                   >
                     <List className="w-4 h-4" />
                   </Button>
