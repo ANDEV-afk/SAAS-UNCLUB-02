@@ -389,34 +389,97 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Enhanced CTA Section */}
+      <section className="relative px-6 py-16 bg-gradient-to-br from-aesthetic-violet/10 via-aesthetic-electric/10 to-aesthetic-cyan/10">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="mb-12"
+          >
+            <h2 className="text-4xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent mb-6">
+              🚀 Ready to Create Your Own Event?
+            </h2>
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+              Join thousands of successful hosts who've turned their ideas into
+              <span className="font-bold text-aesthetic-electric"> unforgettable experiences</span>!
+              Start your journey today and become part of the event revolution.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link to="/dashboard">
+                  <Button
+                    className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
+                  >
+                    ✨ CREATE EVENT NOW
+                  </Button>
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link to="/licenses">
+                  <Button
+                    variant="outline"
+                    className="border-3 border-aesthetic-violet text-aesthetic-violet hover:bg-aesthetic-violet hover:text-white px-8 py-6 rounded-3xl text-lg font-bold"
+                  >
+                    👑 Upgrade to Pro
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="relative px-6 py-16 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent mb-4">
+              💪 Trusted by Event Professionals
+            </h2>
+            <p className="text-lg text-gray-700 dark:text-gray-300">
+              Join the community that's revolutionizing how events are discovered and created
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { number: "50K+", label: "Events Listed", icon: Calendar },
-              { number: "1M+", label: "Happy Attendees", icon: Users },
-              { number: "500+", label: "Cities Covered", icon: MapPin },
-              { number: "4.9", label: "Average Rating", icon: Star },
+              { number: "50K+", label: "Events Listed", icon: Calendar, color: "text-aesthetic-violet" },
+              { number: "1M+", label: "Happy Attendees", icon: Users, color: "text-aesthetic-electric" },
+              { number: "500+", label: "Cities Covered", icon: MapPin, color: "text-aesthetic-cyan" },
+              { number: "4.9", label: "Average Rating", icon: Star, color: "text-aesthetic-magenta" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -5 }}
+                transition={{ delay: 1.5 + index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -8, scale: 1.05 }}
               >
                 <motion.div
                   className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan text-white rounded-2xl mb-4 shadow-lg"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileHover={{ scale: 1.15, rotate: 10 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <stat.icon className="w-8 h-8" />
                 </motion.div>
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className={`text-3xl font-bold ${stat.color} mb-2`}>
                   {stat.number}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300">{stat.label}</p>
+                <p className="text-gray-700 dark:text-gray-300 font-semibold">{stat.label}</p>
               </motion.div>
             ))}
           </div>
