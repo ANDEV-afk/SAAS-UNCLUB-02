@@ -111,9 +111,14 @@
     --ring: 180 100% 75%;
 
     /* Enhanced dark neon colors for better contrast */
+    --electric-violet: 270 100% 80%; /* Electric Violet */
+    --neon-cyan: 180 100% 60%; /* Cyan */
+    --neon-green: 120 100% 60%; /* Neon Green */
+    --magenta: 300 100% 60%; /* Magenta */
+
+    /* Previous neon colors for backwards compatibility */
     --neon-pink: 330 100% 80%;
     --neon-violet: 270 100% 80%;
-    --neon-cyan: 180 100% 80%;
 
     /* Enhanced dark UnClub colors for better contrast */
     --unclub-blue: 225 90% 70%;
