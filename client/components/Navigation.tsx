@@ -409,15 +409,15 @@ export function Navigation() {
                         <User className="w-5 h-5 text-white" />
                       )}
 
-                      {/* Neon ring animation */}
+                      {/* Aesthetic ring animation */}
                       <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-purple-400/30"
+                        className="absolute inset-0 rounded-full border-2 border-aesthetic-violet/30"
                         animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.5, 0.8, 0.5],
+                          scale: [1, 1.15, 1],
+                          opacity: [0.4, 0.7, 0.4],
                         }}
                         transition={{
-                          duration: 2,
+                          duration: 2.5,
                           repeat: Infinity,
                           ease: "easeInOut",
                         }}
