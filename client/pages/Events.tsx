@@ -338,7 +338,7 @@ const FilterPanel = ({
                 >
                   <Button
                     onClick={onApplyFilters}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl"
+                    className="w-full neon-cyan-bg rounded-xl"
                   >
                     Apply Filters
                   </Button>
