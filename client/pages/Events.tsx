@@ -738,7 +738,7 @@ export default function Events() {
               <h2 className="neon-heading text-3xl mb-2">
                 🌟 Ready to Host Your Own Epic Event? 🌟
               </h2>
-              <p className="accent-text text-lg text-white/90">
+              <p className="body-text text-lg text-white/90">
                 Join thousands of successful hosts earning money while creating
                 amazing experiences!
               </p>
