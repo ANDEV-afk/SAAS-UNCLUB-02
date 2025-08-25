@@ -888,7 +888,7 @@ export default function Events() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="body-text">
                 Found {sortedEvents.length} events
                 {selectedCategory !== "All" && ` in ${selectedCategory}`}
               </p>
