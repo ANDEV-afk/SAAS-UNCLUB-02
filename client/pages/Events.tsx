@@ -926,7 +926,7 @@ export default function Events() {
                 <h3 className="subheading-text text-xl font-semibold mb-2">
                   No events found
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="body-text">
                   Try adjusting your search or filters
                 </p>
               </motion.div>
