@@ -409,6 +409,39 @@
     transform: translateY(-1px) scale(1.08);
   }
 
+  /* Event cards with dark glassmorphism and gradient borders */
+  .genz-event-card {
+    background: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(20px);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .genz-event-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, #8A2BE2, #00FFFF);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+  }
+
+  .genz-event-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3), 0 30px 60px rgba(0, 255, 255, 0.2);
+  }
+
+  .genz-event-card:hover::before {
+    background: linear-gradient(135deg, #9A4BF2, #1AFFFF, #8A2BE2);
+    animation: gradient-rotate 2s ease-in-out infinite;
+  }
+
   .glass-card {
     @apply bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10;
     @apply shadow-2xl shadow-black/10 dark:shadow-black/20;
