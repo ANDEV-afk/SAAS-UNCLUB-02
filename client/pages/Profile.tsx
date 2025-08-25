@@ -46,25 +46,25 @@ const userData = {
       id: 1,
       name: "Party Legend",
       icon: Crown,
-      color: "from-unclub-red to-party-red",
+      color: "from-aesthetic-magenta to-aesthetic-electric",
     },
     {
       id: 2,
       name: "Social Butterfly",
       icon: Users,
-      color: "from-unclub-pink to-party-pink",
+      color: "from-aesthetic-violet to-aesthetic-cyan",
     },
     {
       id: 3,
       name: "Event Master",
       icon: Trophy,
-      color: "from-unclub-blue to-party-blue",
+      color: "from-aesthetic-electric to-aesthetic-violet",
     },
     {
       id: 4,
       name: "Super Host",
       icon: Medal,
-      color: "from-party-electric to-unclub-hotpink",
+      color: "from-aesthetic-cyan to-aesthetic-magenta",
     },
   ],
 };
@@ -121,7 +121,7 @@ export default function Profile() {
   const [selectedTab, setSelectedTab] = useState("overview");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-unclub-blue/20 via-unclub-pink/20 to-unclub-red/20">
+    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15">
       <GenZParticles />
 
       {/* Cover Image & Profile Header */}
@@ -170,7 +170,7 @@ export default function Profile() {
 
                 {userData.isVerified && (
                   <motion.div
-                    className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-unclub-blue to-party-blue rounded-full flex items-center justify-center border-2 border-white shadow-lg"
+                    className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-aesthetic-violet to-aesthetic-electric rounded-full flex items-center justify-center border-2 border-white shadow-lg"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.5 }}
@@ -180,7 +180,7 @@ export default function Profile() {
                 )}
 
                 <motion.button
-                  className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-r from-unclub-pink to-party-pink rounded-full flex items-center justify-center border-2 border-white shadow-lg"
+                  className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan rounded-full flex items-center justify-center border-2 border-white shadow-lg"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -199,7 +199,7 @@ export default function Profile() {
                       {userData.name}
                     </h1>
                     {userData.isVerified && (
-                      <Badge className="bg-gradient-to-r from-unclub-blue to-party-blue text-white rounded-full px-3 py-1">
+                      <Badge className="bg-gradient-to-r from-aesthetic-violet to-aesthetic-electric text-white rounded-full px-3 py-1">
                         <Zap className="w-3 h-3 mr-1" />
                         Verified
                       </Badge>
@@ -230,7 +230,7 @@ export default function Profile() {
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
                 </Button>
-                <Button className="bg-gradient-to-r from-unclub-pink via-unclub-red to-party-red text-white rounded-2xl font-bold shadow-xl">
+                <Button className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan text-white rounded-2xl font-bold shadow-xl">
                   <Settings className="w-4 h-4 mr-2" />
                   Edit Profile
                 </Button>
@@ -280,7 +280,7 @@ export default function Profile() {
                     whileHover={{ y: -5, scale: 1.05 }}
                   >
                     <motion.div
-                      className="w-12 h-12 bg-gradient-to-br from-unclub-blue to-unclub-pink rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg"
+                      className="w-12 h-12 bg-gradient-to-br from-aesthetic-violet to-aesthetic-cyan rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg"
                       whileHover={{ rotate: 5 }}
                     >
                       <stat.icon className="w-6 h-6 text-white" />
@@ -306,7 +306,7 @@ export default function Profile() {
           <Card className="bg-white/90 backdrop-blur-sm rounded-3xl border-0 shadow-xl">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                <Trophy className="w-6 h-6 text-unclub-blue" />
+                <Trophy className="w-6 h-6 text-aesthetic-violet" />
                 Achievements
               </CardTitle>
             </CardHeader>
@@ -394,8 +394,8 @@ export default function Profile() {
                             <Badge
                               className={`rounded-full px-3 py-1 ${
                                 activity.type === "hosted"
-                                  ? "bg-gradient-to-r from-unclub-pink to-party-pink text-white"
-                                  : "bg-gradient-to-r from-unclub-blue to-party-blue text-white"
+                                  ? "bg-gradient-to-r from-aesthetic-violet to-aesthetic-electric text-white"
+                                  : "bg-gradient-to-r from-aesthetic-electric to-aesthetic-cyan text-white"
                               }`}
                             >
                               {activity.type === "hosted" ? "🎉" : "✨"}
@@ -438,8 +438,8 @@ export default function Profile() {
                             <Badge
                               className={`rounded-full px-3 py-1 ${
                                 event.type === "hosting"
-                                  ? "bg-gradient-to-r from-unclub-red to-party-red text-white"
-                                  : "bg-gradient-to-r from-unclub-blue to-party-blue text-white"
+                                  ? "bg-gradient-to-r from-aesthetic-magenta to-aesthetic-electric text-white"
+                                  : "bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan text-white"
                               }`}
                             >
                               {event.type === "hosting"
@@ -458,7 +458,7 @@ export default function Profile() {
                         </div>
                         <Button
                           variant="outline"
-                          className="rounded-2xl border-2 border-unclub-pink text-unclub-pink hover:bg-unclub-pink hover:text-white"
+                          className="rounded-2xl border-2 border-aesthetic-violet text-aesthetic-violet hover:bg-aesthetic-violet hover:text-white"
                         >
                           View Event
                         </Button>
@@ -479,7 +479,7 @@ export default function Profile() {
                   <p className="text-gray-600 mb-6">
                     Your best party moments will appear here!
                   </p>
-                  <Button className="bg-gradient-to-r from-unclub-blue to-unclub-pink text-white rounded-2xl font-bold">
+                  <Button className="bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan text-white rounded-2xl font-bold">
                     Upload Photos
                   </Button>
                 </CardContent>
