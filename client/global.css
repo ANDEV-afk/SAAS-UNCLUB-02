@@ -267,8 +267,9 @@
   .neon-heading {
     font-family: "Clash Display", serif;
     font-weight: 700;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     letter-spacing: -0.5px;
+    transition: color 0.3s ease;
   }
 
   .body-text {
@@ -276,30 +277,34 @@
     font-weight: 400;
     font-size: clamp(16px, 1.5vw, 18px);
     line-height: 1.6;
-    color: #f0f0f0;
+    color: hsl(var(--muted-foreground));
+    transition: color 0.3s ease;
   }
 
   .accent-text {
     font-family: "General Sans", sans-serif;
     font-weight: 400;
-    color: #f0f0f0;
+    color: hsl(var(--foreground));
+    transition: color 0.3s ease;
   }
 
   .display-text {
     font-family: "Clash Display", serif;
     font-weight: 700;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     letter-spacing: -0.5px;
     line-height: 1.05;
     text-rendering: optimizeLegibility;
+    transition: color 0.3s ease;
   }
 
   .subheading-text {
     font-family: "General Sans", sans-serif;
     font-weight: 600;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    transition: color 0.3s ease;
   }
 
   /* Smooth font rendering */
