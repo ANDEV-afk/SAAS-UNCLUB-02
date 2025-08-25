@@ -370,8 +370,13 @@ const EventCard = ({
         whileHover={{ x: 4 }}
         className="group"
       >
-        <Card className="overflow-hidden rounded-2xl border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
-          <CardContent className="p-6">
+        <AnimatedCard
+          effects={["sparkles", "confetti"]}
+          intensity="medium"
+          className="group"
+        >
+          <Card variant="glassmorphism" glow="medium" className="overflow-hidden rounded-2xl border-0">
+            <CardContent className="p-6">
             <div className="flex gap-6">
               <motion.div
                 className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden"
@@ -387,7 +392,12 @@ const EventCard = ({
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <Badge className="mb-2 bg-primary/10 text-primary border-primary/20">
+                    <Badge
+                      variant={getCategoryBadgeVariant(event.category) as any}
+                      size="lg"
+                      glow="medium"
+                      className="mb-2"
+                    >
                       {event.category}
                     </Badge>
                     <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
@@ -436,8 +446,9 @@ const EventCard = ({
                 </motion.div>
               </div>
             </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </AnimatedCard>
       </motion.div>
     );
   }
@@ -450,8 +461,13 @@ const EventCard = ({
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className="group"
     >
-      <Card className="overflow-hidden rounded-2xl border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
-        <div className="relative overflow-hidden">
+      <AnimatedCard
+        effects={["sparkles", "shimmer"]}
+        intensity="medium"
+        className="group"
+      >
+        <Card variant="neon" glow="strong" className="overflow-hidden rounded-2xl border-0">
+          <div className="relative overflow-hidden">
           <Image
             src={event.image}
             alt={event.title}
@@ -461,14 +477,24 @@ const EventCard = ({
             transition={{ duration: 0.3 }}
           />
           <div className="absolute top-4 left-4">
-            <Badge className="bg-white/95 dark:bg-gray-800/95 text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-600">
+            <Badge
+              variant={getCategoryBadgeVariant(event.category) as any}
+              size="lg"
+              glow="strong"
+              className="shimmer-effect"
+            >
               {event.category}
             </Badge>
           </div>
           {event.featured && (
             <div className="absolute top-4 right-4">
-              <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
-                Featured
+              <Badge
+                variant="neon-party"
+                size="lg"
+                glow="strong"
+                className="animate-float"
+              >
+                ⭐ Featured
               </Badge>
             </div>
           )}
@@ -520,7 +546,8 @@ const EventCard = ({
             </motion.div>
           </div>
         </CardContent>
-      </Card>
+        </Card>
+      </AnimatedCard>
     </motion.div>
   );
 };
