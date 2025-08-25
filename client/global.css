@@ -243,11 +243,12 @@
     font-weight: 400;
     font-size: clamp(16px, 1.5vw, 18px);
     line-height: 1.6;
-    color: #f0f0f0;
+    color: hsl(var(--foreground));
     margin: 0 0 16px 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
+    transition: color 0.3s ease;
   }
 
   /* UI elements and buttons - Satoshi Medium */
