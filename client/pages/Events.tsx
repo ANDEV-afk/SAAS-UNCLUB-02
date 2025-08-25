@@ -273,9 +273,7 @@ const FilterPanel = ({
 
                 {/* Date Filter */}
                 <div>
-                  <h4 className="subheading-text font-medium mb-3">
-                    Date
-                  </h4>
+                  <h4 className="subheading-text font-medium mb-3">Date</h4>
                   <Select
                     value={selectedDateRange}
                     onValueChange={setSelectedDateRange}
@@ -295,9 +293,7 @@ const FilterPanel = ({
 
                 {/* Rating Filter */}
                 <div>
-                  <h4 className="subheading-text font-medium mb-3">
-                    Rating
-                  </h4>
+                  <h4 className="subheading-text font-medium mb-3">Rating</h4>
                   <div className="space-y-2">
                     {[5, 4, 3].map((rating) => (
                       <motion.div
@@ -375,9 +371,7 @@ const EventCard = ({
           intensity="medium"
           className="group"
         >
-          <Card
-            className="genz-event-card overflow-hidden"
-          >
+          <Card className="genz-event-card overflow-hidden">
             <CardContent className="p-6">
               <div className="flex gap-6">
                 <motion.div
@@ -468,9 +462,7 @@ const EventCard = ({
         intensity="medium"
         className="group"
       >
-        <Card
-          className="genz-event-card overflow-hidden"
-        >
+        <Card className="genz-event-card overflow-hidden">
           <div className="relative overflow-hidden">
             <Image
               src={event.image}
@@ -511,8 +503,8 @@ const EventCard = ({
             </div>
 
             <h3 className="font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">
-            {event.title}
-          </h3>
+              {event.title}
+            </h3>
 
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
               <MapPin className="w-4 h-4" />
@@ -626,7 +618,7 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen" style={{backgroundColor: '#0D0D0D'}}>
+    <div className="min-h-screen" style={{ backgroundColor: "#0D0D0D" }}>
       {/* GenZ Particles */}
       <GenZParticles />
 

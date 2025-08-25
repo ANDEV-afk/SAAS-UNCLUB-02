@@ -7,7 +7,7 @@ export function GenZParticles() {
       {[...Array(8)].map((_, index) => (
         <motion.div
           key={`blob-${index}`}
-          className={`floating-blob ${index % 2 === 0 ? 'violet' : 'cyan'}`}
+          className={`floating-blob ${index % 2 === 0 ? "violet" : "cyan"}`}
           style={{
             width: `${80 + Math.random() * 120}px`,
             height: `${80 + Math.random() * 120}px`,
@@ -35,11 +35,12 @@ export function GenZParticles() {
           key={`particle-${index}`}
           className="absolute w-1 h-1 rounded-full"
           style={{
-            background: index % 3 === 0 
-              ? 'linear-gradient(45deg, #8A2BE2, #00FFFF)' 
-              : index % 3 === 1 
-              ? 'linear-gradient(45deg, #00FFFF, #8A2BE2)'
-              : 'linear-gradient(45deg, #FF00FF, #8A2BE2)',
+            background:
+              index % 3 === 0
+                ? "linear-gradient(45deg, #8A2BE2, #00FFFF)"
+                : index % 3 === 1
+                  ? "linear-gradient(45deg, #00FFFF, #8A2BE2)"
+                  : "linear-gradient(45deg, #FF00FF, #8A2BE2)",
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
@@ -66,9 +67,10 @@ export function GenZParticles() {
           style={{
             width: `${60 + Math.random() * 80}px`,
             height: `${60 + Math.random() * 80}px`,
-            background: index % 2 === 0 
-              ? 'radial-gradient(circle, rgba(138, 43, 226, 0.1), rgba(138, 43, 226, 0.05))'
-              : 'radial-gradient(circle, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05))',
+            background:
+              index % 2 === 0
+                ? "radial-gradient(circle, rgba(138, 43, 226, 0.1), rgba(138, 43, 226, 0.05))"
+                : "radial-gradient(circle, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05))",
             left: `${15 + index * 15}%`,
             top: `${10 + index * 12}%`,
           }}
