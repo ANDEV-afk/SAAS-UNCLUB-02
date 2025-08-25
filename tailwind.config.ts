@@ -57,7 +57,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // UnClub catchy colors
+        // Aesthetic color scheme
+        aesthetic: {
+          violet: "hsl(var(--electric-violet))",
+          cyan: "hsl(var(--aesthetic-cyan))",
+          electric: "hsl(var(--electric-blue))",
+          magenta: "hsl(var(--soft-magenta))",
+        },
+        // UnClub refined colors
         unclub: {
           blue: "hsl(var(--unclub-blue))",
           pink: "hsl(var(--unclub-pink))",
@@ -66,7 +73,7 @@ export default {
           hotpink: "hsl(var(--unclub-hot-pink))",
           coral: "hsl(var(--unclub-coral))",
         },
-        // Party vibes colors
+        // Party vibes colors (refined)
         party: {
           blue: "hsl(var(--party-blue))",
           pink: "hsl(var(--party-pink))",
@@ -98,36 +105,36 @@ export default {
             height: "0",
           },
         },
-        "neon-pulse": {
+        "aesthetic-pulse": {
           "0%, 100%": {
             boxShadow:
-              "0 0 20px rgba(168, 85, 247, 0.3), 0 0 40px rgba(168, 85, 247, 0.1)",
+              "0 0 15px rgba(115, 115, 175, 0.25), 0 0 30px rgba(100, 200, 255, 0.15)",
           },
           "50%": {
             boxShadow:
-              "0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(168, 85, 247, 0.2), 0 0 80px rgba(236, 72, 153, 0.1)",
+              "0 0 25px rgba(115, 115, 175, 0.4), 0 0 45px rgba(100, 200, 255, 0.25), 0 0 65px rgba(150, 150, 200, 0.15)",
           },
         },
         "glow-rotate": {
           "0%": {
             background:
-              "linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316)",
+              "linear-gradient(45deg, hsl(270, 65%, 65%), hsl(180, 75%, 55%), hsl(220, 85%, 60%), hsl(300, 70%, 60%))",
           },
           "25%": {
             background:
-              "linear-gradient(135deg, #ec4899, #ef4444, #f97316, #a855f7)",
+              "linear-gradient(135deg, hsl(180, 75%, 55%), hsl(220, 85%, 60%), hsl(300, 70%, 60%), hsl(270, 65%, 65%))",
           },
           "50%": {
             background:
-              "linear-gradient(225deg, #ef4444, #f97316, #a855f7, #ec4899)",
+              "linear-gradient(225deg, hsl(220, 85%, 60%), hsl(300, 70%, 60%), hsl(270, 65%, 65%), hsl(180, 75%, 55%))",
           },
           "75%": {
             background:
-              "linear-gradient(315deg, #f97316, #a855f7, #ec4899, #ef4444)",
+              "linear-gradient(315deg, hsl(300, 70%, 60%), hsl(270, 65%, 65%), hsl(180, 75%, 55%), hsl(220, 85%, 60%))",
           },
           "100%": {
             background:
-              "linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316)",
+              "linear-gradient(45deg, hsl(270, 65%, 65%), hsl(180, 75%, 55%), hsl(220, 85%, 60%), hsl(300, 70%, 60%))",
           },
         },
         shimmer: {
@@ -182,7 +189,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "neon-pulse": "neon-pulse 2s ease-in-out infinite",
+        "aesthetic-pulse": "aesthetic-pulse 2.5s ease-in-out infinite",
         "glow-rotate": "glow-rotate 4s ease-in-out infinite",
         shimmer: "shimmer 2s linear infinite",
         float: "float 3s ease-in-out infinite",
