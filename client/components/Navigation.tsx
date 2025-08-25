@@ -238,8 +238,8 @@ export function Navigation() {
                       <motion.div
                         className={`relative px-3 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-all duration-300 ${
                           isActive
-                            ? "text-white shadow-2xl bg-gradient-to-r from-purple-500/30 to-pink-500/30 border border-purple-400/50 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
-                            : "text-white/80 hover:text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 hover:border hover:border-purple-400/30 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]"
+                            ? "text-primary-foreground shadow-2xl bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 border border-aesthetic-violet/50 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                            : "text-muted-foreground hover:text-foreground hover:bg-gradient-to-r hover:from-aesthetic-violet/20 hover:to-aesthetic-cyan/20 hover:border hover:border-aesthetic-violet/30 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]"
                         }`}
                         whileHover={{
                           backgroundImage: isActive
