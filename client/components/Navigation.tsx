@@ -35,25 +35,31 @@ const navItems = [
     name: "Events",
     path: "/",
     icon: Calendar,
-    gradient: "from-party-blue via-unclub-electric to-party-neon",
+    gradient: "from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan",
   },
   {
     name: "Discover",
     path: "/discover",
     icon: Home,
-    gradient: "from-unclub-blue via-unclub-pink to-unclub-red",
+    gradient: "from-aesthetic-cyan via-aesthetic-electric to-aesthetic-violet",
+  },
+  {
+    name: "Licenses",
+    path: "/licenses",
+    icon: Crown,
+    gradient: "from-aesthetic-magenta via-aesthetic-violet to-aesthetic-electric",
   },
   {
     name: "Create",
     path: "/dashboard",
     icon: Plus,
-    gradient: "from-unclub-pink via-party-red to-unclub-coral",
+    gradient: "from-aesthetic-electric via-aesthetic-magenta to-aesthetic-cyan",
   },
   {
     name: "Profile",
     path: "/profile",
     icon: User,
-    gradient: "from-party-electric via-unclub-hotpink to-party-pink",
+    gradient: "from-aesthetic-violet via-aesthetic-cyan to-aesthetic-electric",
   },
 ];
 
