@@ -376,9 +376,7 @@ const EventCard = ({
           className="group"
         >
           <Card
-            variant="glassmorphism"
-            glow="medium"
-            className="overflow-hidden rounded-2xl border-0"
+            className="genz-event-card overflow-hidden"
           >
             <CardContent className="p-6">
               <div className="flex gap-6">
