@@ -1631,9 +1631,9 @@ export default function EventDetail() {
                                 <p className="text-gray-700 mb-3">
                                   {review.comment}
                                 </p>
-                                {review.images && (
+                                {(review as any).images && (
                                   <div className="flex gap-2 mb-3">
-                                    {review.images.map((image, imgIndex) => (
+                                    {(review as any).images.map((image: string, imgIndex: number) => (
                                       <Image
                                         key={imgIndex}
                                         src={image}
