@@ -923,7 +923,7 @@ export default function Events() {
                 <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Search className="w-8 h-8 text-gray-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                <h3 className="subheading-text text-xl font-semibold mb-2">
                   No events found
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
