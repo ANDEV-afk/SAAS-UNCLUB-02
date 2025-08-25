@@ -197,7 +197,7 @@ const FilterPanel = ({
             onClick={onClose}
           />
           <motion.div
-            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-white dark:bg-gray-900 lg:bg-white/90 lg:dark:bg-gray-900/90 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-gray-200/50 dark:border-gray-700/50 overflow-y-auto"
+            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-black/80 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-white/20 overflow-y-auto"
             initial={{ x: -320 }}
             animate={{ x: 0 }}
             exit={{ x: -320 }}
