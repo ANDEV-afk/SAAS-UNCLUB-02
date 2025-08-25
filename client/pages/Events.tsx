@@ -404,7 +404,7 @@ const EventCard = ({
                       >
                         {event.category}
                       </Badge>
-                      <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <h3 className="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">
                         {event.title}
                       </h3>
                     </div>
