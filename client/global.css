@@ -254,12 +254,7 @@
   .neon-heading {
     font-family: "Clash Display", serif;
     font-weight: 700;
-    background: linear-gradient(45deg, #8A2BE2, #00FFFF);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 30px rgba(138, 43, 226, 0.7), 0 0 60px rgba(0, 255, 255, 0.5);
-    filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6)) drop-shadow(0 0 25px rgba(0, 255, 255, 0.4));
+    color: #FFFFFF;
     letter-spacing: -0.5px;
   }
 
@@ -525,7 +520,7 @@
   }
 
   .sparkle-container::before {
-    content: "⭐";
+    content: "���";
     position: absolute;
     bottom: 15%;
     left: 15%;
