@@ -171,16 +171,17 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Headings (H1, H2, H3) - Clash Display Bold with simple white text */
+  /* Headings (H1, H2, H3) - Clash Display Bold with theme-aware text */
   h1 {
     font-family: "Clash Display", serif;
     font-weight: 700;
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.05;
     letter-spacing: -0.5px;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     margin: 40px 0 20px 0;
     text-rendering: optimizeLegibility;
+    transition: color 0.3s ease;
   }
 
   h2 {
@@ -189,9 +190,10 @@
     font-size: clamp(2rem, 4vw, 3.5rem);
     line-height: 1.15;
     letter-spacing: -0.5px;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     margin: 40px 0 20px 0;
     text-rendering: optimizeLegibility;
+    transition: color 0.3s ease;
   }
 
   h3 {
@@ -200,9 +202,10 @@
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     line-height: 1.25;
     letter-spacing: -0.5px;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     margin: 40px 0 15px 0;
     text-rendering: optimizeLegibility;
+    transition: color 0.3s ease;
   }
 
   /* Subheadings (H4, H5, H6) - General Sans Semibold */
@@ -211,11 +214,12 @@
   h6 {
     font-family: "General Sans", sans-serif;
     font-weight: 600;
-    color: #ffffff;
+    color: hsl(var(--foreground));
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin: 30px 0 15px 0;
     text-rendering: optimizeLegibility;
+    transition: color 0.3s ease;
   }
 
   h4 {
