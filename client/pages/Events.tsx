@@ -644,7 +644,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
-              <h1 className="display-text text-3xl lg:text-4xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent mb-2 leading-tight">
+              <h1 className="neon-heading text-3xl lg:text-4xl mb-2 leading-tight">
                 🎉 Discover Epic Events 🎉
               </h1>
               <p className="accent-text text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
