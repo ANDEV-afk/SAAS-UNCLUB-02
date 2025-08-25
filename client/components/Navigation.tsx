@@ -322,10 +322,10 @@ export function Navigation() {
                     className="relative"
                   >
                     <Button
-                  variant="ghost"
-                  size="sm"
-                  className="rounded-2xl border border-aesthetic-violet/30 bg-aesthetic-violet/10 hover:bg-aesthetic-violet/20 text-foreground transition-all duration-300 px-3 py-2 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
-                >
+                      variant="ghost"
+                      size="sm"
+                      className="rounded-2xl border border-aesthetic-violet/30 bg-aesthetic-violet/10 hover:bg-aesthetic-violet/20 text-foreground transition-all duration-300 px-3 py-2 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                    >
                       <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
                     <motion.div
@@ -516,8 +516,8 @@ export function Navigation() {
                         to={item.path}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className={`flex items-center space-x-4 px-4 py-3 rounded-2xl font-bold transition-all duration-300 ${
-                          (location.pathname === item.path ||
-                           (item.path === "/events" && location.pathname === "/"))
+                          location.pathname === item.path ||
+                          (item.path === "/events" && location.pathname === "/")
                             ? "bg-primary/20 text-primary-foreground shadow-lg border border-primary/40"
                             : "text-muted-foreground hover:bg-accent hover:text-accent-foreground hover:border hover:border-accent"
                         }`}

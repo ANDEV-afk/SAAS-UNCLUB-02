@@ -481,7 +481,9 @@ const EventCard = ({
             <div className="absolute top-4 right-4">
               <div className="flex items-center gap-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1">
                 <Star className="w-3 h-3 text-yellow-400 fill-current" />
-                <span className="text-white text-xs font-medium">{event.rating}</span>
+                <span className="text-white text-xs font-medium">
+                  {event.rating}
+                </span>
               </div>
             </div>
           )}
