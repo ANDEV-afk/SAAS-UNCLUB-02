@@ -536,7 +536,7 @@ export function Navigation() {
                       to="/profile"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <Button className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg">
+                      <Button className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg">
                         <User className="w-5 h-5 mr-2" />
                         {userProfile.name}
                       </Button>
@@ -552,7 +552,7 @@ export function Navigation() {
                           setUserProfile({ name: "John Doe", avatar: null });
                         }, 2000);
                       }}
-                      className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg"
+                      className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg"
                     >
                       <Sparkles className="w-5 h-5 mr-2" />
                       Join the Party 🎉
@@ -566,11 +566,11 @@ export function Navigation() {
                         setIsMobileMenuOpen(false);
                         setIsNotificationOpen(true);
                       }}
-                      className="w-full bg-purple-500/25 hover:bg-purple-500/40 text-white rounded-2xl border border-purple-400/40 font-bold py-3 relative"
+                      className="w-full bg-aesthetic-violet/25 hover:bg-aesthetic-violet/40 text-white rounded-2xl border border-aesthetic-violet/40 font-bold py-3 relative"
                     >
                       <Bell className="w-4 h-4 mr-2" />
                       Notifications
-                      <Badge className="absolute -top-2 -right-2 w-5 h-5 p-0 text-xs bg-gradient-to-r from-red-500 to-pink-500 text-white border border-white rounded-full">
+                      <Badge className="absolute -top-2 -right-2 w-5 h-5 p-0 text-xs bg-gradient-to-r from-aesthetic-magenta to-aesthetic-electric text-white border border-white rounded-full">
                         3
                       </Badge>
                     </Button>
