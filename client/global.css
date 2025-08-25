@@ -254,3 +254,165 @@
     font-display: swap;
   }
 }
+
+/* Glassmorphism and Neon Effects */
+@layer components {
+  .glass-card {
+    @apply bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10;
+    @apply shadow-2xl shadow-black/10 dark:shadow-black/20;
+  }
+
+  .glass-card-hover {
+    @apply hover:bg-white/15 dark:hover:bg-white/10 hover:border-white/30 dark:hover:border-white/20;
+    @apply hover:shadow-3xl hover:shadow-black/20 dark:hover:shadow-black/30;
+    @apply hover:scale-105 hover:-translate-y-2 transition-all duration-300;
+  }
+
+  .neon-border {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(20px);
+    border-radius: 1rem;
+  }
+
+  .neon-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316);
+    border-radius: inherit;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: glow-rotate 4s ease-in-out infinite;
+  }
+
+  .sparkle-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sparkle-container::after {
+    content: "✨";
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: sparkle 2s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  .sparkle-container::before {
+    content: "⭐";
+    position: absolute;
+    bottom: 15%;
+    left: 15%;
+    font-size: 1rem;
+    opacity: 0;
+    animation: sparkle 2s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .confetti-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .confetti-container:hover::after {
+    content: "🎉";
+    position: absolute;
+    top: -10px;
+    left: 20%;
+    font-size: 1.5rem;
+    animation: confetti-fall 2s linear;
+  }
+
+  .confetti-container:hover::before {
+    content: "🎊";
+    position: absolute;
+    top: -10px;
+    right: 30%;
+    font-size: 1.2rem;
+    animation: confetti-fall 2.5s linear;
+    animation-delay: 0.3s;
+  }
+
+  .neon-glow {
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4))
+      drop-shadow(0 0 20px rgba(168, 85, 247, 0.2))
+      drop-shadow(0 0 30px rgba(236, 72, 153, 0.1));
+  }
+
+  .neon-glow-hover:hover {
+    filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.6))
+      drop-shadow(0 0 30px rgba(168, 85, 247, 0.3))
+      drop-shadow(0 0 45px rgba(236, 72, 153, 0.2));
+    transition: filter 0.3s ease;
+  }
+
+  .neon-text {
+    background: linear-gradient(45deg, #a855f7, #ec4899, #ef4444);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+  }
+
+  .category-badge-music {
+    @apply bg-gradient-to-r from-purple-500 to-pink-500 text-white;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+
+  .category-badge-tech {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-500 text-white;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  .category-badge-food {
+    @apply bg-gradient-to-r from-orange-500 to-red-500 text-white;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+  }
+
+  .category-badge-art {
+    @apply bg-gradient-to-r from-pink-500 to-rose-500 text-white;
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+  }
+
+  .category-badge-business {
+    @apply bg-gradient-to-r from-gray-600 to-gray-800 text-white;
+    box-shadow: 0 0 20px rgba(75, 85, 99, 0.4);
+  }
+
+  .category-badge-wellness {
+    @apply bg-gradient-to-r from-green-500 to-teal-500 text-white;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+  }
+
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+}

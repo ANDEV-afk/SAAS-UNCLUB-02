@@ -5,7 +5,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Home,
   Calendar,
@@ -13,7 +13,6 @@ import {
   Plus,
   Menu,
   X,
-  Search,
   Bell,
   Zap,
   Sparkles,
@@ -21,7 +20,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
@@ -68,10 +66,14 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userProfile, setUserProfile] = useState({
+    name: "User",
+    avatar: null,
+  });
   const location = useLocation();
+  const navigate = useNavigate();
   const { scrollY } = useScroll();
   const { theme } = useTheme();
 
@@ -119,33 +121,34 @@ export function Navigation() {
       </div>
 
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/20 dark:border-gray-700/50 shadow-lg"
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 shadow-2xl"
         style={{
           background:
-            theme === "dark"
-              ? `linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)), hsl(var(--background)))`
-              : `linear-gradient(135deg, hsl(var(--unclub-blue)), hsl(var(--unclub-pink)), hsl(var(--unclub-red)))`,
-          backdropFilter: "none",
+            "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+          backdropFilter: "blur(20px)",
         }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, type: "spring", damping: 20 }}
       >
-        {/* Animated background gradient overlay */}
+        {/* Animated neon glow overlay */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-unclub-blue/30 via-unclub-pink/30 to-unclub-red/30"
+          className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-cyan-500/10"
           animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
           }}
           transition={{
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
           style={{
-            backgroundSize: "200% 200%",
+            backgroundSize: "300% 300%",
           }}
         />
+
+        {/* Subtle neon border */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
@@ -230,8 +233,8 @@ export function Navigation() {
                       <motion.div
                         className={`relative px-3 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-all duration-300 ${
                           isActive
-                            ? "text-white shadow-2xl bg-white/30 border border-white/50"
-                            : "text-white/90 hover:text-white hover:bg-white/20 hover:border hover:border-white/30"
+                            ? "text-white shadow-2xl bg-gradient-to-r from-purple-500/30 to-pink-500/30 border border-purple-400/50 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                            : "text-white/80 hover:text-white hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-pink-500/20 hover:border hover:border-purple-400/30 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]"
                         }`}
                         whileHover={{
                           backgroundImage: isActive
@@ -281,10 +284,14 @@ export function Navigation() {
 
                         {isActive && (
                           <motion.div
-                            className="absolute -bottom-1 left-1/2 w-2 h-2 bg-white rounded-full"
+                            className="absolute -bottom-2 left-1/2 w-12 h-1 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 rounded-full"
                             initial={{ scale: 0, x: "-50%" }}
                             animate={{ scale: 1, x: "-50%" }}
                             transition={{ duration: 0.3 }}
+                            style={{
+                              boxShadow:
+                                "0 0 15px rgba(168, 85, 247, 0.8), 0 0 30px rgba(236, 72, 153, 0.6)",
+                            }}
                           />
                         )}
                       </motion.div>
@@ -295,73 +302,8 @@ export function Navigation() {
             </div>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-2 sm:space-x-4">
+            <div className="hidden md:flex items-center space-x-3">
               <ThemeToggle />
-
-              {/* Search Dialog */}
-              <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-                <DialogTrigger asChild>
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 8 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className={`rounded-xl sm:rounded-2xl border transition-all duration-300 px-3 py-2 ${
-                        theme === "dark"
-                          ? "text-gray-300 hover:bg-gray-800/50 border-gray-600/50 hover:text-gray-100 bg-gray-800/70"
-                          : "text-white hover:bg-white/30 border-white/30 bg-white/20"
-                      }`}
-                    >
-                      <Search className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </Button>
-                  </motion.div>
-                </DialogTrigger>
-                <DialogContent className="max-w-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-0 rounded-3xl">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                      🔍 Search Events
-                    </DialogTitle>
-                  </DialogHeader>
-                  <div className="p-6">
-                    <div className="relative mb-6">
-                      <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                      <Input
-                        placeholder="Search for events, locations, or categories..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="pl-12 rounded-2xl h-14 text-lg border-2 border-gray-200 dark:border-gray-700"
-                        autoFocus
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-700 dark:text-gray-300">
-                        Popular Searches
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {[
-                          "Music Festivals",
-                          "Tech Events",
-                          "Food & Wine",
-                          "Art Shows",
-                          "Networking",
-                        ].map((term) => (
-                          <Button
-                            key={term}
-                            variant="outline"
-                            size="sm"
-                            onClick={() => setSearchQuery(term)}
-                            className="rounded-full text-sm"
-                          >
-                            {term}
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </DialogContent>
-              </Dialog>
 
               {/* Notifications Dialog */}
               <Dialog
@@ -370,33 +312,29 @@ export function Navigation() {
               >
                 <DialogTrigger asChild>
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: -8 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="relative"
                   >
                     <Button
                       variant="ghost"
                       size="sm"
-                      className={`rounded-xl sm:rounded-2xl border transition-all duration-300 px-3 py-2 ${
-                        theme === "dark"
-                          ? "text-gray-300 hover:bg-gray-800/50 border-gray-600/50 hover:text-gray-100 bg-gray-800/70"
-                          : "text-white hover:bg-white/30 border-white/30 bg-white/20"
-                      }`}
+                      className="rounded-2xl border border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-white transition-all duration-300 px-3 py-2 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
                     >
                       <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="absolute -top-1 -right-1"
+                      className="absolute -top-2 -right-2"
                     >
-                      <Badge className="w-5 h-5 sm:w-6 sm:h-6 p-0 text-xs bg-gradient-to-r from-unclub-red to-party-red text-white border-2 border-white rounded-full shadow-lg">
+                      <Badge className="w-5 h-5 p-0 text-xs bg-gradient-to-r from-red-500 to-pink-500 text-white border-2 border-white rounded-full shadow-lg">
                         <motion.span
                           animate={{
-                            scale: [1, 1.3, 1],
+                            scale: [1, 1.2, 1],
                           }}
                           transition={{
-                            duration: 1.5,
+                            duration: 2,
                             repeat: Infinity,
                           }}
                         >
@@ -452,26 +390,65 @@ export function Navigation() {
                 </DialogContent>
               </Dialog>
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link to="/auth">
-                  <Button className="bg-white/30 hover:bg-white/50 text-white rounded-xl sm:rounded-2xl shadow-xl border border-white/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300">
-                    <motion.span
-                      className="text-sm sm:text-base"
-                      whileHover={{
-                        backgroundImage:
-                          "linear-gradient(45deg, #fff, #e0f7ff, #fff)",
-                        backgroundClip: "text",
-                        color: "transparent",
-                      }}
-                    >
+              {isLoggedIn ? (
+                // Profile Icon with Neon Glow
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative"
+                >
+                  <Link to="/profile">
+                    <div className="relative w-10 h-10 rounded-full border-2 border-purple-400/50 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center hover:border-purple-400 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]">
+                      {userProfile.avatar ? (
+                        <img
+                          src={userProfile.avatar}
+                          alt={userProfile.name}
+                          className="w-full h-full rounded-full object-cover"
+                        />
+                      ) : (
+                        <User className="w-5 h-5 text-white" />
+                      )}
+
+                      {/* Neon ring animation */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-purple-400/30"
+                        animate={{
+                          scale: [1, 1.2, 1],
+                          opacity: [0.5, 0.8, 0.5],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    </div>
+                  </Link>
+                </motion.div>
+              ) : (
+                // Join Party Button
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    onClick={() => {
+                      navigate("/auth");
+                      // Simulate login success for demo
+                      setTimeout(() => {
+                        setIsLoggedIn(true);
+                        setUserProfile({ name: "John Doe", avatar: null });
+                      }, 2000);
+                    }}
+                    className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]"
+                  >
+                    <motion.span className="text-sm sm:text-base flex items-center gap-2">
+                      <Sparkles className="w-4 h-4" />
                       Join Party
                     </motion.span>
                   </Button>
-                </Link>
-              </motion.div>
+                </motion.div>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -484,11 +461,7 @@ export function Navigation() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`rounded-xl border px-3 py-2 ${
-                  theme === "dark"
-                    ? "text-gray-300 hover:bg-gray-800/50 border-gray-600/50 hover:text-gray-100 bg-gray-800/70"
-                    : "text-white hover:bg-white/30 border-white/30 bg-white/20"
-                }`}
+                className="rounded-2xl border border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20 text-white px-3 py-2 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
               >
                 <motion.div
                   animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
@@ -558,34 +531,46 @@ export function Navigation() {
                   transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
                   className="pt-4"
                 >
-                  <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-white/30 hover:bg-white/50 text-white rounded-2xl shadow-xl border border-white/50 font-bold py-4 text-lg">
-                      Join the Party 🎉
-                    </Button>
-                  </Link>
-
-                  {/* Mobile Search and Notifications */}
-                  <div className="flex gap-3 pt-2">
+                  {isLoggedIn ? (
+                    <Link
+                      to="/profile"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <Button className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg">
+                        <User className="w-5 h-5 mr-2" />
+                        {userProfile.name}
+                      </Button>
+                    </Link>
+                  ) : (
                     <Button
                       onClick={() => {
                         setIsMobileMenuOpen(false);
-                        setIsSearchOpen(true);
+                        navigate("/auth");
+                        // Simulate login success for demo
+                        setTimeout(() => {
+                          setIsLoggedIn(true);
+                          setUserProfile({ name: "John Doe", avatar: null });
+                        }, 2000);
                       }}
-                      className="flex-1 bg-white/25 hover:bg-white/40 text-white rounded-2xl border border-white/40 font-bold py-3"
+                      className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg"
                     >
-                      <Search className="w-4 h-4 mr-2" />
-                      Search
+                      <Sparkles className="w-5 h-5 mr-2" />
+                      Join the Party 🎉
                     </Button>
+                  )}
+
+                  {/* Mobile Notifications */}
+                  <div className="flex gap-3 pt-4">
                     <Button
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         setIsNotificationOpen(true);
                       }}
-                      className="flex-1 bg-white/25 hover:bg-white/40 text-white rounded-2xl border border-white/40 font-bold py-3 relative"
+                      className="w-full bg-purple-500/25 hover:bg-purple-500/40 text-white rounded-2xl border border-purple-400/40 font-bold py-3 relative"
                     >
                       <Bell className="w-4 h-4 mr-2" />
-                      Alerts
-                      <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 text-xs bg-red-500 text-white border border-white rounded-full">
+                      Notifications
+                      <Badge className="absolute -top-2 -right-2 w-5 h-5 p-0 text-xs bg-gradient-to-r from-red-500 to-pink-500 text-white border border-white rounded-full">
                         3
                       </Badge>
                     </Button>
