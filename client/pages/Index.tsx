@@ -337,10 +337,29 @@ export default function Index() {
             <h2 className="display-text text-4xl font-black bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent mb-4">
               ���� Trending Events Right Now
             </h2>
-            <p className="accent-text text-lg text-gray-700 dark:text-gray-300">
-              These events are selling out fast - grab your spot before it's too
-              late!
+            <p className="accent-text text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+              Discover the hottest events in your area! From exclusive VIP experiences to community gatherings - these events are selling out fast! 💫
             </p>
+            <motion.div
+              className="flex flex-wrap justify-center gap-3 mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+            >
+              {["🎵 Live Music", "🍷 Food & Wine", "🎨 Art Shows", "💻 Tech Meetups", "🏃‍♀️ Fitness", "🎭 Entertainment"].map((tag, index) => (
+                <motion.div
+                  key={tag}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 + index * 0.1 }}
+                  className="px-4 py-2 bg-gradient-to-r from-aesthetic-violet/20 to-aesthetic-cyan/20 rounded-full text-sm font-semibold text-aesthetic-violet cursor-pointer hover:from-aesthetic-violet/30 hover:to-aesthetic-cyan/30 transition-all duration-300"
+                >
+                  {tag}
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
