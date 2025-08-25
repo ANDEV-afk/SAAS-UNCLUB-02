@@ -129,12 +129,7 @@ export function Navigation() {
       </div>
 
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 shadow-2xl"
-        style={{
-          background:
-            "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
-          backdropFilter: "blur(20px)",
-        }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-border/20 shadow-2xl bg-background/80 backdrop-blur-md"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, type: "spring", damping: 20 }}
