@@ -335,21 +335,49 @@
 
 /* Glassmorphism and Neon Effects */
 @layer components {
-  /* Neon cyan UI elements */
-  .neon-cyan-bg {
-    background: linear-gradient(135deg, hsl(var(--neon-cyan)), rgba(0, 255, 255, 0.8));
-    color: #0D0D0D;
+  /* Gen Z button styles with Electric Violet → Cyan → Neon Green gradient */
+  .genz-button {
+    background: linear-gradient(135deg, #8A2BE2, #00FFFF, #00FF00);
+    color: #000000;
     font-family: "Satoshi", sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .genz-button:hover {
+    background: linear-gradient(135deg, #9A4BF2, #1AFFFF, #1AFF1A);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6), 0 0 60px rgba(0, 255, 255, 0.4), 0 0 80px rgba(0, 255, 0, 0.3);
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  .genz-button:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  /* Neon cyan UI elements (keeping for backwards compatibility) */
+  .neon-cyan-bg {
+    background: linear-gradient(135deg, #8A2BE2, #00FFFF);
+    color: #000000;
+    font-family: "Satoshi", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
   }
 
   .neon-cyan-bg:hover {
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.3);
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #9A4BF2, #1AFFFF);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6), 0 0 60px rgba(0, 255, 255, 0.3);
+    transform: translateY(-2px) scale(1.03);
   }
 
   .glass-card {
@@ -430,7 +458,7 @@
   }
 
   .confetti-container:hover::before {
-    content: "🎊";
+    content: "��";
     position: absolute;
     top: -10px;
     right: 30%;
