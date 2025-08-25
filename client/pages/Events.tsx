@@ -338,7 +338,7 @@ const FilterPanel = ({
                 >
                   <Button
                     onClick={onApplyFilters}
-                    className="w-full neon-cyan-bg rounded-xl"
+                    className="w-full genz-button"
                   >
                     Apply Filters
                   </Button>
