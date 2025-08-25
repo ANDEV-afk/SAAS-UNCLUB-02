@@ -863,15 +863,11 @@ export default function Events() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Button
-                      variant={
-                        selectedCategory === category ? "default" : "outline"
-                      }
+                      variant="ghost"
                       size="sm"
                       onClick={() => setSelectedCategory(category)}
-                      className={`rounded-full font-bold transition-all duration-300 ${
-                        selectedCategory === category
-                          ? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white shadow-lg transform scale-105"
-                          : "hover:bg-purple-100 hover:text-purple-700 hover:scale-105"
+                      className={`category-pill ${
+                        selectedCategory === category ? "active" : ""
                       }`}
                     >
                       {category}
