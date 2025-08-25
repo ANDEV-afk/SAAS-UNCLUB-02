@@ -821,8 +821,10 @@ export default function Events() {
                       variant="ghost"
                       size="sm"
                       onClick={() => setSelectedCategory(category)}
-                      className={`category-pill ${
-                        selectedCategory === category ? "active" : ""
+                      className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+                        selectedCategory === category
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white border border-gray-700/50"
                       }`}
                     >
                       {category}
