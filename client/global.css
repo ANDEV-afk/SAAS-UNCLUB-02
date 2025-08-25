@@ -45,15 +45,16 @@
     /* Gen Z Party Background */
     --app-background: 0 0% 5.1%; /* Dark navy #0D0D0D */
 
-    /* New Gen Z Neon Colors */
-    --electric-violet: 270 100% 75%; /* #8A2BE2 equivalent */
-    --neon-cyan: 180 100% 50%; /* #00FFFF */
-    --neon-green: 120 100% 50%; /* #00FF00 */
-    --magenta: 300 100% 50%; /* #FF00FF */
+    /* Aesthetic Electric Colors */
+    --electric-violet: 270 65% 65%; /* Softer violet */
+    --aesthetic-cyan: 180 75% 55%; /* Refined cyan */
+    --electric-blue: 220 85% 60%; /* Electric blue */
+    --soft-magenta: 300 70% 60%; /* Softer magenta */
 
-    /* Previous neon colors for backwards compatibility */
-    --neon-pink: 330 100% 75%;
-    --neon-violet: 270 100% 75%;
+    /* Aesthetic color palette */
+    --violet-primary: 270 60% 65%;
+    --cyan-primary: 180 70% 55%;
+    --electric-primary: 220 80% 60%;
 
     /* UnClub catchy color scheme - Blue/Pink/Red */
     --unclub-blue: 220 100% 60%;
@@ -110,15 +111,16 @@
     --input: 0 0% 15%;
     --ring: 180 100% 75%;
 
-    /* Enhanced dark neon colors for better contrast */
-    --electric-violet: 270 100% 80%; /* Electric Violet */
-    --neon-cyan: 180 100% 60%; /* Cyan */
-    --neon-green: 120 100% 60%; /* Neon Green */
-    --magenta: 300 100% 60%; /* Magenta */
+    /* Enhanced aesthetic colors for dark mode */
+    --electric-violet: 270 70% 70%; /* Aesthetic Violet */
+    --aesthetic-cyan: 180 80% 65%; /* Beautiful Cyan */
+    --electric-blue: 220 85% 65%; /* Electric Blue */
+    --soft-magenta: 300 75% 65%; /* Refined Magenta */
 
-    /* Previous neon colors for backwards compatibility */
-    --neon-pink: 330 100% 80%;
-    --neon-violet: 270 100% 80%;
+    /* Aesthetic color palette */
+    --violet-primary: 270 65% 70%;
+    --cyan-primary: 180 75% 65%;
+    --electric-primary: 220 80% 65%;
 
     /* Enhanced dark UnClub colors for better contrast */
     --unclub-blue: 225 90% 70%;
@@ -340,20 +342,22 @@
     transform: translateY(0px);
   }
 
-  /* Simple cyan UI elements */
+  /* Aesthetic cyan UI elements */
   .neon-cyan-bg {
-    background: #06b6d4;
+    background: hsl(var(--aesthetic-cyan));
     color: #ffffff;
     font-family: "Satoshi", sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    border-radius: 12px;
   }
 
   .neon-cyan-bg:hover {
-    background: #0891b2;
-    transform: translateY(-2px);
+    background: hsl(var(--cyan-primary));
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(100, 200, 255, 0.3);
   }
 
   /* Simple category filter pills */
@@ -380,41 +384,43 @@
     transform: translateY(-1px);
   }
 
-  /* Event cards with dark glassmorphism and gradient borders */
+  /* Event cards with aesthetic glassmorphism and refined borders */
   .genz-event-card {
-    background: rgba(13, 13, 13, 0.8);
-    backdrop-filter: blur(20px);
-    border: 2px solid transparent;
-    border-radius: 20px;
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1.5px solid transparent;
+    border-radius: 16px;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .genz-event-card::before {
     content: "";
     position: absolute;
     inset: 0;
-    padding: 2px;
-    background: linear-gradient(135deg, #8a2be2, #00ffff);
+    padding: 1.5px;
+    background: linear-gradient(135deg, hsl(var(--electric-violet)), hsl(var(--aesthetic-cyan)));
     border-radius: inherit;
     mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     mask-composite: exclude;
     z-index: -1;
+    opacity: 0.8;
   }
 
   .genz-event-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-6px) scale(1.01);
     box-shadow:
-      0 20px 40px rgba(138, 43, 226, 0.3),
-      0 30px 60px rgba(0, 255, 255, 0.2);
+      0 15px 35px rgba(115, 115, 175, 0.2),
+      0 25px 50px rgba(100, 200, 255, 0.15);
   }
 
   .genz-event-card:hover::before {
-    background: linear-gradient(135deg, #9a4bf2, #1affff, #8a2be2);
-    animation: gradient-rotate 2s ease-in-out infinite;
+    background: linear-gradient(135deg, hsl(var(--violet-primary)), hsl(var(--cyan-primary)), hsl(var(--electric-primary)));
+    opacity: 1;
+    animation: aesthetic-glow 3s ease-in-out infinite;
   }
 
   /* Floating gradient blobs for background */
@@ -435,15 +441,15 @@
   }
 
   /* Keyframe animations */
-  @keyframes gradient-rotate {
+  @keyframes aesthetic-glow {
     0% {
-      background: linear-gradient(135deg, #8a2be2, #00ffff);
+      background: linear-gradient(135deg, hsl(var(--electric-violet)), hsl(var(--aesthetic-cyan)));
     }
     50% {
-      background: linear-gradient(135deg, #00ffff, #8a2be2, #9a4bf2);
+      background: linear-gradient(135deg, hsl(var(--aesthetic-cyan)), hsl(var(--electric-violet)), hsl(var(--electric-blue)));
     }
     100% {
-      background: linear-gradient(135deg, #8a2be2, #00ffff);
+      background: linear-gradient(135deg, hsl(var(--electric-violet)), hsl(var(--aesthetic-cyan)));
     }
   }
 
@@ -481,7 +487,7 @@
       rgba(255, 255, 255, 0.1),
       rgba(255, 255, 255, 0.05)
     );
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
     border-radius: 1rem;
   }
 
@@ -489,8 +495,8 @@
     content: "";
     position: absolute;
     inset: 0;
-    padding: 2px;
-    background: linear-gradient(45deg, #ff1493, #8b2bde, #00ffff);
+    padding: 1.5px;
+    background: linear-gradient(45deg, hsl(var(--violet-primary)), hsl(var(--electric-blue)), hsl(var(--aesthetic-cyan)));
     border-radius: inherit;
     mask:
       linear-gradient(#fff 0 0) content-box,
@@ -551,24 +557,24 @@
   }
 
   .neon-glow {
-    filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.4))
-      drop-shadow(0 0 20px rgba(138, 43, 226, 0.3))
-      drop-shadow(0 0 30px rgba(0, 255, 255, 0.2));
+    filter: drop-shadow(0 0 8px rgba(115, 115, 175, 0.3))
+      drop-shadow(0 0 15px rgba(120, 180, 220, 0.25))
+      drop-shadow(0 0 25px rgba(100, 200, 255, 0.2));
   }
 
   .neon-glow-hover:hover {
-    filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.6))
-      drop-shadow(0 0 30px rgba(138, 43, 226, 0.4))
-      drop-shadow(0 0 45px rgba(0, 255, 255, 0.3));
+    filter: drop-shadow(0 0 12px rgba(115, 115, 175, 0.4))
+      drop-shadow(0 0 20px rgba(120, 180, 220, 0.35))
+      drop-shadow(0 0 35px rgba(100, 200, 255, 0.25));
     transition: filter 0.3s ease;
   }
 
   .neon-text {
-    background: linear-gradient(45deg, #ff1493, #8b2bde, #00ffff);
+    background: linear-gradient(45deg, hsl(var(--violet-primary)), hsl(var(--electric-blue)), hsl(var(--aesthetic-cyan)));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+    text-shadow: 0 0 20px rgba(115, 115, 175, 0.4);
   }
 
   .category-badge-music {
