@@ -622,19 +622,19 @@ export default function Events() {
 
       {/* Header */}
       <motion.div
-        className="bg-black/20 backdrop-blur-md border-b border-white/10 mt-16 sm:mt-20"
+        className="relative bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50 mt-16 sm:mt-20"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-6">
+        <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
-              <h1 className="neon-heading text-3xl lg:text-4xl mb-2 leading-tight">
-                🎉 Discover Epic Events 🎉
+              <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2 leading-tight">
+                Discover Events
               </h1>
-              <p className="body-text text-base lg:text-lg leading-relaxed">
-                Find your next unforgettable experience!
+              <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
+                Find your next unforgettable experience
               </p>
             </div>
 
