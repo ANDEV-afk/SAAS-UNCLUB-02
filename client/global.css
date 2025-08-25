@@ -349,9 +349,9 @@
     transform: translateY(-2px);
   }
 
-  /* Category filter pills with Magenta → Electric Violet → Cyan gradient */
+  /* Simple category filter pills */
   .category-pill {
-    background: linear-gradient(135deg, #FF00FF, #8A2BE2, #00FFFF);
+    background: #6B7280;
     color: #FFFFFF;
     font-family: "Satoshi", sans-serif;
     font-weight: 500;
@@ -360,22 +360,17 @@
     padding: 8px 16px;
     border-radius: 20px;
     border: none;
-    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3), 0 8px 25px rgba(138, 43, 226, 0.2);
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
   }
 
   .category-pill:hover {
-    background: linear-gradient(135deg, #FF1AFF, #9A4BF2, #1AFFFF);
-    box-shadow: 0 6px 20px rgba(255, 0, 255, 0.4), 0 12px 35px rgba(138, 43, 226, 0.3), 0 0 25px rgba(0, 255, 255, 0.2);
-    transform: translateY(-2px) scale(1.05);
+    background: #4B5563;
+    transform: translateY(-1px);
   }
 
   .category-pill.active {
-    background: linear-gradient(135deg, #FF1AFF, #9A4BF2, #1AFFFF);
-    box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5), 0 15px 40px rgba(138, 43, 226, 0.4), 0 0 30px rgba(0, 255, 255, 0.3);
-    transform: translateY(-1px) scale(1.08);
+    background: #3B82F6;
+    transform: translateY(-1px);
   }
 
   /* Event cards with dark glassmorphism and gradient borders */
