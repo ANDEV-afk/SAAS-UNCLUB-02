@@ -180,7 +180,7 @@ export default function CreateParty() {
           {[1, 2, 3, 4].map((step) => (
             <motion.div
               key={step}
-              className={`flex items-center gap-2 ${step <= currentStep ? "text-unclub-blue" : "text-gray-400"}`}
+              className={`flex items-center gap-2 ${step <= currentStep ? "text-aesthetic-violet" : "text-gray-400"}`}
               whileHover={{ scale: 1.05 }}
             >
               <div
