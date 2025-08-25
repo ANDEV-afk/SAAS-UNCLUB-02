@@ -469,9 +469,7 @@ const EventCard = ({
         className="group"
       >
         <Card
-          variant="neon"
-          glow="strong"
-          className="overflow-hidden rounded-2xl border-0"
+          className="genz-event-card overflow-hidden"
         >
           <div className="relative overflow-hidden">
             <Image
