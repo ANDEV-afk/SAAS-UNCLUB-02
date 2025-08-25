@@ -45,10 +45,15 @@
     /* Gen Z Party Background */
     --app-background: 0 0% 5.1%; /* Dark navy #0D0D0D */
 
-    /* Neon gradient colors for typography */
+    /* New Gen Z Neon Colors */
+    --electric-violet: 270 100% 75%; /* #8A2BE2 equivalent */
+    --neon-cyan: 180 100% 50%; /* #00FFFF */
+    --neon-green: 120 100% 50%; /* #00FF00 */
+    --magenta: 300 100% 50%; /* #FF00FF */
+
+    /* Previous neon colors for backwards compatibility */
     --neon-pink: 330 100% 75%;
     --neon-violet: 270 100% 75%;
-    --neon-cyan: 180 100% 75%;
 
     /* UnClub catchy color scheme - Blue/Pink/Red */
     --unclub-blue: 220 100% 60%;
