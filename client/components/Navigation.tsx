@@ -13,7 +13,6 @@ import {
   Plus,
   Menu,
   X,
-  Search,
   Bell,
   Zap,
   Sparkles,
