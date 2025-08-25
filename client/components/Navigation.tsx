@@ -398,7 +398,7 @@ export function Navigation() {
                   className="relative"
                 >
                   <Link to="/profile">
-                    <div className="relative w-10 h-10 rounded-full border-2 border-purple-400/50 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center hover:border-purple-400 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]">
+                    <div className="relative w-10 h-10 rounded-full border-2 border-aesthetic-violet/50 bg-gradient-to-br from-aesthetic-violet/20 to-aesthetic-cyan/20 flex items-center justify-center hover:border-aesthetic-violet transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
                       {userProfile.avatar ? (
                         <img
                           src={userProfile.avatar}
