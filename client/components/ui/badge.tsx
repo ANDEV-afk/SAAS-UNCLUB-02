@@ -94,10 +94,28 @@ export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
-function Badge({ className, variant, ...props }: BadgeProps) {
+function Badge({ className, variant, size, glow, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <div className={cn(badgeVariants({ variant, size, glow }), className)} {...props} />
   );
+}
+
+// Helper function to get category-specific badge variant
+export function getCategoryBadgeVariant(category: string): string {
+  const categoryMap: Record<string, string> = {
+    "Music": "neon-music",
+    "Technology": "neon-tech",
+    "Tech": "neon-tech",
+    "Food & Drink": "neon-food",
+    "Food": "neon-food",
+    "Art": "neon-art",
+    "Business": "neon-business",
+    "Wellness": "neon-wellness",
+    "Party": "neon-party",
+    "Parties & Social": "neon-party"
+  };
+
+  return categoryMap[category] || "neon-party";
 }
 
 export { Badge, badgeVariants };
