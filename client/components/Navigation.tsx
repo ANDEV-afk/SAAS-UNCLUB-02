@@ -195,16 +195,15 @@ export function Navigation() {
                 </motion.div>
                 <div className="hidden sm:block">
                   <motion.span
-                    className="display-text text-2xl sm:text-3xl font-black bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent"
+                    className="display-text text-2xl sm:text-3xl font-black text-foreground"
                     whileHover={{
-                      backgroundImage:
-                        "linear-gradient(45deg, #fff, #e0f7ff, #fff)",
+                      scale: 1.05,
                     }}
                   >
                     UnClub
                   </motion.span>
                   <motion.div
-                    className="accent-text text-xs font-bold text-white/90 tracking-wider uppercase"
+                    className="accent-text text-xs font-bold text-muted-foreground tracking-wider uppercase"
                     animate={{
                       opacity: [0.7, 1, 0.7],
                     }}
