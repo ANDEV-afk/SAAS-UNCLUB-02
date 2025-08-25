@@ -761,7 +761,7 @@ export default function Events() {
               >
                 <Button
                   onClick={() => (window.location.href = "/dashboard")}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 rounded-2xl font-black text-lg shadow-lg"
+                  className="genz-button px-8 py-4 text-lg font-black"
                 >
                   🚀 START HOSTING NOW!
                 </Button>
