@@ -235,8 +235,8 @@ export default function CreateParty() {
                         onClick={() => setSelectedPartyType(type.id)}
                         className={`relative cursor-pointer rounded-3xl p-6 text-center border-2 transition-all duration-300 ${
                           selectedPartyType === type.id
-                            ? "border-unclub-blue bg-gradient-to-br from-unclub-blue/10 to-unclub-pink/10 shadow-xl"
-                            : "border-gray-200 hover:border-unclub-pink/50 hover:shadow-lg"
+                            ? "border-aesthetic-violet bg-gradient-to-br from-aesthetic-violet/10 to-aesthetic-cyan/10 shadow-xl"
+                            : "border-gray-200 hover:border-aesthetic-electric/50 hover:shadow-lg"
                         }`}
                       >
                         <div className="text-4xl mb-3">{type.emoji}</div>
