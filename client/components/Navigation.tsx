@@ -534,11 +534,30 @@ export function Navigation() {
                   transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
                   className="pt-4"
                 >
-                  <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-white/30 hover:bg-white/50 text-white rounded-2xl shadow-xl border border-white/50 font-bold py-4 text-lg">
+                  {isLoggedIn ? (
+                    <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg">
+                        <User className="w-5 h-5 mr-2" />
+                        {userProfile.name}
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        navigate('/auth');
+                        // Simulate login success for demo
+                        setTimeout(() => {
+                          setIsLoggedIn(true);
+                          setUserProfile({ name: 'John Doe', avatar: null });
+                        }, 2000);
+                      }}
+                      className="w-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 hover:from-purple-500/50 hover:to-pink-500/50 text-white rounded-2xl shadow-xl border border-purple-400/50 font-bold py-4 text-lg"
+                    >
+                      <Sparkles className="w-5 h-5 mr-2" />
                       Join the Party 🎉
                     </Button>
-                  </Link>
+                  )}
 
                   {/* Mobile Notifications */}
                   <div className="flex gap-3 pt-4">
