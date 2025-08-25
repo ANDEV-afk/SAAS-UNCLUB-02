@@ -310,10 +310,10 @@
 
 /* Glassmorphism and Neon Effects */
 @layer components {
-  /* Gen Z button styles with Electric Violet → Cyan → Neon Green gradient */
+  /* Simple button styles */
   .genz-button {
-    background: linear-gradient(135deg, #8A2BE2, #00FFFF, #00FF00);
-    color: #000000;
+    background: #3B82F6;
+    color: #FFFFFF;
     font-family: "Satoshi", sans-serif;
     font-weight: 500;
     text-transform: uppercase;
@@ -321,20 +321,16 @@
     border: none;
     padding: 12px 24px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
   }
 
   .genz-button:hover {
-    background: linear-gradient(135deg, #9A4BF2, #1AFFFF, #1AFF1A);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6), 0 0 60px rgba(0, 255, 255, 0.4), 0 0 80px rgba(0, 255, 0, 0.3);
-    transform: translateY(-3px) scale(1.05);
+    background: #2563EB;
+    transform: translateY(-2px);
   }
 
   .genz-button:active {
-    transform: translateY(-1px) scale(1.02);
+    transform: translateY(0px);
   }
 
   /* Neon cyan UI elements (keeping for backwards compatibility) */
