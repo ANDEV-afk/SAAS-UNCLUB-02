@@ -155,9 +155,7 @@
   }
 
   body {
-    @apply antialiased;
-    background-color: #0d0d0d; /* Force dark navy background */
-    color: #f0f0f0; /* Brighter light text for better visibility */
+    @apply bg-background text-foreground antialiased;
     font-family:
       "General Sans",
       -apple-system,
@@ -170,6 +168,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Headings (H1, H2, H3) - Clash Display Bold with simple white text */
