@@ -249,7 +249,7 @@ export default function CreateParty() {
 
                         {selectedPartyType === type.id && (
                           <motion.div
-                            className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-unclub-blue to-unclub-pink rounded-full flex items-center justify-center"
+                            className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan rounded-full flex items-center justify-center"
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                           >
