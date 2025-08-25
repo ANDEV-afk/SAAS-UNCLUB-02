@@ -958,34 +958,43 @@ export default function Dashboard() {
               whileHover={{ y: -10, scale: 1.05 }}
               className="group cursor-pointer"
             >
-              <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl border-0 shadow-xl overflow-hidden transition-all duration-300 group-hover:shadow-2xl">
-                <CardContent className="p-8 text-center">
-                  <motion.div
-                    className={`w-20 h-20 bg-gradient-to-br ${stat.gradient} rounded-3xl flex items-center justify-center shadow-lg mx-auto mb-6`}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <stat.icon className="w-10 h-10 text-white" />
-                  </motion.div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-4xl font-black text-gray-900 dark:text-white">
-                      {stat.value}
-                    </h3>
-                    <p className="text-lg font-bold text-gray-700 dark:text-gray-300">
-                      {stat.title}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {stat.description}
-                    </p>
-                    <Badge
-                      className={`bg-gradient-to-r ${stat.gradient} text-white rounded-full px-4 py-2 font-bold`}
+              <AnimatedCard
+                effects={["sparkles", "floating"]}
+                intensity="high"
+                className="group"
+              >
+                <Card variant="glassmorphism" glow="strong" className="rounded-3xl border-0 overflow-hidden">
+                  <CardContent className="p-8 text-center">
+                    <motion.div
+                      className={`w-20 h-20 bg-gradient-to-br ${stat.gradient} rounded-3xl flex items-center justify-center shadow-lg mx-auto mb-6`}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
                     >
-                      {stat.change} ↗️
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
+                      <stat.icon className="w-10 h-10 text-white" />
+                    </motion.div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-4xl font-black text-gray-900 dark:text-white">
+                        {stat.value}
+                      </h3>
+                      <p className="text-lg font-bold text-gray-700 dark:text-gray-300">
+                        {stat.title}
+                      </p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {stat.description}
+                      </p>
+                      <Badge
+                        variant="neon-party"
+                        size="lg"
+                        glow="strong"
+                        className="rounded-full px-4 py-2 font-bold animate-neon-pulse"
+                      >
+                        {stat.change} ↗️
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
             </motion.div>
           ))}
         </motion.div>
