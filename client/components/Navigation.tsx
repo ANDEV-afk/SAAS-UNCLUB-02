@@ -339,7 +339,7 @@ export function Navigation() {
                     </motion.div>
                   </motion.div>
                 </DialogTrigger>
-                <DialogContent className="max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-0 rounded-3xl">
+                <DialogContent className="max-w-md bg-background/95 backdrop-blur-xl border border-border rounded-3xl transition-colors duration-300">
                   <DialogHeader>
                     <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-aesthetic-violet to-aesthetic-cyan bg-clip-text text-transparent">
                       🔔 Notifications
@@ -347,36 +347,36 @@ export function Navigation() {
                   </DialogHeader>
                   <div className="p-6">
                     <div className="space-y-4">
-                      <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl">
-                        <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-1">
+                      <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-2xl transition-colors duration-300">
+                        <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-1 transition-colors duration-300">
                           🎉 Event Reminder
                         </h4>
-                        <p className="text-sm text-blue-600 dark:text-blue-400">
+                        <p className="text-sm text-blue-600 dark:text-blue-400 transition-colors duration-300">
                           Summer Music Festival starts in 2 hours!
                         </p>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-muted-foreground transition-colors duration-300">
                           10 min ago
                         </span>
                       </div>
-                      <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl">
-                        <h4 className="font-semibold text-green-700 dark:text-green-300 mb-1">
+                      <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 rounded-2xl transition-colors duration-300">
+                        <h4 className="font-semibold text-green-700 dark:text-green-300 mb-1 transition-colors duration-300">
                           💰 Payment Received
                         </h4>
-                        <p className="text-sm text-green-600 dark:text-green-400">
+                        <p className="text-sm text-green-600 dark:text-green-400 transition-colors duration-300">
                           You earned $125 from ticket sales
                         </p>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-muted-foreground transition-colors duration-300">
                           1 hour ago
                         </span>
                       </div>
-                      <div className="p-4 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl">
-                        <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-1">
+                      <div className="p-4 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/30 dark:to-red-900/30 rounded-2xl transition-colors duration-300">
+                        <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-1 transition-colors duration-300">
                           ⭐ New Review
                         </h4>
-                        <p className="text-sm text-orange-600 dark:text-orange-400">
+                        <p className="text-sm text-orange-600 dark:text-orange-400 transition-colors duration-300">
                           Someone left a 5-star review for your event!
                         </p>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-muted-foreground transition-colors duration-300">
                           3 hours ago
                         </span>
                       </div>
