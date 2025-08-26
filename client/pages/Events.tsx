@@ -488,7 +488,7 @@ const EventCard = ({
               />
 
               {/* Category Badge */}
-              <div className="absolute top-4 left-4">
+              <div className="absolute top-4 left-4 flex flex-col gap-2">
                 <Badge
                   variant={getCategoryBadgeVariant(event.category) as any}
                   size="lg"
@@ -497,6 +497,11 @@ const EventCard = ({
                 >
                   {event.category}
                 </Badge>
+                {event.ageRestriction && (
+                  <Badge className="bg-red-600 text-white font-bold px-2 py-1 rounded-full text-xs">
+                    🔞 {event.ageRestriction}+
+                  </Badge>
+                )}
               </div>
 
               {/* Star Rating in top right */}
