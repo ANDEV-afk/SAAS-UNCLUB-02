@@ -277,7 +277,7 @@ const AuthForm = ({
                       onChange={(e) =>
                         handleInputChange("firstName", e.target.value)
                       }
-                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground duration-300"
+                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                 </motion.div>
@@ -294,7 +294,7 @@ const AuthForm = ({
                       onChange={(e) =>
                         handleInputChange("lastName", e.target.value)
                       }
-                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground duration-300"
+                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                 </motion.div>
