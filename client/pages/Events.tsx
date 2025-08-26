@@ -465,125 +465,87 @@ const EventCard = ({
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className="group"
     >
-      <AnimatedCard
-        effects={["sparkles", "confetti"]}
-        intensity="medium"
-        className="group"
-      >
-        <Card
-          variant="neon"
-          glow="strong"
-          className="overflow-hidden rounded-2xl border-0"
-        >
-          <div className="relative overflow-hidden">
-            <motion.div
-              className="relative h-48 overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image
-                src={event.image}
-                alt={event.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+      <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 shadow-xl hover:shadow-2xl">
+        {/* Image Section */}
+        <div className="relative overflow-hidden h-48">
+          <Image
+            src={event.image}
+            alt={event.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
 
-              {/* Category Badge */}
-              <div className="absolute top-4 left-4 flex flex-col gap-2">
-                <Badge
-                  variant={getCategoryBadgeVariant(event.category) as any}
-                  size="lg"
-                  glow="medium"
-                  className="animate-neon-pulse"
-                >
-                  {event.category}
-                </Badge>
-                {event.ageRestriction && (
-                  <Badge className="bg-red-600 text-white font-bold px-2 py-1 rounded-full text-xs">
-                    🔞 {event.ageRestriction}+
-                  </Badge>
-                )}
-              </div>
-
-              {/* Star Rating in top right */}
-              <div className="absolute top-4 right-4">
-                <motion.div
-                  className="bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                </motion.div>
-              </div>
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            </motion.div>
+          {/* Category Badge */}
+          <div className="absolute top-4 left-4">
+            <Badge className="bg-party-pink text-white font-bold px-3 py-1.5 text-xs rounded-full">
+              🎉 {event.category}
+            </Badge>
           </div>
 
-          <CardContent className="p-6">
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <Calendar className="w-4 h-4" />
-              {event.date}
+          {/* Age Restriction Badge */}
+          {event.ageRestriction && (
+            <div className="absolute top-4 right-4">
+              <Badge className="bg-red-600 text-white font-bold px-2 py-1 rounded-full text-xs">
+                🔞 {event.ageRestriction}+
+              </Badge>
             </div>
+          )}
 
-            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2 group-hover:text-aesthetic-violet dark:group-hover:text-aesthetic-cyan transition-colors">
-              {event.title}
-            </h3>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+        </div>
 
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-              <MapPin className="w-4 h-4" />
-              {event.location}
-            </div>
+        {/* Content Section */}
+        <div className="p-6 space-y-4">
+          {/* Date */}
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <Calendar className="w-4 h-4" />
+            <span>{event.date}</span>
+          </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
-                  ${event.price}
-                </span>
-                <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
-                    {event.attendees}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    {event.rating}
-                  </div>
+          {/* Title */}
+          <h3 className="text-white font-bold text-xl leading-tight group-hover:text-party-pink transition-colors duration-300">
+            {event.title}
+          </h3>
+
+          {/* Location */}
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <MapPin className="w-4 h-4" />
+            <span>{event.location}</span>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="flex items-center justify-between pt-2">
+            {/* Price and Stats */}
+            <div className="space-y-2">
+              <div className="text-2xl font-bold text-white">
+                ${event.price}
+              </div>
+              <div className="flex items-center gap-4 text-gray-400 text-sm">
+                <div className="flex items-center gap-1">
+                  <Users className="w-4 h-4" />
+                  <span>{event.attendees}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                  <span>{event.rating}</span>
                 </div>
               </div>
+            </div>
 
+            {/* Book Button */}
+            <Link to={`/event/${event.id}`}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex-shrink-0"
               >
-                {event.ageRestriction ? (
-                  <Button
-                    size="sm"
-                    onClick={() => {
-                      alert(`🔞 This event is restricted to ages ${event.ageRestriction}+. Please verify your age before purchasing tickets.`);
-                      // In a real app, you'd check user's age from their profile
-                      window.location.href = `/event/${event.id}`;
-                    }}
-                    className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
-                  >
-                    🎟️ Get Tickets
-                  </Button>
-                ) : (
-                  <Link to={`/event/${event.id}`}>
-                    <Button
-                      size="sm"
-                      className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
-                    >
-                      🎟️ Get Tickets
-                    </Button>
-                  </Link>
-                )}
+                <Button className="bg-gradient-to-r from-party-pink to-party-blue hover:from-party-blue hover:to-party-pink text-white font-semibold px-6 py-2 rounded-xl transition-all duration-300">
+                  JOIN PARTY 🎉
+                </Button>
               </motion.div>
-            </div>
-          </CardContent>
-        </Card>
-      </AnimatedCard>
+            </Link>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
