@@ -817,7 +817,7 @@ export default function Events() {
                       className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                         selectedCategory === category
                           ? "bg-blue-600 text-white"
-                          : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white border border-gray-700/50"
+                          : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground border border-border/50 transition-colors duration-300"
                       }`}
                     >
                       {category}
