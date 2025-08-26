@@ -44,6 +44,7 @@ const allEvents = [
     rating: 4.8,
     category: "Music",
     featured: true,
+    ageRestriction: 18,
   },
   {
     id: 2,
