@@ -90,8 +90,8 @@ const AuthForm = ({
       transition={{ duration: 0.3 }}
       className="w-full max-w-md mx-auto"
     >
-      <Card className="bg-white/90 backdrop-blur-xl rounded-3xl border-0 shadow-2xl overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-instagram-pink/10 via-instagram-purple/10 to-instagram-orange/10" />
+      <Card className="bg-card/95 backdrop-blur-xl rounded-3xl border border-border/20 shadow-2xl overflow-hidden transition-colors duration-300">
+        <div className="absolute inset-0 bg-gradient-to-br from-aesthetic-violet/5 via-aesthetic-electric/5 to-aesthetic-cyan/5 dark:from-aesthetic-violet/10 dark:via-aesthetic-electric/10 dark:to-aesthetic-cyan/10 transition-colors duration-300" />
 
         <CardContent className="relative p-8">
           {/* Header */}
