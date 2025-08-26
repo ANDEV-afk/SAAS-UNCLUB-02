@@ -496,7 +496,7 @@ const EventCard = ({
           </h3>
 
           {/* Location */}
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
+          <div className="flex items-center gap-2 text-muted-foreground text-sm transition-colors duration-300">
             <MapPin className="w-4 h-4" />
             <span>{event.location}</span>
           </div>
