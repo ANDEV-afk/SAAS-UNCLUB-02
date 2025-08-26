@@ -386,12 +386,23 @@ const CreateEventModal = ({
               className="space-y-8"
             >
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  🌟 What Amazing Event Will You Create?
-                </h3>
-                <p className="text-gray-600">
-                  Choose your category and let's build something incredible
-                  together!
+                <motion.h3
+                  className="text-4xl font-black text-transparent bg-gradient-to-r from-party-pink via-party-blue to-party-red bg-clip-text mb-4"
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                  style={{ backgroundSize: "300% 300%" }}
+                >
+                  🎉 What Epic Party Will You Create? 🚀
+                </motion.h3>
+                <p className="text-gray-600 text-xl font-semibold">
+                  Choose your party style and let's create the most unforgettable experience ever!
+                  <br />
+                  <span className="text-party-pink">✨ Every great party starts with a vision! ✨</span>
                 </p>
               </div>
 
