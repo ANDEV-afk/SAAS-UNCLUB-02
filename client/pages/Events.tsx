@@ -374,85 +374,74 @@ const EventCard = ({
         whileHover={{ x: 4 }}
         className="group"
       >
-        <AnimatedCard
-          effects={["sparkles", "confetti"]}
-          intensity="medium"
-          className="group"
-        >
-          <Card className="genz-event-card overflow-hidden">
-            <CardContent className="p-6">
-              <div className="flex gap-6">
-                <motion.div
-                  className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Image
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
+        <Card className="bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300">
+          <CardContent className="p-6">
+            <div className="flex gap-6">
+              <motion.div
+                className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
 
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between mb-2">
-                    <div>
-                      <Badge
-                        variant={getCategoryBadgeVariant(event.category) as any}
-                        size="lg"
-                        glow="medium"
-                        className="mb-2"
-                      >
-                        {event.category}
-                      </Badge>
-                      <h3 className="font-bold text-lg text-white group-hover:text-aesthetic-cyan transition-colors duration-300">
-                        {event.title}
-                      </h3>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <Badge className="bg-party-pink text-white font-bold px-3 py-1 text-xs rounded-full mb-2">
+                      🎉 {event.category}
+                    </Badge>
+                    <h3 className="font-bold text-lg text-white group-hover:text-party-pink transition-colors duration-300">
+                      {event.title}
+                    </h3>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-xl text-white">
+                      ${event.price}
                     </div>
-                    <div className="text-right">
-                      <div className="font-bold text-xl text-gray-900 dark:text-gray-100">
-                        ${event.price}
-                      </div>
-                      <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        {event.rating}
-                      </div>
+                    <div className="flex items-center gap-1 text-sm text-gray-400">
+                      <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                      {event.rating}
                     </div>
                   </div>
-
-                  <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {event.date}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      {event.location}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      {event.attendees}
-                    </div>
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-block flex-shrink-0"
-                  >
-                    <Link to={`/event/${event.id}`}>
-                      <Button
-                        size="sm"
-                        className="genz-button text-xs px-3 py-1.5 whitespace-nowrap"
-                      >
-                        🎟️ Get Tickets
-                      </Button>
-                    </Link>
-                  </motion.div>
                 </div>
+
+                <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {event.date}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <MapPin className="w-4 h-4" />
+                    {event.location}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Users className="w-4 h-4" />
+                    {event.attendees}
+                  </div>
+                </div>
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block flex-shrink-0"
+                >
+                  <Link to={`/event/${event.id}`}>
+                    <Button
+                      size="sm"
+                      className="bg-gradient-to-r from-party-pink to-party-blue hover:from-party-blue hover:to-party-pink text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300"
+                    >
+                      JOIN PARTY 🎉
+                    </Button>
+                  </Link>
+                </motion.div>
               </div>
-            </CardContent>
-          </Card>
-        </AnimatedCard>
+            </div>
+          </CardContent>
+        </Card>
       </motion.div>
     );
   }
