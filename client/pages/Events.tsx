@@ -622,11 +622,11 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
-              <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-2 leading-tight transition-colors duration-300">
-                🎉 Discover Parties
+              <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-3 leading-tight transition-colors duration-300">
+                🎉 Discover Amazing Parties
               </h1>
-              <p className="text-muted-foreground text-base lg:text-lg leading-relaxed transition-colors duration-300">
-                Find your next epic party experience
+              <p className="text-muted-foreground text-base lg:text-lg leading-relaxed transition-colors duration-300 max-w-2xl">
+                Find your next epic party experience and connect with amazing people in your area
               </p>
             </div>
 
