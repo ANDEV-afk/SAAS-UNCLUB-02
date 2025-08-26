@@ -468,10 +468,13 @@ const CreateEventModal = ({
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-lg font-bold text-gray-700 mb-2">
-                      📅 When's the party?
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="bg-gradient-to-br from-party-pink/20 to-white rounded-2xl p-4 border-2 border-party-pink/30"
+                  >
+                    <label className="block text-xl font-black text-party-pink mb-3">
+                      📅 When's the PARTY?
                     </label>
                     <Input
                       type="date"
@@ -479,12 +482,15 @@ const CreateEventModal = ({
                       onChange={(e) =>
                         setEventData({ ...eventData, date: e.target.value })
                       }
-                      className="rounded-2xl h-12 border-2 border-gray-200 focus:border-purple-500"
+                      className="rounded-xl h-14 border-2 border-party-pink/50 focus:border-party-pink bg-white text-lg font-semibold"
                     />
-                  </div>
-                  <div>
-                    <label className="block text-lg font-bold text-gray-700 mb-2">
-                      ⏰ What time?
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="bg-gradient-to-br from-party-blue/20 to-white rounded-2xl p-4 border-2 border-party-blue/30"
+                  >
+                    <label className="block text-xl font-black text-party-blue mb-3">
+                      ⏰ Party TIME?
                     </label>
                     <Input
                       type="time"
@@ -492,23 +498,26 @@ const CreateEventModal = ({
                       onChange={(e) =>
                         setEventData({ ...eventData, time: e.target.value })
                       }
-                      className="rounded-2xl h-12 border-2 border-gray-200 focus:border-purple-500"
+                      className="rounded-xl h-14 border-2 border-party-blue/50 focus:border-party-blue bg-white text-lg font-semibold"
                     />
-                  </div>
-                  <div>
-                    <label className="block text-lg font-bold text-gray-700 mb-2">
-                      💰 Ticket price
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="bg-gradient-to-br from-green-400/20 to-white rounded-2xl p-4 border-2 border-green-400/30"
+                  >
+                    <label className="block text-xl font-black text-green-600 mb-3">
+                      💰 Entry Price
                     </label>
                     <Input
                       type="number"
-                      placeholder="0 for free!"
+                      placeholder="0 for FREE PARTY! 🎉"
                       value={eventData.price}
                       onChange={(e) =>
                         setEventData({ ...eventData, price: e.target.value })
                       }
-                      className="rounded-2xl h-12 border-2 border-gray-200 focus:border-purple-500"
+                      className="rounded-xl h-14 border-2 border-green-400/50 focus:border-green-400 bg-white text-lg font-semibold"
                     />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
