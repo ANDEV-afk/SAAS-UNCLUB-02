@@ -58,6 +58,7 @@ const allEvents = [
     rating: 4.9,
     category: "Technology",
     featured: true,
+    ageRestriction: 18,
   },
   {
     id: 3,
@@ -71,6 +72,7 @@ const allEvents = [
     rating: 4.7,
     category: "Food & Drink",
     featured: false,
+    ageRestriction: 21,
   },
   {
     id: 4,
@@ -84,6 +86,7 @@ const allEvents = [
     rating: 4.6,
     category: "Business",
     featured: false,
+    ageRestriction: 18,
   },
   {
     id: 5,
@@ -97,6 +100,7 @@ const allEvents = [
     rating: 4.9,
     category: "Music",
     featured: false,
+    ageRestriction: null,
   },
   {
     id: 6,
@@ -110,6 +114,7 @@ const allEvents = [
     rating: 4.5,
     category: "Business",
     featured: false,
+    ageRestriction: 18,
   },
   {
     id: 7,
@@ -123,6 +128,7 @@ const allEvents = [
     rating: 4.6,
     category: "Art",
     featured: false,
+    ageRestriction: null,
   },
   {
     id: 8,
@@ -136,6 +142,7 @@ const allEvents = [
     rating: 4.8,
     category: "Wellness",
     featured: false,
+    ageRestriction: null,
   },
 ];
 
