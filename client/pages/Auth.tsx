@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Eye,
   EyeOff,
@@ -10,7 +11,9 @@ import {
   Star,
   Sparkles,
   Camera,
+  Calendar,
 } from "lucide-react";
+import { useAuth } from "../contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -57,17 +60,25 @@ const AuthForm = ({
   onToggle: () => void;
 }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { login, signup } = useAuth();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
+    dateOfBirth: "",
     agreeToTerms: false,
+    ageVerified: false,
   });
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    setError(null); // Clear error when user types
   };
 
   return (
@@ -164,16 +175,91 @@ const AuthForm = ({
             <Separator className="flex-1" />
           </motion.div>
 
+          {/* Error Message */}
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-2xl text-sm"
+            >
+              {error}
+            </motion.div>
+          )}
+
           {/* Form */}
           <motion.form
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              // Handle form submission
-              console.log("Form submitted:", formData);
+              setError(null);
+              setIsLoading(true);
+
+              try {
+                if (!isLogin) {
+                  // Age verification for signup
+                  if (!formData.ageVerified) {
+                    setError(
+                      "🔞 You must be 18 years or older to create an account.",
+                    );
+                    setIsLoading(false);
+                    return;
+                  }
+
+                  // Check date of birth if provided
+                  if (formData.dateOfBirth) {
+                    const birthDate = new Date(formData.dateOfBirth);
+                    const today = new Date();
+                    let age = today.getFullYear() - birthDate.getFullYear();
+                    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+                    if (
+                      monthDiff < 0 ||
+                      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+                    ) {
+                      age--;
+                    }
+
+                    if (age < 18) {
+                      setError(
+                        "🔞 You must be 18 years or older to create an account. Please come back when you're older!",
+                      );
+                      setIsLoading(false);
+                      return;
+                    }
+                  }
+
+                  if (!formData.agreeToTerms) {
+                    setError(
+                      "📋 Please agree to the Terms of Service and Privacy Policy.",
+                    );
+                    setIsLoading(false);
+                    return;
+                  }
+
+                  if (formData.password !== formData.confirmPassword) {
+                    setError("🔐 Passwords don't match. Please try again.");
+                    setIsLoading(false);
+                    return;
+                  }
+
+                  // Sign up user
+                  await signup(formData);
+                  navigate("/profile"); // Redirect to profile after signup
+                } else {
+                  // Log in user
+                  await login(formData.email, formData.password);
+                  navigate("/profile"); // Redirect to profile after login
+                }
+              } catch (error: any) {
+                setError(
+                  error.message || "Something went wrong. Please try again.",
+                );
+              } finally {
+                setIsLoading(false);
+              }
             }}
           >
             {!isLogin && (
@@ -290,25 +376,73 @@ const AuthForm = ({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
-                className="flex items-center space-x-2"
               >
-                <Checkbox
-                  id="terms"
-                  checked={formData.agreeToTerms}
-                  onCheckedChange={(checked) =>
-                    handleInputChange("agreeToTerms", checked as boolean)
-                  }
-                />
-                <label htmlFor="terms" className="text-sm text-gray-600">
-                  I agree to the{" "}
-                  <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
-                    Terms of Service
-                  </span>{" "}
-                  and{" "}
-                  <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
-                    Privacy Policy
-                  </span>
-                </label>
+                <div className="relative">
+                  <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                  <Input
+                    type="date"
+                    placeholder="Date of Birth"
+                    value={formData.dateOfBirth}
+                    onChange={(e) =>
+                      handleInputChange("dateOfBirth", e.target.value)
+                    }
+                    className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                    max={
+                      new Date(
+                        new Date().setFullYear(new Date().getFullYear() - 13),
+                      )
+                        .toISOString()
+                        .split("T")[0]
+                    }
+                  />
+                </div>
+              </motion.div>
+            )}
+
+            {!isLogin && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6 }}
+                className="space-y-3"
+              >
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="age-verification"
+                    checked={formData.ageVerified}
+                    onCheckedChange={(checked) =>
+                      handleInputChange("ageVerified", checked as boolean)
+                    }
+                  />
+                  <label
+                    htmlFor="age-verification"
+                    className="text-sm text-gray-600"
+                  >
+                    <span className="font-semibold text-red-600">
+                      🔞 I confirm that I am 18 years old or older
+                    </span>
+                  </label>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="terms"
+                    checked={formData.agreeToTerms}
+                    onCheckedChange={(checked) =>
+                      handleInputChange("agreeToTerms", checked as boolean)
+                    }
+                  />
+                  <label htmlFor="terms" className="text-sm text-gray-600">
+                    I agree to the{" "}
+                    <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
+                      Terms of Service
+                    </span>{" "}
+                    and{" "}
+                    <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
+                      Privacy Policy
+                    </span>
+                  </label>
+                </div>
               </motion.div>
             )}
 
@@ -344,20 +478,28 @@ const AuthForm = ({
             >
               <Button
                 type="submit"
-                className="w-full h-12 bg-gradient-to-r from-instagram-pink via-instagram-purple to-instagram-orange hover:from-instagram-purple hover:to-instagram-pink text-white rounded-2xl font-bold text-lg shadow-2xl"
+                disabled={isLoading}
+                className="w-full h-12 bg-gradient-to-r from-instagram-pink via-instagram-purple to-instagram-orange hover:from-instagram-purple hover:to-instagram-pink text-white rounded-2xl font-bold text-lg shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <motion.span
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {isLogin ? "Sign In & Explore 🚀" : "Create Account 🎉"}
-                </motion.span>
+                {isLoading ? (
+                  <span className="flex items-center gap-2">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    {isLogin ? "Signing In..." : "Creating Account..."}
+                  </span>
+                ) : (
+                  <motion.span
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {isLogin ? "Sign In & Explore 🚀" : "Create Account 🎉"}
+                  </motion.span>
+                )}
               </Button>
             </motion.div>
           </motion.form>

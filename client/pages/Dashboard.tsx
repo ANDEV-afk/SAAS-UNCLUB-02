@@ -237,34 +237,18 @@ const CreateEventModal = ({
   });
 
   const categories = [
+    { name: "Birthday Party", icon: "🎂", color: "from-pink-500 to-red-500" },
+    { name: "Dance Party", icon: "💃", color: "from-purple-500 to-pink-500" },
+    { name: "Pool Party", icon: "🏊‍♀️", color: "from-blue-500 to-cyan-500" },
+    { name: "Costume Party", icon: "🎭", color: "from-orange-500 to-red-500" },
+    { name: "House Party", icon: "🏠", color: "from-green-500 to-teal-500" },
+    { name: "Celebration", icon: "🎊", color: "from-yellow-500 to-orange-500" },
+    { name: "Beach Party", icon: "🏖️", color: "from-cyan-500 to-blue-500" },
     {
-      name: "Music & Concerts",
-      icon: "🎵",
-      color: "from-purple-500 to-pink-500",
+      name: "Rooftop Party",
+      icon: "🌃",
+      color: "from-purple-500 to-indigo-500",
     },
-    {
-      name: "Tech & Innovation",
-      icon: "💻",
-      color: "from-blue-500 to-cyan-500",
-    },
-    { name: "Food & Drink", icon: "🍽️", color: "from-orange-500 to-red-500" },
-    { name: "Art & Culture", icon: "🎨", color: "from-pink-500 to-purple-500" },
-    {
-      name: "Business & Networking",
-      icon: "💼",
-      color: "from-gray-600 to-gray-800",
-    },
-    {
-      name: "Health & Wellness",
-      icon: "🧘",
-      color: "from-green-500 to-teal-500",
-    },
-    {
-      name: "Sports & Fitness",
-      icon: "⚽",
-      color: "from-blue-500 to-green-500",
-    },
-    { name: "Parties & Social", icon: "🎉", color: "from-pink-500 to-red-500" },
   ];
 
   const popularTags = [
@@ -284,14 +268,62 @@ const CreateEventModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl max-h-[95vh] overflow-y-auto bg-gradient-to-br from-white via-purple-50/50 to-pink-50/50 border-0 rounded-3xl">
-        <DialogHeader>
-          <DialogTitle className="text-4xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent text-center">
-            ✨ Create Your Epic Event ✨
-          </DialogTitle>
-          <p className="text-center text-gray-600 text-lg">
-            Turn your vision into an unforgettable experience!
-          </p>
+      <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto bg-gradient-to-br from-party-pink/20 via-party-blue/20 to-party-red/20 backdrop-blur-xl border-4 border-white/30 rounded-3xl shadow-2xl">
+        <DialogHeader className="relative overflow-hidden rounded-t-3xl p-8 bg-gradient-to-r from-party-pink via-party-blue to-party-red">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-white/20"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  width: `${10 + Math.random() * 20}px`,
+                  height: `${10 + Math.random() * 20}px`,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.3, 0.8, 0.3],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2 + Math.random() * 3,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative z-10"
+          >
+            <DialogTitle className="text-5xl lg:text-6xl font-black text-white text-center mb-4">
+              <motion.span
+                animate={{
+                  textShadow: [
+                    "0 0 20px rgba(255,255,255,0.5)",
+                    "0 0 40px rgba(255,255,255,0.8)",
+                    "0 0 20px rgba(255,255,255,0.5)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
+                🎉 CREATE EPIC PARTY! 🎊
+              </motion.span>
+            </DialogTitle>
+            <p className="text-center text-white/90 text-xl font-bold">
+              Turn your party vision into the most unforgettable experience
+              ever! 🚀
+            </p>
+          </motion.div>
         </DialogHeader>
 
         <motion.div
@@ -300,32 +332,74 @@ const CreateEventModal = ({
           className="p-8"
         >
           {/* Enhanced Progress Steps */}
-          <div className="flex items-center justify-center gap-6 mb-10">
+          <div className="flex items-center justify-center gap-8 mb-12">
             {[
-              { num: 1, label: "🎯 Concept", desc: "What's your vision?" },
-              { num: 2, label: "📝 Details", desc: "Fill in the magic" },
-              { num: 3, label: "🚀 Launch", desc: "Share with the world" },
-            ].map((stepInfo) => (
+              {
+                num: 1,
+                label: "🎯 Party Concept",
+                desc: "What's your party vision?",
+                emoji: "🎨",
+              },
+              {
+                num: 2,
+                label: "🎪 Party Details",
+                desc: "Add the magical details",
+                emoji: "✨",
+              },
+              {
+                num: 3,
+                label: "🚀 Launch Party",
+                desc: "Share with the world!",
+                emoji: "🎉",
+              },
+            ].map((stepInfo, index) => (
               <motion.div
                 key={stepInfo.num}
-                className={`flex flex-col items-center gap-2 ${stepInfo.num <= step ? "text-purple-600" : "text-gray-400"}`}
-                whileHover={{ scale: 1.05 }}
+                className={`flex flex-col items-center gap-3 ${stepInfo.num <= step ? "text-party-pink" : "text-gray-400"}`}
+                whileHover={{ scale: 1.1, y: -5 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
               >
-                <div
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-lg shadow-lg ${
+                <motion.div
+                  className={`relative w-20 h-20 rounded-full flex items-center justify-center font-bold text-xl shadow-2xl ${
                     stepInfo.num <= step
-                      ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                      ? "bg-gradient-to-br from-party-pink via-party-blue to-party-red text-white"
                       : "bg-gray-200 text-gray-500"
                   }`}
+                  animate={
+                    stepInfo.num <= step
+                      ? {
+                          boxShadow: [
+                            "0 0 0 0 rgba(255, 105, 180, 0.4)",
+                            "0 0 0 20px rgba(255, 105, 180, 0)",
+                          ],
+                        }
+                      : {}
+                  }
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                  }}
                 >
-                  {stepInfo.num}
-                </div>
+                  <span className="text-2xl">{stepInfo.emoji}</span>
+                  <div className="absolute -bottom-1 -right-1 text-xs bg-white rounded-full w-6 h-6 flex items-center justify-center text-gray-800 font-black border-2 border-party-pink">
+                    {stepInfo.num}
+                  </div>
+                </motion.div>
                 <div className="text-center">
-                  <div className="font-bold text-sm">{stepInfo.label}</div>
-                  <div className="text-xs opacity-70">{stepInfo.desc}</div>
+                  <div className="font-black text-base">{stepInfo.label}</div>
+                  <div className="text-sm opacity-70 font-semibold">
+                    {stepInfo.desc}
+                  </div>
                 </div>
                 {stepInfo.num < 3 && (
-                  <div className="w-20 h-px bg-gradient-to-r from-purple-300 to-pink-300" />
+                  <motion.div
+                    className="w-24 h-1 rounded-full bg-gradient-to-r from-party-pink to-party-blue"
+                    initial={{ width: 0 }}
+                    animate={{ width: stepInfo.num < step ? 96 : 0 }}
+                    transition={{ duration: 0.5 }}
+                  />
                 )}
               </motion.div>
             ))}
@@ -338,12 +412,26 @@ const CreateEventModal = ({
               className="space-y-8"
             >
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  🌟 What Amazing Event Will You Create?
-                </h3>
-                <p className="text-gray-600">
-                  Choose your category and let's build something incredible
-                  together!
+                <motion.h3
+                  className="text-4xl font-black text-transparent bg-gradient-to-r from-party-pink via-party-blue to-party-red bg-clip-text mb-4"
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                  style={{ backgroundSize: "300% 300%" }}
+                >
+                  🎉 What Epic Party Will You Create? 🚀
+                </motion.h3>
+                <p className="text-gray-600 text-xl font-semibold">
+                  Choose your party style and let's create the most
+                  unforgettable experience ever!
+                  <br />
+                  <span className="text-party-pink">
+                    ✨ Every great party starts with a vision! ✨
+                  </span>
                 </p>
               </div>
 
@@ -386,28 +474,37 @@ const CreateEventModal = ({
                 ))}
               </div>
 
-              <div className="space-y-6 bg-white/70 backdrop-blur-sm rounded-2xl p-6">
+              <div className="space-y-6 bg-gradient-to-br from-white/80 via-party-pink/10 to-party-blue/10 backdrop-blur-md rounded-3xl p-8 border-2 border-white/50 shadow-xl">
                 <div>
-                  <label className="block text-lg font-bold text-gray-700 mb-3">
-                    ✨ Give your event a catchy name
+                  <label className="block text-2xl font-black text-transparent bg-gradient-to-r from-party-pink to-party-blue bg-clip-text mb-4">
+                    🎊 Give your party an EPIC name!
                   </label>
-                  <Input
-                    placeholder="e.g., 'Epic Summer Rooftop Bash' or 'Exclusive VIP Wine Tasting'"
-                    value={eventData.title}
-                    onChange={(e) =>
-                      setEventData({ ...eventData, title: e.target.value })
-                    }
-                    className="rounded-2xl h-14 text-lg border-2 border-gray-200 focus:border-purple-500 bg-white/80"
-                  />
-                  <p className="text-sm text-gray-500 mt-2">
-                    💡 Tip: Use exciting words that make people want to attend!
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileFocus={{ scale: 1.02 }}
+                  >
+                    <Input
+                      placeholder="e.g., 'Ultimate Birthday Bash 2024' or 'Rooftop Dance Party Extravaganza' 🎉"
+                      value={eventData.title}
+                      onChange={(e) =>
+                        setEventData({ ...eventData, title: e.target.value })
+                      }
+                      className="rounded-2xl h-16 text-xl border-3 border-party-pink/30 focus:border-party-pink bg-white/90 font-bold placeholder:text-gray-400 shadow-lg"
+                    />
+                  </motion.div>
+                  <p className="text-base text-party-blue font-semibold mt-3 bg-party-blue/10 rounded-xl p-3">
+                    💡 Pro Tip: Use exciting words like "Epic", "Ultimate",
+                    "Exclusive" to make people WANT to attend!
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-lg font-bold text-gray-700 mb-2">
-                      📅 When's the party?
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="bg-gradient-to-br from-party-pink/20 to-white rounded-2xl p-4 border-2 border-party-pink/30"
+                  >
+                    <label className="block text-xl font-black text-party-pink mb-3">
+                      📅 When's the PARTY?
                     </label>
                     <Input
                       type="date"
@@ -415,12 +512,15 @@ const CreateEventModal = ({
                       onChange={(e) =>
                         setEventData({ ...eventData, date: e.target.value })
                       }
-                      className="rounded-2xl h-12 border-2 border-gray-200 focus:border-purple-500"
+                      className="rounded-xl h-14 border-2 border-party-pink/50 focus:border-party-pink bg-white text-lg font-semibold"
                     />
-                  </div>
-                  <div>
-                    <label className="block text-lg font-bold text-gray-700 mb-2">
-                      ⏰ What time?
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="bg-gradient-to-br from-party-blue/20 to-white rounded-2xl p-4 border-2 border-party-blue/30"
+                  >
+                    <label className="block text-xl font-black text-party-blue mb-3">
+                      ⏰ Party TIME?
                     </label>
                     <Input
                       type="time"
@@ -428,23 +528,26 @@ const CreateEventModal = ({
                       onChange={(e) =>
                         setEventData({ ...eventData, time: e.target.value })
                       }
-                      className="rounded-2xl h-12 border-2 border-gray-200 focus:border-purple-500"
+                      className="rounded-xl h-14 border-2 border-party-blue/50 focus:border-party-blue bg-white text-lg font-semibold"
                     />
-                  </div>
-                  <div>
-                    <label className="block text-lg font-bold text-gray-700 mb-2">
-                      💰 Ticket price
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="bg-gradient-to-br from-green-400/20 to-white rounded-2xl p-4 border-2 border-green-400/30"
+                  >
+                    <label className="block text-xl font-black text-green-600 mb-3">
+                      💰 Entry Price
                     </label>
                     <Input
                       type="number"
-                      placeholder="0 for free!"
+                      placeholder="0 for FREE PARTY! 🎉"
                       value={eventData.price}
                       onChange={(e) =>
                         setEventData({ ...eventData, price: e.target.value })
                       }
-                      className="rounded-2xl h-12 border-2 border-gray-200 focus:border-purple-500"
+                      className="rounded-xl h-14 border-2 border-green-400/50 focus:border-green-400 bg-white text-lg font-semibold"
                     />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -853,16 +956,57 @@ export default function Dashboard() {
                 that people will talk about forever!
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{
+                    scale: 1.08,
+                    boxShadow: "0 25px 50px rgba(255, 255, 255, 0.3)",
+                  }}
                   whileTap={{ scale: 0.95 }}
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  }}
+                  transition={{
+                    backgroundPosition: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                  }}
+                  className="relative"
                 >
                   <Button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="bg-gradient-to-r from-aesthetic-cyan to-aesthetic-electric hover:from-aesthetic-electric hover:to-aesthetic-cyan text-black px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
+                    className="relative bg-gradient-to-r from-party-pink via-party-red to-party-blue hover:from-party-blue hover:via-party-pink hover:to-party-red text-white px-16 py-8 rounded-full text-2xl font-black shadow-2xl overflow-hidden border-4 border-white/30"
+                    style={{ backgroundSize: "300% 300%" }}
                   >
-                    🎉 CREATE MY EVENT NOW!
+                    <motion.span
+                      className="relative z-10 flex items-center gap-3"
+                      animate={{
+                        textShadow: [
+                          "0 0 0px rgba(255,255,255,0)",
+                          "0 0 20px rgba(255,255,255,0.8)",
+                          "0 0 0px rgba(255,255,255,0)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    >
+                      🎉 CREATE EPIC PARTY! 🚀
+                    </motion.span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20"
+                      animate={{
+                        x: ["-100%", "100%"],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
                   </Button>
                 </motion.div>
 
@@ -872,9 +1016,9 @@ export default function Dashboard() {
                 >
                   <Button
                     variant="outline"
-                    className="border-3 border-white/50 text-white hover:bg-white/10 px-8 py-6 rounded-3xl text-lg font-bold backdrop-blur-sm"
+                    className="border-4 border-white/60 text-white hover:bg-white/20 px-10 py-8 rounded-full text-xl font-bold backdrop-blur-md shadow-xl"
                   >
-                    📊 View My Stats
+                    📊 View Dashboard
                   </Button>
                 </motion.div>
               </div>
@@ -1258,26 +1402,74 @@ export default function Dashboard() {
               </div>
 
               <motion.div
-                className="text-center mt-12"
+                className="text-center mt-16"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2 }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{
+                    scale: 1.08,
+                    boxShadow: "0 20px 40px rgba(255, 105, 180, 0.4)",
+                  }}
                   whileTap={{ scale: 0.95 }}
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    y: {
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                  }}
                 >
                   <Button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
+                    className="relative bg-gradient-to-r from-party-pink via-party-red to-party-blue hover:from-party-blue hover:via-party-pink hover:to-party-red text-white px-16 py-8 rounded-full text-2xl font-black shadow-2xl border-4 border-white/30 overflow-hidden"
                   >
-                    <Rocket className="w-6 h-6 mr-3" />
-                    CREATE ANOTHER EPIC EVENT! 🎉
+                    <motion.span
+                      className="relative z-10 flex items-center gap-4"
+                      animate={{
+                        textShadow: [
+                          "0 0 0px rgba(255,255,255,0)",
+                          "0 0 20px rgba(255,255,255,0.8)",
+                          "0 0 0px rgba(255,255,255,0)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    >
+                      <Rocket className="w-8 h-8" />
+                      CREATE ANOTHER EPIC PARTY! 🎊
+                    </motion.span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20"
+                      animate={{
+                        x: ["-100%", "100%"],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
                   </Button>
                 </motion.div>
-                <p className="text-gray-600 mt-4 text-lg">
-                  Ready to create more unforgettable memories?
-                </p>
+                <motion.p
+                  className="text-gray-700 mt-6 text-xl font-bold"
+                  animate={{
+                    color: ["#374151", "#ec4899", "#3b82f6", "#374151"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                >
+                  Ready to create more unforgettable party memories? 🌟
+                </motion.p>
               </motion.div>
             </CardContent>
           </Card>

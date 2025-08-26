@@ -29,6 +29,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTheme } from "next-themes";
+import { useAuth } from "../contexts/AuthContext";
 
 const navItems = [
   {
@@ -42,13 +43,6 @@ const navItems = [
     path: "/discover",
     icon: Home,
     gradient: "from-aesthetic-cyan via-aesthetic-electric to-aesthetic-violet",
-  },
-  {
-    name: "Licenses",
-    path: "/licenses",
-    icon: Crown,
-    gradient:
-      "from-aesthetic-magenta via-aesthetic-violet to-aesthetic-electric",
   },
   {
     name: "Create",
@@ -75,11 +69,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userProfile, setUserProfile] = useState({
-    name: "User",
-    avatar: null,
-  });
+  const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const { scrollY } = useScroll();
@@ -395,7 +385,7 @@ export function Navigation() {
                 </DialogContent>
               </Dialog>
 
-              {isLoggedIn ? (
+              {isAuthenticated && user ? (
                 // Profile Icon with Neon Glow
                 <motion.div
                   whileHover={{ scale: 1.1 }}
@@ -404,10 +394,10 @@ export function Navigation() {
                 >
                   <Link to="/profile">
                     <div className="relative w-10 h-10 rounded-full border-2 border-aesthetic-violet/50 bg-gradient-to-br from-aesthetic-violet/20 to-aesthetic-cyan/20 flex items-center justify-center hover:border-aesthetic-violet transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
-                      {userProfile.avatar ? (
+                      {user.avatar ? (
                         <img
-                          src={userProfile.avatar}
-                          alt={userProfile.name}
+                          src={user.avatar}
+                          alt={user.name}
                           className="w-full h-full rounded-full object-cover"
                         />
                       ) : (
@@ -437,14 +427,7 @@ export function Navigation() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Button
-                    onClick={() => {
-                      navigate("/auth");
-                      // Simulate login success for demo
-                      setTimeout(() => {
-                        setIsLoggedIn(true);
-                        setUserProfile({ name: "John Doe", avatar: null });
-                      }, 2000);
-                    }}
+                    onClick={() => navigate("/auth")}
                     className="bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-primary-foreground rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(115,115,175,0.6)]"
                   >
                     <motion.span className="text-sm sm:text-base flex items-center gap-2">
@@ -537,26 +520,34 @@ export function Navigation() {
                   transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
                   className="pt-4"
                 >
-                  {isLoggedIn ? (
-                    <Link
-                      to="/profile"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <Button className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg">
-                        <User className="w-5 h-5 mr-2" />
-                        {userProfile.name}
+                  {isAuthenticated && user ? (
+                    <div className="space-y-3">
+                      <Link
+                        to="/profile"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Button className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg">
+                          <User className="w-5 h-5 mr-2" />
+                          {user.name}
+                        </Button>
+                      </Link>
+                      <Button
+                        onClick={() => {
+                          logout();
+                          setIsMobileMenuOpen(false);
+                          navigate("/");
+                        }}
+                        variant="outline"
+                        className="w-full border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-2xl font-bold py-3 text-base"
+                      >
+                        Logout
                       </Button>
-                    </Link>
+                    </div>
                   ) : (
                     <Button
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         navigate("/auth");
-                        // Simulate login success for demo
-                        setTimeout(() => {
-                          setIsLoggedIn(true);
-                          setUserProfile({ name: "John Doe", avatar: null });
-                        }, 2000);
                       }}
                       className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg"
                     >

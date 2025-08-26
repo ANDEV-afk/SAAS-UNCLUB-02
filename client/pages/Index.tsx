@@ -31,6 +31,7 @@ const featuredEvents = [
     attendees: 2500,
     rating: 4.8,
     category: "Music",
+    ageRestriction: 18,
   },
   {
     id: 2,
@@ -43,6 +44,7 @@ const featuredEvents = [
     attendees: 800,
     rating: 4.9,
     category: "Technology",
+    ageRestriction: 18,
   },
   {
     id: 3,
@@ -55,6 +57,7 @@ const featuredEvents = [
     attendees: 300,
     rating: 4.7,
     category: "Food & Drink",
+    ageRestriction: 21,
   },
   {
     id: 4,
@@ -67,6 +70,7 @@ const featuredEvents = [
     attendees: 150,
     rating: 4.6,
     category: "Art",
+    ageRestriction: null,
   },
   {
     id: 5,
@@ -79,6 +83,7 @@ const featuredEvents = [
     attendees: 200,
     rating: 4.5,
     category: "Business",
+    ageRestriction: 18,
   },
   {
     id: 6,
@@ -91,6 +96,7 @@ const featuredEvents = [
     attendees: 50,
     rating: 4.9,
     category: "Wellness",
+    ageRestriction: null,
   },
 ];
 
@@ -127,7 +133,7 @@ const EventCard = ({
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />
-            <div className="absolute top-4 left-4">
+            <div className="absolute top-4 left-4 flex flex-col gap-2">
               <Badge
                 variant={getCategoryBadgeVariant(event.category) as any}
                 size="xl"
@@ -136,6 +142,11 @@ const EventCard = ({
               >
                 {event.category}
               </Badge>
+              {event.ageRestriction && (
+                <Badge className="bg-red-600 text-white font-bold px-2 py-1 rounded-full text-xs">
+                  🔞 {event.ageRestriction}+
+                </Badge>
+              )}
             </div>
             <div className="absolute top-4 right-4">
               <motion.div
@@ -179,14 +190,30 @@ const EventCard = ({
                 whileTap={{ scale: 0.95 }}
                 className="flex-shrink-0"
               >
-                <Link to={`/event/${event.id}`}>
+                {event.ageRestriction ? (
                   <Button
                     size="sm"
+                    onClick={() => {
+                      alert(
+                        `🔞 This event is restricted to ages ${event.ageRestriction}+. Please verify your age before purchasing tickets.`,
+                      );
+                      // In a real app, you'd check user's age from their profile
+                      window.location.href = `/event/${event.id}`;
+                    }}
                     className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
                   >
                     🎟️ Get Tickets
                   </Button>
-                </Link>
+                ) : (
+                  <Link to={`/event/${event.id}`}>
+                    <Button
+                      size="sm"
+                      className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
+                    >
+                      🎟️ Get Tickets
+                    </Button>
+                  </Link>
+                )}
               </motion.div>
             </div>
           </CardContent>
@@ -438,12 +465,12 @@ export default function Index() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/licenses">
+                <Link to="/auth">
                   <Button
                     variant="outline"
                     className="border-3 border-aesthetic-violet text-aesthetic-violet hover:bg-aesthetic-violet hover:text-white px-8 py-6 rounded-3xl text-lg font-bold"
                   >
-                    👑 Upgrade to Pro
+                    👑 Join Community
                   </Button>
                 </Link>
               </motion.div>

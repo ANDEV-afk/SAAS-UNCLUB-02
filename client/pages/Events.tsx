@@ -17,7 +17,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge, getCategoryBadgeVariant } from "@/components/ui/badge";
-import { Sparkles, Confetti, AnimatedCard } from "@/components/AnimatedEffects";
 import { Slider } from "@/components/ui/slider";
 import {
   Select,
@@ -30,122 +29,130 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { GenZParticles } from "@/components/GenZParticles";
 import { useTheme } from "next-themes";
 
-// Expanded mock event data
+// Party-focused event data
 const allEvents = [
   {
     id: 1,
-    title: "Summer Music Festival 2024",
-    location: "Central Park, NYC",
+    title: "Epic Birthday Bash 2024 🎉",
+    location: "Downtown Party Venue, NYC",
     date: "Jul 15, 2024",
-    price: 89,
+    price: 45,
     image:
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 2500,
-    rating: 4.8,
-    category: "Music",
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 150,
+    rating: 4.9,
+    category: "Party",
     featured: true,
+    ageRestriction: 18,
   },
   {
     id: 2,
-    title: "Tech Innovation Summit",
-    location: "Silicon Valley, CA",
+    title: "Rooftop Dance Party 💃",
+    location: "Sky Lounge, Miami",
     date: "Aug 22, 2024",
-    price: 299,
+    price: 65,
     image:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 800,
-    rating: 4.9,
-    category: "Technology",
+      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 200,
+    rating: 4.8,
+    category: "Party",
     featured: true,
+    ageRestriction: 21,
   },
   {
     id: 3,
-    title: "Food & Wine Experience",
-    location: "Napa Valley, CA",
+    title: "Pool Party Extravaganza 🏊‍♀️",
+    location: "Luxury Resort, LA",
     date: "Sep 10, 2024",
-    price: 149,
+    price: 55,
     image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 300,
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 180,
     rating: 4.7,
-    category: "Food & Drink",
+    category: "Party",
     featured: false,
+    ageRestriction: 18,
   },
   {
     id: 4,
-    title: "Digital Marketing Masterclass",
-    location: "Chicago, IL",
-    date: "Jul 28, 2024",
-    price: 199,
+    title: "Costume Party Madness 🎭",
+    location: "Grand Ballroom, Chicago",
+    date: "Oct 28, 2024",
+    price: 40,
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 500,
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 250,
     rating: 4.6,
-    category: "Business",
+    category: "Party",
     featured: false,
+    ageRestriction: 18,
   },
   {
     id: 5,
-    title: "Classical Music Evening",
-    location: "Carnegie Hall, NYC",
-    date: "Aug 5, 2024",
-    price: 75,
+    title: "New Year's Eve Celebration 🎆",
+    location: "Times Square View, NYC",
+    date: "Dec 31, 2024",
+    price: 120,
     image:
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 1200,
+      "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 500,
     rating: 4.9,
-    category: "Music",
-    featured: false,
+    category: "Party",
+    featured: true,
+    ageRestriction: 21,
   },
   {
     id: 6,
-    title: "Startup Pitch Competition",
-    location: "Austin, TX",
-    date: "Sep 18, 2024",
+    title: "College Graduation Party 🎓",
+    location: "University Club, Boston",
+    date: "May 18, 2024",
     price: 35,
     image:
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 300,
+      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 120,
     rating: 4.5,
-    category: "Business",
+    category: "Party",
     featured: false,
+    ageRestriction: 18,
   },
   {
     id: 7,
-    title: "Art Gallery Opening",
-    location: "SoHo, NYC",
-    date: "Oct 5, 2024",
-    price: 45,
+    title: "Beach Bonfire Party 🔥",
+    location: "Malibu Beach, CA",
+    date: "Jul 5, 2024",
+    price: 30,
     image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 150,
-    rating: 4.6,
-    category: "Art",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 80,
+    rating: 4.8,
+    category: "Party",
     featured: false,
+    ageRestriction: 18,
   },
   {
     id: 8,
-    title: "Yoga & Meditation Retreat",
-    location: "Sedona, AZ",
-    date: "Oct 15, 2024",
-    price: 299,
+    title: "House Warming Party 🏠",
+    location: "Private Residence, Austin",
+    date: "Jun 15, 2024",
+    price: 25,
     image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    attendees: 50,
-    rating: 4.8,
-    category: "Wellness",
+      "https://images.unsplash.com/photo-1574391884720-bbc5b58f955d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    attendees: 60,
+    rating: 4.7,
+    category: "Party",
     featured: false,
+    ageRestriction: null,
   },
 ];
 
 const categories = [
   "All",
-  "Music",
-  "Technology",
-  "Food & Drink",
-  "Business",
-  "Art",
-  "Wellness",
+  "Birthday Party",
+  "Dance Party",
+  "Pool Party",
+  "Costume Party",
+  "Celebration",
+  "House Party",
 ];
 
 const FilterPanel = ({
@@ -366,85 +373,74 @@ const EventCard = ({
         whileHover={{ x: 4 }}
         className="group"
       >
-        <AnimatedCard
-          effects={["sparkles", "confetti"]}
-          intensity="medium"
-          className="group"
-        >
-          <Card className="genz-event-card overflow-hidden">
-            <CardContent className="p-6">
-              <div className="flex gap-6">
-                <motion.div
-                  className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Image
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
+        <Card className="bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300">
+          <CardContent className="p-6">
+            <div className="flex gap-6">
+              <motion.div
+                className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
 
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between mb-2">
-                    <div>
-                      <Badge
-                        variant={getCategoryBadgeVariant(event.category) as any}
-                        size="lg"
-                        glow="medium"
-                        className="mb-2"
-                      >
-                        {event.category}
-                      </Badge>
-                      <h3 className="font-bold text-lg text-white group-hover:text-aesthetic-cyan transition-colors duration-300">
-                        {event.title}
-                      </h3>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <Badge className="bg-party-pink text-white font-bold px-3 py-1 text-xs rounded-full mb-2">
+                      🎉 {event.category}
+                    </Badge>
+                    <h3 className="font-bold text-lg text-white group-hover:text-party-pink transition-colors duration-300">
+                      {event.title}
+                    </h3>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-xl text-white">
+                      ${event.price}
                     </div>
-                    <div className="text-right">
-                      <div className="font-bold text-xl text-gray-900 dark:text-gray-100">
-                        ${event.price}
-                      </div>
-                      <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        {event.rating}
-                      </div>
+                    <div className="flex items-center gap-1 text-sm text-gray-400">
+                      <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                      {event.rating}
                     </div>
                   </div>
-
-                  <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {event.date}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      {event.location}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      {event.attendees}
-                    </div>
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-block flex-shrink-0"
-                  >
-                    <Link to={`/event/${event.id}`}>
-                      <Button
-                        size="sm"
-                        className="genz-button text-xs px-3 py-1.5 whitespace-nowrap"
-                      >
-                        🎟️ Get Tickets
-                      </Button>
-                    </Link>
-                  </motion.div>
                 </div>
+
+                <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {event.date}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <MapPin className="w-4 h-4" />
+                    {event.location}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Users className="w-4 h-4" />
+                    {event.attendees}
+                  </div>
+                </div>
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block flex-shrink-0"
+                >
+                  <Link to={`/event/${event.id}`}>
+                    <Button
+                      size="sm"
+                      className="bg-gradient-to-r from-party-pink to-party-blue hover:from-party-blue hover:to-party-pink text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300"
+                    >
+                      JOIN PARTY 🎉
+                    </Button>
+                  </Link>
+                </motion.div>
               </div>
-            </CardContent>
-          </Card>
-        </AnimatedCard>
+            </div>
+          </CardContent>
+        </Card>
       </motion.div>
     );
   }
@@ -468,23 +464,17 @@ const EventCard = ({
 
           {/* Category Badge */}
           <div className="absolute top-4 left-4">
-            <Badge
-              variant={getCategoryBadgeVariant(event.category) as any}
-              className="px-3 py-1.5 text-xs font-semibold rounded-full"
-            >
-              {event.category}
+            <Badge className="bg-party-pink text-white font-bold px-3 py-1.5 text-xs rounded-full">
+              🎉 {event.category}
             </Badge>
           </div>
 
-          {/* Star Rating in top right */}
-          {event.featured && (
+          {/* Age Restriction Badge */}
+          {event.ageRestriction && (
             <div className="absolute top-4 right-4">
-              <div className="flex items-center gap-1 bg-black/60 backdrop-blur-sm rounded-full px-2 py-1">
-                <Star className="w-3 h-3 text-yellow-400 fill-current" />
-                <span className="text-white text-xs font-medium">
-                  {event.rating}
-                </span>
-              </div>
+              <Badge className="bg-red-600 text-white font-bold px-2 py-1 rounded-full text-xs">
+                🔞 {event.ageRestriction}+
+              </Badge>
             </div>
           )}
 
@@ -501,7 +491,7 @@ const EventCard = ({
           </div>
 
           {/* Title */}
-          <h3 className="text-white font-bold text-xl leading-tight group-hover:text-blue-400 transition-colors duration-300">
+          <h3 className="text-white font-bold text-xl leading-tight group-hover:text-party-pink transition-colors duration-300">
             {event.title}
           </h3>
 
@@ -536,8 +526,8 @@ const EventCard = ({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-6 py-2 rounded-xl transition-all duration-300">
-                  BOOK NOW
+                <Button className="bg-gradient-to-r from-party-pink to-party-blue hover:from-party-blue hover:to-party-pink text-white font-semibold px-6 py-2 rounded-xl transition-all duration-300">
+                  JOIN PARTY 🎉
                 </Button>
               </motion.div>
             </Link>
@@ -633,10 +623,10 @@ export default function Events() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
               <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2 leading-tight">
-                Discover Events
+                ���� Discover Parties
               </h1>
               <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
-                Find your next unforgettable experience
+                Find your next epic party experience
               </p>
             </div>
 
@@ -708,10 +698,11 @@ export default function Events() {
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <h2 className="text-2xl font-bold text-white mb-2">
-                Ready to Host Your Own Event?
+                Ready to Host Your Own Party? 🎊
               </h2>
               <p className="text-gray-400 text-lg">
-                Join thousands of successful hosts creating amazing experiences
+                Join thousands of successful hosts creating epic party
+                experiences
               </p>
             </div>
 

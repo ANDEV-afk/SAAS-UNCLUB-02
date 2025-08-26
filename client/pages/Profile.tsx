@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import {
   User,
   Camera,
@@ -22,52 +24,6 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GenZParticles } from "@/components/GenZParticles";
-
-// Mock user data
-const userData = {
-  name: "Alex Chen",
-  username: "@alexpartyking",
-  avatar:
-    "https://images.unsplash.com/photo-1494790108755-2616b9e2b36e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-  coverImage:
-    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-  bio: "Party planner extraordinaire 🎉 | Event enthusiast | Making memories one party at a time ✨",
-  location: "Los Angeles, CA",
-  joinDate: "March 2024",
-  isVerified: true,
-  stats: {
-    eventsAttended: 47,
-    eventsHosted: 12,
-    friends: 2847,
-    rating: 4.9,
-  },
-  badges: [
-    {
-      id: 1,
-      name: "Party Legend",
-      icon: Crown,
-      color: "from-aesthetic-magenta to-aesthetic-electric",
-    },
-    {
-      id: 2,
-      name: "Social Butterfly",
-      icon: Users,
-      color: "from-aesthetic-violet to-aesthetic-cyan",
-    },
-    {
-      id: 3,
-      name: "Event Master",
-      icon: Trophy,
-      color: "from-aesthetic-electric to-aesthetic-violet",
-    },
-    {
-      id: 4,
-      name: "Super Host",
-      icon: Medal,
-      color: "from-aesthetic-cyan to-aesthetic-magenta",
-    },
-  ],
-};
 
 const recentActivity = [
   {
@@ -119,6 +75,66 @@ const upcomingEvents = [
 
 export default function Profile() {
   const [selectedTab, setSelectedTab] = useState("overview");
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect to auth if not logged in
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/auth");
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (!isAuthenticated || !user) {
+    return null; // or a loading spinner
+  }
+
+  // Use real user data if available, otherwise fall back to mock data
+  const userData = {
+    name: user.name || "Alex Chen",
+    username: `@${user.name?.toLowerCase().replace(" ", "") || "alexpartyking"}`,
+    avatar:
+      user.avatar ||
+      "https://images.unsplash.com/photo-1494790108755-2616b9e2b36e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+    coverImage:
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    bio: "Party planner extraordinaire 🎉 | Event enthusiast | Making memories one party at a time ✨",
+    location: "Los Angeles, CA",
+    joinDate: "March 2024",
+    isVerified: user.isVerified || false,
+    stats: {
+      eventsAttended: 47,
+      eventsHosted: 12,
+      friends: 2847,
+      rating: 4.9,
+    },
+    badges: [
+      {
+        id: 1,
+        name: "Party Legend",
+        icon: Crown,
+        color: "from-aesthetic-magenta to-aesthetic-electric",
+      },
+      {
+        id: 2,
+        name: "Social Butterfly",
+        icon: Users,
+        color: "from-aesthetic-violet to-aesthetic-cyan",
+      },
+      {
+        id: 3,
+        name: "Event Master",
+        icon: Trophy,
+        color: "from-aesthetic-electric to-aesthetic-violet",
+      },
+      {
+        id: 4,
+        name: "Super Host",
+        icon: Medal,
+        color: "from-aesthetic-cyan to-aesthetic-magenta",
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15">
@@ -233,6 +249,16 @@ export default function Profile() {
                 <Button className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan text-white rounded-2xl font-bold shadow-xl">
                   <Settings className="w-4 h-4 mr-2" />
                   Edit Profile
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    logout();
+                    navigate("/");
+                  }}
+                  className="bg-red-500/20 backdrop-blur-md border-red-400/30 text-red-300 hover:bg-red-500/30 rounded-2xl"
+                >
+                  Logout
                 </Button>
               </motion.div>
             </div>
