@@ -175,6 +175,17 @@ const AuthForm = ({
             <Separator className="flex-1" />
           </motion.div>
 
+          {/* Error Message */}
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-2xl text-sm"
+            >
+              {error}
+            </motion.div>
+          )}
+
           {/* Form */}
           <motion.form
             className="space-y-4"
