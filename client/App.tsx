@@ -36,7 +36,7 @@ const App = () => (
           <BrowserRouter>
             <Navigation />
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<Events />} />
               <Route path="/events" element={<Events />} />
               <Route path="/discover" element={<Index />} />
               <Route path="/event/:id" element={<EventDetail />} />
