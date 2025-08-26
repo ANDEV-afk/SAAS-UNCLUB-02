@@ -78,15 +78,16 @@ export default function Profile() {
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect to auth if not logged in
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/auth");
-    }
-  }, [isAuthenticated, navigate]);
-
+  // Show loading while checking authentication
   if (!isAuthenticated || !user) {
-    return null; // or a loading spinner
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 transition-colors duration-500 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-aesthetic-violet border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading your profile...</p>
+        </div>
+      </div>
+    );
   }
 
   // Use real user data if available, otherwise fall back to mock data
