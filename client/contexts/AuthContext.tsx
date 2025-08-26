@@ -55,11 +55,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
 
       // Extract name from email (part before @) and capitalize it
-      const emailUsername = email.split('@')[0];
+      const emailUsername = email.split("@")[0];
       const displayName = emailUsername
         .split(/[._-]/)
-        .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-        .join(' ');
+        .map(
+          (part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase(),
+        )
+        .join(" ");
 
       const mockUser: User = {
         id: "1",
