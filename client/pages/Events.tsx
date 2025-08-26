@@ -626,7 +626,8 @@ export default function Events() {
                 🎉 Discover Amazing Parties
               </h1>
               <p className="text-muted-foreground text-base lg:text-lg leading-relaxed transition-colors duration-300 max-w-2xl">
-                Find your next epic party experience and connect with amazing people in your area
+                Find your next epic party experience and connect with amazing
+                people in your area
               </p>
             </div>
 
@@ -701,7 +702,8 @@ export default function Events() {
                 Ready to Host Your Own Party? 🎊
               </h2>
               <p className="text-muted-foreground text-lg transition-colors duration-300 max-w-md">
-                Join thousands of successful hosts creating unforgettable party experiences and building amazing communities
+                Join thousands of successful hosts creating unforgettable party
+                experiences and building amazing communities
               </p>
             </div>
 

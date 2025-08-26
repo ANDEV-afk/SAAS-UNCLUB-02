@@ -432,7 +432,10 @@ const AuthForm = ({
                       handleInputChange("agreeToTerms", checked as boolean)
                     }
                   />
-                  <label htmlFor="terms" className="text-sm text-muted-foreground transition-colors duration-300">
+                  <label
+                    htmlFor="terms"
+                    className="text-sm text-muted-foreground transition-colors duration-300"
+                  >
                     I agree to the{" "}
                     <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
                       Terms of Service
@@ -455,7 +458,10 @@ const AuthForm = ({
               >
                 <div className="flex items-center space-x-2">
                   <Checkbox id="remember" />
-                  <label htmlFor="remember" className="text-sm text-muted-foreground transition-colors duration-300">
+                  <label
+                    htmlFor="remember"
+                    className="text-sm text-muted-foreground transition-colors duration-300"
+                  >
                     Remember me
                   </label>
                 </div>
