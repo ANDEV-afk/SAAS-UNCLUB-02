@@ -307,13 +307,13 @@ const AuthForm = ({
               transition={{ delay: isLogin ? 1 : 1.2 }}
             >
               <div className="relative">
-                <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                <Mail className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                 <Input
                   type="email"
                   placeholder="Email address"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                  className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
             </motion.div>
@@ -324,7 +324,7 @@ const AuthForm = ({
               transition={{ delay: isLogin ? 1.1 : 1.3 }}
             >
               <div className="relative">
-                <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                <Lock className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
@@ -332,12 +332,12 @@ const AuthForm = ({
                   onChange={(e) =>
                     handleInputChange("password", e.target.value)
                   }
-                  className="pl-10 pr-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                  className="pl-10 pr-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                 />
                 <motion.button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-3 text-muted-foreground hover:text-foreground transition-colors duration-300"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -533,7 +533,7 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background transition-colors duration-500 flex items-center justify-center p-6 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         {floatingElements.map((element, index) => (
