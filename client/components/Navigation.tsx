@@ -393,7 +393,7 @@ export function Navigation() {
                   className="relative"
                 >
                   <Link to="/profile">
-                    <div className="relative w-10 h-10 rounded-full border-2 border-aesthetic-violet/50 bg-gradient-to-br from-aesthetic-violet/20 to-aesthetic-cyan/20 flex items-center justify-center hover:border-aesthetic-violet transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
+                    <div className="relative w-10 h-10 rounded-full border-2 border-border bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center hover:border-primary transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
                       {user.avatar ? (
                         <img
                           src={user.avatar}
@@ -401,7 +401,7 @@ export function Navigation() {
                           className="w-full h-full rounded-full object-cover"
                         />
                       ) : (
-                        <User className="w-5 h-5 text-white" />
+                        <User className="w-5 h-5 text-foreground" />
                       )}
 
                       {/* Aesthetic ring animation */}
