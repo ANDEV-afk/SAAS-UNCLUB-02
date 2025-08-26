@@ -357,7 +357,7 @@ const AuthForm = ({
                 transition={{ delay: 1.4 }}
               >
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                   <Input
                     type="password"
                     placeholder="Confirm password"
@@ -365,7 +365,7 @@ const AuthForm = ({
                     onChange={(e) =>
                       handleInputChange("confirmPassword", e.target.value)
                     }
-                    className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                    className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
               </motion.div>
@@ -378,7 +378,7 @@ const AuthForm = ({
                 transition={{ delay: 1.5 }}
               >
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                  <Calendar className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                   <Input
                     type="date"
                     placeholder="Date of Birth"
@@ -386,7 +386,7 @@ const AuthForm = ({
                     onChange={(e) =>
                       handleInputChange("dateOfBirth", e.target.value)
                     }
-                    className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                    className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                     max={
                       new Date(
                         new Date().setFullYear(new Date().getFullYear() - 13),
@@ -416,7 +416,7 @@ const AuthForm = ({
                   />
                   <label
                     htmlFor="age-verification"
-                    className="text-sm text-gray-600"
+                    className="text-sm text-muted-foreground transition-colors duration-300"
                   >
                     <span className="font-semibold text-red-600">
                       🔞 I confirm that I am 18 years old or older
