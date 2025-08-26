@@ -75,11 +75,25 @@ const upcomingEvents = [
 
 export default function Profile() {
   const [selectedTab, setSelectedTab] = useState("overview");
+  const [isLoading, setIsLoading] = useState(true);
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
+  // Check authentication status with timeout
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isAuthenticated) {
+        navigate("/auth");
+      } else {
+        setIsLoading(false);
+      }
+    }, 1000); // Wait 1 second for auth to resolve
+
+    return () => clearTimeout(timer);
+  }, [isAuthenticated, navigate]);
+
   // Show loading while checking authentication
-  if (!isAuthenticated || !user) {
+  if (isLoading || !isAuthenticated || !user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 transition-colors duration-500 flex items-center justify-center">
         <div className="text-center">
