@@ -25,51 +25,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GenZParticles } from "@/components/GenZParticles";
 
-// Mock user data
-const userData = {
-  name: "Alex Chen",
-  username: "@alexpartyking",
-  avatar:
-    "https://images.unsplash.com/photo-1494790108755-2616b9e2b36e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-  coverImage:
-    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-  bio: "Party planner extraordinaire 🎉 | Event enthusiast | Making memories one party at a time ✨",
-  location: "Los Angeles, CA",
-  joinDate: "March 2024",
-  isVerified: true,
-  stats: {
-    eventsAttended: 47,
-    eventsHosted: 12,
-    friends: 2847,
-    rating: 4.9,
-  },
-  badges: [
-    {
-      id: 1,
-      name: "Party Legend",
-      icon: Crown,
-      color: "from-aesthetic-magenta to-aesthetic-electric",
-    },
-    {
-      id: 2,
-      name: "Social Butterfly",
-      icon: Users,
-      color: "from-aesthetic-violet to-aesthetic-cyan",
-    },
-    {
-      id: 3,
-      name: "Event Master",
-      icon: Trophy,
-      color: "from-aesthetic-electric to-aesthetic-violet",
-    },
-    {
-      id: 4,
-      name: "Super Host",
-      icon: Medal,
-      color: "from-aesthetic-cyan to-aesthetic-magenta",
-    },
-  ],
-};
 
 const recentActivity = [
   {
