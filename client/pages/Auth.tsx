@@ -124,10 +124,10 @@ const AuthForm = ({
               </motion.span>
             </motion.div>
 
-            <h1 className="text-3xl font-black bg-gradient-to-r from-instagram-pink via-instagram-purple to-instagram-orange bg-clip-text text-transparent mb-2">
+            <h1 className="text-3xl font-black bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan bg-clip-text text-transparent mb-2">
               {isLogin ? "Welcome Back!" : "Join the Vibe"}
             </h1>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground transition-colors duration-300">
               {isLogin
                 ? "Ready to discover amazing events? 🎉"
                 : "Create your account and start exploring! 🚀"}
