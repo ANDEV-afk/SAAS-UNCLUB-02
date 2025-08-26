@@ -292,25 +292,62 @@ const AuthForm = ({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
-                className="flex items-center space-x-2"
               >
-                <Checkbox
-                  id="terms"
-                  checked={formData.agreeToTerms}
-                  onCheckedChange={(checked) =>
-                    handleInputChange("agreeToTerms", checked as boolean)
-                  }
-                />
-                <label htmlFor="terms" className="text-sm text-gray-600">
-                  I agree to the{" "}
-                  <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
-                    Terms of Service
-                  </span>{" "}
-                  and{" "}
-                  <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
-                    Privacy Policy
-                  </span>
-                </label>
+                <div className="relative">
+                  <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                  <Input
+                    type="date"
+                    placeholder="Date of Birth"
+                    value={formData.dateOfBirth}
+                    onChange={(e) =>
+                      handleInputChange("dateOfBirth", e.target.value)
+                    }
+                    className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                    max={new Date(new Date().setFullYear(new Date().getFullYear() - 13)).toISOString().split('T')[0]}
+                  />
+                </div>
+              </motion.div>
+            )}
+
+            {!isLogin && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6 }}
+                className="space-y-3"
+              >
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="age-verification"
+                    checked={formData.ageVerified}
+                    onCheckedChange={(checked) =>
+                      handleInputChange("ageVerified", checked as boolean)
+                    }
+                  />
+                  <label htmlFor="age-verification" className="text-sm text-gray-600">
+                    <span className="font-semibold text-red-600">🔞 I confirm that I am 18 years old or older</span>
+                  </label>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="terms"
+                    checked={formData.agreeToTerms}
+                    onCheckedChange={(checked) =>
+                      handleInputChange("agreeToTerms", checked as boolean)
+                    }
+                  />
+                  <label htmlFor="terms" className="text-sm text-gray-600">
+                    I agree to the{" "}
+                    <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
+                      Terms of Service
+                    </span>{" "}
+                    and{" "}
+                    <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
+                      Privacy Policy
+                    </span>
+                  </label>
+                </div>
               </motion.div>
             )}
 
