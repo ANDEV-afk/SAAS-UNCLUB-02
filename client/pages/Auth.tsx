@@ -175,6 +175,37 @@ const AuthForm = ({
             transition={{ delay: 0.9 }}
             onSubmit={(e) => {
               e.preventDefault();
+
+              if (!isLogin) {
+                // Age verification for signup
+                if (!formData.ageVerified) {
+                  alert("🔞 You must be 18 years or older to create an account.");
+                  return;
+                }
+
+                // Check date of birth if provided
+                if (formData.dateOfBirth) {
+                  const birthDate = new Date(formData.dateOfBirth);
+                  const today = new Date();
+                  const age = today.getFullYear() - birthDate.getFullYear();
+                  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+                  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                  }
+
+                  if (age < 18) {
+                    alert("🔞 You must be 18 years or older to create an account. Please come back when you're older!");
+                    return;
+                  }
+                }
+
+                if (!formData.agreeToTerms) {
+                  alert("📋 Please agree to the Terms of Service and Privacy Policy.");
+                  return;
+                }
+              }
+
               // Handle form submission
               console.log("Form submitted:", formData);
             }}
