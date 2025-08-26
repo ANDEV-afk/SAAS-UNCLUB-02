@@ -133,7 +133,7 @@ const EventCard = ({
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />
-            <div className="absolute top-4 left-4">
+            <div className="absolute top-4 left-4 flex flex-col gap-2">
               <Badge
                 variant={getCategoryBadgeVariant(event.category) as any}
                 size="xl"
@@ -142,6 +142,11 @@ const EventCard = ({
               >
                 {event.category}
               </Badge>
+              {event.ageRestriction && (
+                <Badge className="bg-red-600 text-white font-bold px-2 py-1 rounded-full text-xs">
+                  🔞 {event.ageRestriction}+
+                </Badge>
+              )}
             </div>
             <div className="absolute top-4 right-4">
               <motion.div
@@ -364,7 +369,7 @@ export default function Index() {
                 "🎨 Art Shows",
                 "💻 Tech Meetups",
                 "🏃‍♀️ Fitness",
-                "🎭 Entertainment",
+                "�� Entertainment",
               ].map((tag, index) => (
                 <motion.div
                   key={tag}
