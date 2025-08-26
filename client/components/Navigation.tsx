@@ -69,11 +69,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userProfile, setUserProfile] = useState({
-    name: "User",
-    avatar: null,
-  });
+  const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const { scrollY } = useScroll();
