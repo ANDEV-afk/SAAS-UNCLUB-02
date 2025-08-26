@@ -614,7 +614,7 @@ export default function Events() {
 
       {/* Header */}
       <motion.div
-        className="relative bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50 mt-16 sm:mt-20"
+        className="relative bg-card/80 backdrop-blur-md border-b border-border/50 mt-16 sm:mt-20 transition-colors duration-300"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
