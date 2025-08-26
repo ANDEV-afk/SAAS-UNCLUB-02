@@ -169,7 +169,7 @@ const AuthForm = ({
             transition={{ delay: 0.8 }}
           >
             <Separator className="flex-1" />
-            <span className="text-gray-500 text-sm font-medium">
+            <span className="text-muted-foreground text-sm font-medium transition-colors duration-300">
               or continue with email
             </span>
             <Separator className="flex-1" />
@@ -432,7 +432,7 @@ const AuthForm = ({
                       handleInputChange("agreeToTerms", checked as boolean)
                     }
                   />
-                  <label htmlFor="terms" className="text-sm text-gray-600">
+                  <label htmlFor="terms" className="text-sm text-muted-foreground transition-colors duration-300">
                     I agree to the{" "}
                     <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
                       Terms of Service
@@ -455,7 +455,7 @@ const AuthForm = ({
               >
                 <div className="flex items-center space-x-2">
                   <Checkbox id="remember" />
-                  <label htmlFor="remember" className="text-sm text-gray-600">
+                  <label htmlFor="remember" className="text-sm text-muted-foreground transition-colors duration-300">
                     Remember me
                   </label>
                 </div>
@@ -511,7 +511,7 @@ const AuthForm = ({
             animate={{ opacity: 1 }}
             transition={{ delay: isLogin ? 1.4 : 1.7 }}
           >
-            <span className="text-gray-600">
+            <span className="text-muted-foreground transition-colors duration-300">
               {isLogin ? "New to EventVibe?" : "Already have an account?"}
             </span>{" "}
             <motion.button
