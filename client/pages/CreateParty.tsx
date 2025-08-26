@@ -139,7 +139,7 @@ export default function CreateParty() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 pt-20">
+    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 dark:from-gray-950 dark:via-aesthetic-violet/5 dark:to-aesthetic-cyan/5 pt-20 transition-colors duration-500">
       <GenZParticles />
 
       <div className="max-w-4xl mx-auto px-6 py-8">
@@ -207,7 +207,7 @@ export default function CreateParty() {
         </motion.div>
 
         {/* Step Content */}
-        <Card className="bg-white/95 backdrop-blur-xl rounded-3xl border-0 shadow-2xl overflow-hidden">
+        <Card className="bg-card/95 backdrop-blur-xl rounded-3xl border border-border/20 shadow-2xl overflow-hidden transition-colors duration-300">
           <CardContent className="p-8">
             <AnimatePresence mode="wait">
               {/* Step 1: Party Type */}

@@ -219,7 +219,7 @@ const FilterPanel = ({
                   variant="ghost"
                   size="sm"
                   onClick={onClose}
-                  className="lg:hidden text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                  className="lg:hidden text-muted-foreground hover:text-foreground transition-colors duration-300"
                 >
                   ×
                 </Button>
@@ -373,7 +373,7 @@ const EventCard = ({
         whileHover={{ x: 4 }}
         className="group"
       >
-        <Card className="bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300">
+        <Card className="bg-card/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border/50 hover:border-border transition-all duration-300">
           <CardContent className="p-6">
             <div className="flex gap-6">
               <motion.div
@@ -453,7 +453,7 @@ const EventCard = ({
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className="group"
     >
-      <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 shadow-xl hover:shadow-2xl">
+      <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border/50 hover:border-border transition-all duration-300 shadow-xl hover:shadow-2xl">
         {/* Image Section */}
         <div className="relative overflow-hidden h-48">
           <Image
@@ -485,7 +485,7 @@ const EventCard = ({
         {/* Content Section */}
         <div className="p-6 space-y-4">
           {/* Date */}
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
+          <div className="flex items-center gap-2 text-muted-foreground text-sm transition-colors duration-300">
             <Calendar className="w-4 h-4" />
             <span>{event.date}</span>
           </div>
@@ -496,7 +496,7 @@ const EventCard = ({
           </h3>
 
           {/* Location */}
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
+          <div className="flex items-center gap-2 text-muted-foreground text-sm transition-colors duration-300">
             <MapPin className="w-4 h-4" />
             <span>{event.location}</span>
           </div>
@@ -608,13 +608,13 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-background dark:bg-gray-950 transition-colors duration-500">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.05),transparent_50%)]" />
 
       {/* Header */}
       <motion.div
-        className="relative bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50 mt-16 sm:mt-20"
+        className="relative bg-card/80 backdrop-blur-md border-b border-border/50 mt-16 sm:mt-20 transition-colors duration-300"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -622,10 +622,10 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
-              <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2 leading-tight">
-                ���� Discover Parties
+              <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-2 leading-tight transition-colors duration-300">
+                🎉 Discover Parties
               </h1>
-              <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
+              <p className="text-muted-foreground text-base lg:text-lg leading-relaxed transition-colors duration-300">
                 Find your next epic party experience
               </p>
             </div>
@@ -639,7 +639,7 @@ export default function Events() {
                   variant="outline"
                   size="sm"
                   onClick={() => setIsFilterOpen(true)}
-                  className="lg:hidden bg-gray-800/50 border-gray-700/50 text-gray-300 hover:bg-gray-700/50 hover:text-white"
+                  className="lg:hidden bg-secondary/50 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors duration-300"
                 >
                   <SlidersHorizontal className="w-4 h-4 mr-2" />
                   Filters
@@ -693,7 +693,7 @@ export default function Events() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6 lg:p-8 mb-8 mt-4 overflow-hidden"
+          className="relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 lg:p-8 mb-8 mt-4 overflow-hidden transition-colors duration-300"
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
@@ -780,12 +780,12 @@ export default function Events() {
                     placeholder="Search events, locations..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 bg-gray-900/80 border border-gray-700/50 backdrop-blur-sm focus:border-gray-600 transition-colors rounded-xl text-white placeholder:text-gray-500"
+                    className="pl-10 bg-background/80 border border-border/50 backdrop-blur-sm focus:border-border transition-colors rounded-xl text-foreground placeholder:text-muted-foreground duration-300"
                   />
                 </div>
 
                 <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-48 bg-gray-900/80 border border-gray-700/50 backdrop-blur-sm rounded-xl text-white">
+                  <SelectTrigger className="w-48 bg-background/80 border border-border/50 backdrop-blur-sm rounded-xl text-foreground transition-colors duration-300">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -817,7 +817,7 @@ export default function Events() {
                       className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                         selectedCategory === category
                           ? "bg-blue-600 text-white"
-                          : "bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white border border-gray-700/50"
+                          : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground border border-border/50 transition-colors duration-300"
                       }`}
                     >
                       {category}

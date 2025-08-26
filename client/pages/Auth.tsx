@@ -90,8 +90,8 @@ const AuthForm = ({
       transition={{ duration: 0.3 }}
       className="w-full max-w-md mx-auto"
     >
-      <Card className="bg-white/90 backdrop-blur-xl rounded-3xl border-0 shadow-2xl overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-instagram-pink/10 via-instagram-purple/10 to-instagram-orange/10" />
+      <Card className="bg-card/95 backdrop-blur-xl rounded-3xl border border-border/20 shadow-2xl overflow-hidden transition-colors duration-300">
+        <div className="absolute inset-0 bg-gradient-to-br from-aesthetic-violet/5 via-aesthetic-electric/5 to-aesthetic-cyan/5 dark:from-aesthetic-violet/10 dark:via-aesthetic-electric/10 dark:to-aesthetic-cyan/10 transition-colors duration-300" />
 
         <CardContent className="relative p-8">
           {/* Header */}
@@ -124,10 +124,10 @@ const AuthForm = ({
               </motion.span>
             </motion.div>
 
-            <h1 className="text-3xl font-black bg-gradient-to-r from-instagram-pink via-instagram-purple to-instagram-orange bg-clip-text text-transparent mb-2">
+            <h1 className="text-3xl font-black bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan bg-clip-text text-transparent mb-2">
               {isLogin ? "Welcome Back!" : "Join the Vibe"}
             </h1>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground transition-colors duration-300">
               {isLogin
                 ? "Ready to discover amazing events? 🎉"
                 : "Create your account and start exploring! 🚀"}
@@ -270,14 +270,14 @@ const AuthForm = ({
                   transition={{ delay: 1 }}
                 >
                   <div className="relative">
-                    <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                    <User className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                     <Input
                       placeholder="First name"
                       value={formData.firstName}
                       onChange={(e) =>
                         handleInputChange("firstName", e.target.value)
                       }
-                      className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground duration-300"
                     />
                   </div>
                 </motion.div>
@@ -287,14 +287,14 @@ const AuthForm = ({
                   transition={{ delay: 1.1 }}
                 >
                   <div className="relative">
-                    <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                    <User className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                     <Input
                       placeholder="Last name"
                       value={formData.lastName}
                       onChange={(e) =>
                         handleInputChange("lastName", e.target.value)
                       }
-                      className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground duration-300"
                     />
                   </div>
                 </motion.div>
@@ -533,7 +533,7 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-instagram-pink/20 via-instagram-purple/20 to-instagram-orange/20 flex items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         {floatingElements.map((element, index) => (

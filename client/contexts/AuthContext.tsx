@@ -54,9 +54,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       // Mock login - in real app, this would be an API call
       await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
 
+      // Extract name from email (part before @) and capitalize it
+      const emailUsername = email.split("@")[0];
+      const displayName = emailUsername
+        .split(/[._-]/)
+        .map(
+          (part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase(),
+        )
+        .join(" ");
+
       const mockUser: User = {
         id: "1",
-        name: "John Doe",
+        name: displayName,
         email: email,
         avatar:
           "https://images.unsplash.com/photo-1494790108755-2616b9e2b36e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",

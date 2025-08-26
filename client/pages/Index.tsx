@@ -120,19 +120,16 @@ const EventCard = ({
         intensity="high"
         className="group"
       >
-        <Card
-          variant="neon"
-          glow="strong"
-          className="overflow-hidden rounded-2xl border-0"
-        >
+        <Card className="genz-event-card group bg-white/90 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 dark:border-gray-800/50 overflow-hidden rounded-2xl shadow-2xl hover:shadow-[0_20px_40px_rgba(115,115,175,0.3)] dark:hover:shadow-[0_20px_40px_rgba(59,130,246,0.2)] transition-all duration-500">
           <div className="relative overflow-hidden">
             <motion.img
               src={event.image}
               alt={event.title}
-              className="w-full h-48 object-cover"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              className="w-full h-48 object-cover transition-transform duration-500"
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.4 }}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute top-4 left-4 flex flex-col gap-2">
               <Badge
                 variant={getCategoryBadgeVariant(event.category) as any}
@@ -150,27 +147,27 @@ const EventCard = ({
             </div>
             <div className="absolute top-4 right-4">
               <motion.div
-                className="bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
-                whileHover={{ scale: 1.1 }}
+                className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-white/30 dark:border-gray-700/50 rounded-full p-2 shadow-lg"
+                whileHover={{ scale: 1.15, rotate: 15 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                <Star className="w-4 h-4 text-yellow-500 fill-current drop-shadow-sm" />
               </motion.div>
             </div>
           </div>
 
-          <CardContent className="p-6">
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <Calendar className="w-4 h-4" />
+          <CardContent className="p-6 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm transition-colors duration-300">
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">
+              <Calendar className="w-4 h-4 text-aesthetic-violet dark:text-aesthetic-cyan transition-colors duration-300" />
               {event.date}
             </div>
 
-            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2 group-hover:text-aesthetic-violet dark:group-hover:text-aesthetic-cyan transition-colors">
+            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2 group-hover:text-aesthetic-violet dark:group-hover:text-aesthetic-cyan transition-all duration-300 leading-tight">
               {event.title}
             </h3>
 
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-              <MapPin className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 mb-4 transition-colors duration-300">
+              <MapPin className="w-4 h-4 text-aesthetic-electric dark:text-aesthetic-cyan transition-colors duration-300" />
               {event.location}
             </div>
 
@@ -179,8 +176,8 @@ const EventCard = ({
                 <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
                   {event.price}
                 </span>
-                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                  <Users className="w-4 h-4" />
+                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                  <Users className="w-4 h-4 text-aesthetic-magenta dark:text-aesthetic-electric transition-colors duration-300" />
                   {event.attendees}
                 </div>
               </div>
@@ -227,14 +224,14 @@ export default function Index() {
   const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-unclub-blue/15 via-unclub-pink/15 to-unclub-red/15 dark:from-gray-900 dark:via-unclub-blue/20 dark:to-unclub-pink/15">
+    <div className="min-h-screen bg-gradient-to-br from-unclub-blue/15 via-unclub-pink/15 to-unclub-red/15 dark:from-gray-950 dark:via-unclub-blue/10 dark:to-unclub-pink/10 transition-colors duration-500">
       {/* GenZ Floating Elements */}
       <GenZFloatingElements />
 
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-unclub-blue/40 to-unclub-pink/40 dark:from-unclub-blue/30 dark:to-unclub-pink/30 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-unclub-blue/40 to-unclub-pink/40 dark:from-unclub-blue/20 dark:to-unclub-pink/20 rounded-full blur-3xl transition-colors duration-500"
           animate={{
             x: [0, 50, 0],
             y: [0, -30, 0],
@@ -247,7 +244,7 @@ export default function Index() {
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-unclub-red/40 to-party-pink/40 dark:from-unclub-red/30 dark:to-party-pink/30 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-unclub-red/40 to-party-pink/40 dark:from-unclub-red/20 dark:to-party-pink/20 rounded-full blur-3xl transition-colors duration-500"
           animate={{
             x: [0, -50, 0],
             y: [0, 30, 0],

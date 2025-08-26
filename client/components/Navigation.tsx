@@ -393,7 +393,7 @@ export function Navigation() {
                   className="relative"
                 >
                   <Link to="/profile">
-                    <div className="relative w-10 h-10 rounded-full border-2 border-aesthetic-violet/50 bg-gradient-to-br from-aesthetic-violet/20 to-aesthetic-cyan/20 flex items-center justify-center hover:border-aesthetic-violet transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
+                    <div className="relative w-10 h-10 rounded-full border-2 border-border bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center hover:border-primary transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
                       {user.avatar ? (
                         <img
                           src={user.avatar}
@@ -401,12 +401,12 @@ export function Navigation() {
                           className="w-full h-full rounded-full object-cover"
                         />
                       ) : (
-                        <User className="w-5 h-5 text-white" />
+                        <User className="w-5 h-5 text-foreground" />
                       )}
 
                       {/* Aesthetic ring animation */}
                       <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-aesthetic-violet/30"
+                        className="absolute inset-0 rounded-full border-2 border-primary/30"
                         animate={{
                           scale: [1, 1.15, 1],
                           opacity: [0.4, 0.7, 0.4],
@@ -526,7 +526,7 @@ export function Navigation() {
                         to="/profile"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
-                        <Button className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg">
+                        <Button className="w-full bg-gradient-to-r from-primary/30 to-secondary/30 hover:from-primary/50 hover:to-secondary/50 text-primary-foreground dark:text-white rounded-2xl shadow-xl border border-border/50 font-bold py-4 text-lg transition-colors duration-300">
                           <User className="w-5 h-5 mr-2" />
                           {user.name}
                         </Button>
@@ -549,7 +549,7 @@ export function Navigation() {
                         setIsMobileMenuOpen(false);
                         navigate("/auth");
                       }}
-                      className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg"
+                      className="w-full bg-gradient-to-r from-primary/30 to-secondary/30 hover:from-primary/50 hover:to-secondary/50 text-primary-foreground dark:text-white rounded-2xl shadow-xl border border-border/50 font-bold py-4 text-lg transition-colors duration-300"
                     >
                       <Sparkles className="w-5 h-5 mr-2" />
                       Join the Party 🎉
