@@ -120,19 +120,16 @@ const EventCard = ({
         intensity="high"
         className="group"
       >
-        <Card
-          variant="neon"
-          glow="strong"
-          className="overflow-hidden rounded-2xl border-0"
-        >
+        <Card className="genz-event-card group bg-white/90 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 dark:border-gray-800/50 overflow-hidden rounded-2xl shadow-2xl hover:shadow-[0_20px_40px_rgba(115,115,175,0.3)] dark:hover:shadow-[0_20px_40px_rgba(59,130,246,0.2)] transition-all duration-500">
           <div className="relative overflow-hidden">
             <motion.img
               src={event.image}
               alt={event.title}
-              className="w-full h-48 object-cover"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              className="w-full h-48 object-cover transition-transform duration-500"
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.4 }}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute top-4 left-4 flex flex-col gap-2">
               <Badge
                 variant={getCategoryBadgeVariant(event.category) as any}
@@ -150,11 +147,11 @@ const EventCard = ({
             </div>
             <div className="absolute top-4 right-4">
               <motion.div
-                className="bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
-                whileHover={{ scale: 1.1 }}
+                className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-white/30 dark:border-gray-700/50 rounded-full p-2 shadow-lg"
+                whileHover={{ scale: 1.15, rotate: 15 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                <Star className="w-4 h-4 text-yellow-500 fill-current drop-shadow-sm" />
               </motion.div>
             </div>
           </div>
@@ -384,7 +381,7 @@ export default function Index() {
                 "🍷 Food & Wine",
                 "🎨 Art Shows",
                 "💻 Tech Meetups",
-                "🏃‍♀️ Fitness",
+                "����‍♀️ Fitness",
                 "🎭 Entertainment",
               ].map((tag, index) => (
                 <motion.div
