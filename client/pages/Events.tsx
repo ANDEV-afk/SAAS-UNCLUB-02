@@ -204,7 +204,7 @@ const FilterPanel = ({
             onClick={onClose}
           />
           <motion.div
-            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-black/80 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-white/20 overflow-y-auto"
+            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-background/95 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-border overflow-y-auto transition-colors duration-300"
             initial={{ x: -320 }}
             animate={{ x: 0 }}
             exit={{ x: -320 }}
@@ -248,7 +248,7 @@ const FilterPanel = ({
                         />
                         <label
                           htmlFor={category}
-                          className="text-sm text-gray-700 dark:text-gray-200 cursor-pointer font-medium"
+                          className="text-sm text-foreground cursor-pointer font-medium transition-colors duration-300"
                         >
                           {category}
                         </label>
@@ -271,7 +271,7 @@ const FilterPanel = ({
                       step={10}
                       className="mb-3"
                     />
-                    <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex justify-between text-sm text-muted-foreground transition-colors duration-300">
                       <span>${priceRange[0]}</span>
                       <span>${priceRange[1]}</span>
                     </div>
@@ -285,7 +285,7 @@ const FilterPanel = ({
                     value={selectedDateRange}
                     onValueChange={setSelectedDateRange}
                   >
-                    <SelectTrigger className="border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                    <SelectTrigger className="border-border bg-background text-foreground transition-colors duration-300">
                       <SelectValue placeholder="Select date range" />
                     </SelectTrigger>
                     <SelectContent>
@@ -318,14 +318,14 @@ const FilterPanel = ({
                         />
                         <label
                           htmlFor={`rating-${rating}`}
-                          className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer flex items-center"
+                          className="text-sm text-foreground cursor-pointer flex items-center transition-colors duration-300"
                         >
                           {rating}+
                           <div className="flex ml-1">
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}
-                                className={`w-3 h-3 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300 dark:text-gray-600"}`}
+                                className={`w-3 h-3 ${i < rating ? "text-yellow-400 fill-current" : "text-muted-foreground"}`}
                               />
                             ))}
                           </div>
@@ -393,22 +393,22 @@ const EventCard = ({
                     <Badge className="bg-party-pink text-white font-bold px-3 py-1 text-xs rounded-full mb-2">
                       🎉 {event.category}
                     </Badge>
-                    <h3 className="font-bold text-lg text-white group-hover:text-party-pink transition-colors duration-300">
+                    <h3 className="font-bold text-lg text-foreground group-hover:text-party-pink transition-colors duration-300">
                       {event.title}
                     </h3>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-xl text-white">
+                    <div className="font-bold text-xl text-foreground transition-colors duration-300">
                       ${event.price}
                     </div>
-                    <div className="flex items-center gap-1 text-sm text-gray-400">
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground transition-colors duration-300">
                       <Star className="w-4 h-4 text-yellow-500 fill-current" />
                       {event.rating}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground transition-colors duration-300 mb-4">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {event.date}
@@ -479,7 +479,7 @@ const EventCard = ({
           )}
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent transition-colors duration-300" />
         </div>
 
         {/* Content Section */}
@@ -491,7 +491,7 @@ const EventCard = ({
           </div>
 
           {/* Title */}
-          <h3 className="text-white font-bold text-xl leading-tight group-hover:text-party-pink transition-colors duration-300">
+          <h3 className="text-foreground font-bold text-xl leading-tight group-hover:text-party-pink transition-colors duration-300">
             {event.title}
           </h3>
 
@@ -505,10 +505,10 @@ const EventCard = ({
           <div className="flex items-center justify-between pt-2">
             {/* Price and Stats */}
             <div className="space-y-2">
-              <div className="text-2xl font-bold text-white">
+              <div className="text-2xl font-bold text-foreground transition-colors duration-300">
                 ${event.price}
               </div>
-              <div className="flex items-center gap-4 text-gray-400 text-sm">
+              <div className="flex items-center gap-4 text-muted-foreground text-sm transition-colors duration-300">
                 <div className="flex items-center gap-1">
                   <Users className="w-4 h-4" />
                   <span>{event.attendees}</span>
@@ -608,7 +608,7 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen bg-background dark:bg-gray-950 transition-colors duration-500">
+    <div className="min-h-screen bg-background transition-colors duration-500">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.05),transparent_50%)]" />
 
@@ -622,11 +622,12 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
-              <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-2 leading-tight transition-colors duration-300">
-                🎉 Discover Parties
+              <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-3 leading-tight transition-colors duration-300">
+                🎉 Discover Amazing Parties
               </h1>
-              <p className="text-muted-foreground text-base lg:text-lg leading-relaxed transition-colors duration-300">
-                Find your next epic party experience
+              <p className="text-muted-foreground text-base lg:text-lg leading-relaxed transition-colors duration-300 max-w-2xl">
+                Find your next epic party experience and connect with amazing
+                people in your area
               </p>
             </div>
 
@@ -658,7 +659,7 @@ export default function Events() {
                     className={`rounded-xl ${
                       viewMode === "grid"
                         ? "bg-blue-600 text-white"
-                        : "border-gray-600 text-gray-400 hover:text-white"
+                        : "border-border text-muted-foreground hover:text-foreground transition-colors duration-300"
                     }`}
                   >
                     <Grid className="w-4 h-4" />
@@ -675,7 +676,7 @@ export default function Events() {
                     className={`rounded-xl ${
                       viewMode === "list"
                         ? "bg-blue-600 text-white"
-                        : "border-gray-600 text-gray-400 hover:text-white"
+                        : "border-border text-muted-foreground hover:text-foreground transition-colors duration-300"
                     }`}
                   >
                     <List className="w-4 h-4" />
@@ -697,12 +698,12 @@ export default function Events() {
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h2 className="text-2xl font-bold text-white mb-2">
+              <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">
                 Ready to Host Your Own Party? 🎊
               </h2>
-              <p className="text-gray-400 text-lg">
-                Join thousands of successful hosts creating epic party
-                experiences
+              <p className="text-muted-foreground text-lg transition-colors duration-300 max-w-md">
+                Join thousands of successful hosts creating unforgettable party
+                experiences and building amazing communities
               </p>
             </div>
 
@@ -724,7 +725,7 @@ export default function Events() {
               >
                 <Button
                   variant="outline"
-                  className="border-gray-600 text-gray-300 hover:bg-gray-800 px-6 py-3 rounded-xl font-semibold"
+                  className="border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground px-6 py-3 rounded-xl font-semibold transition-colors duration-300"
                 >
                   Learn More
                 </Button>
@@ -775,7 +776,7 @@ export default function Events() {
             >
               <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <div className="relative flex-1">
-                  <Search className="absolute left-3 top-3 w-5 h-5 text-gray-500" />
+                  <Search className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                   <Input
                     placeholder="Search events, locations..."
                     value={searchQuery}
@@ -834,7 +835,7 @@ export default function Events() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm transition-colors duration-300">
                 Found {sortedEvents.length} events
                 {selectedCategory !== "All" && ` in ${selectedCategory}`}
               </p>
@@ -866,8 +867,8 @@ export default function Events() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-8 h-8 text-gray-400" />
+                <div className="w-24 h-24 bg-muted rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                  <Search className="w-8 h-8 text-muted-foreground transition-colors duration-300" />
                 </div>
                 <h3 className="subheading-text text-xl font-semibold mb-2">
                   No events found

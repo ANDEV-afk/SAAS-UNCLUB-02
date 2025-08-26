@@ -169,7 +169,7 @@ const AuthForm = ({
             transition={{ delay: 0.8 }}
           >
             <Separator className="flex-1" />
-            <span className="text-gray-500 text-sm font-medium">
+            <span className="text-muted-foreground text-sm font-medium transition-colors duration-300">
               or continue with email
             </span>
             <Separator className="flex-1" />
@@ -277,7 +277,7 @@ const AuthForm = ({
                       onChange={(e) =>
                         handleInputChange("firstName", e.target.value)
                       }
-                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground duration-300"
+                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                 </motion.div>
@@ -294,7 +294,7 @@ const AuthForm = ({
                       onChange={(e) =>
                         handleInputChange("lastName", e.target.value)
                       }
-                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground duration-300"
+                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                 </motion.div>
@@ -307,13 +307,13 @@ const AuthForm = ({
               transition={{ delay: isLogin ? 1 : 1.2 }}
             >
               <div className="relative">
-                <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                <Mail className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                 <Input
                   type="email"
                   placeholder="Email address"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                  className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
             </motion.div>
@@ -324,7 +324,7 @@ const AuthForm = ({
               transition={{ delay: isLogin ? 1.1 : 1.3 }}
             >
               <div className="relative">
-                <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                <Lock className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
@@ -332,12 +332,12 @@ const AuthForm = ({
                   onChange={(e) =>
                     handleInputChange("password", e.target.value)
                   }
-                  className="pl-10 pr-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                  className="pl-10 pr-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                 />
                 <motion.button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-3 text-muted-foreground hover:text-foreground transition-colors duration-300"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -357,7 +357,7 @@ const AuthForm = ({
                 transition={{ delay: 1.4 }}
               >
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                   <Input
                     type="password"
                     placeholder="Confirm password"
@@ -365,7 +365,7 @@ const AuthForm = ({
                     onChange={(e) =>
                       handleInputChange("confirmPassword", e.target.value)
                     }
-                    className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                    className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
               </motion.div>
@@ -378,7 +378,7 @@ const AuthForm = ({
                 transition={{ delay: 1.5 }}
               >
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                  <Calendar className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                   <Input
                     type="date"
                     placeholder="Date of Birth"
@@ -386,7 +386,7 @@ const AuthForm = ({
                     onChange={(e) =>
                       handleInputChange("dateOfBirth", e.target.value)
                     }
-                    className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                    className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground"
                     max={
                       new Date(
                         new Date().setFullYear(new Date().getFullYear() - 13),
@@ -416,7 +416,7 @@ const AuthForm = ({
                   />
                   <label
                     htmlFor="age-verification"
-                    className="text-sm text-gray-600"
+                    className="text-sm text-muted-foreground transition-colors duration-300"
                   >
                     <span className="font-semibold text-red-600">
                       🔞 I confirm that I am 18 years old or older
@@ -432,7 +432,10 @@ const AuthForm = ({
                       handleInputChange("agreeToTerms", checked as boolean)
                     }
                   />
-                  <label htmlFor="terms" className="text-sm text-gray-600">
+                  <label
+                    htmlFor="terms"
+                    className="text-sm text-muted-foreground transition-colors duration-300"
+                  >
                     I agree to the{" "}
                     <span className="text-instagram-purple font-semibold cursor-pointer hover:underline">
                       Terms of Service
@@ -455,7 +458,10 @@ const AuthForm = ({
               >
                 <div className="flex items-center space-x-2">
                   <Checkbox id="remember" />
-                  <label htmlFor="remember" className="text-sm text-gray-600">
+                  <label
+                    htmlFor="remember"
+                    className="text-sm text-muted-foreground transition-colors duration-300"
+                  >
                     Remember me
                   </label>
                 </div>
@@ -511,7 +517,7 @@ const AuthForm = ({
             animate={{ opacity: 1 }}
             transition={{ delay: isLogin ? 1.4 : 1.7 }}
           >
-            <span className="text-gray-600">
+            <span className="text-muted-foreground transition-colors duration-300">
               {isLogin ? "New to EventVibe?" : "Already have an account?"}
             </span>{" "}
             <motion.button
@@ -533,7 +539,7 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-500">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background transition-colors duration-500 flex items-center justify-center p-6 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         {floatingElements.map((element, index) => (

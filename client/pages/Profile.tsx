@@ -75,18 +75,33 @@ const upcomingEvents = [
 
 export default function Profile() {
   const [selectedTab, setSelectedTab] = useState("overview");
+  const [isLoading, setIsLoading] = useState(true);
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect to auth if not logged in
+  // Check authentication status with timeout
   useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/auth");
-    }
+    const timer = setTimeout(() => {
+      if (!isAuthenticated) {
+        navigate("/auth");
+      } else {
+        setIsLoading(false);
+      }
+    }, 1000); // Wait 1 second for auth to resolve
+
+    return () => clearTimeout(timer);
   }, [isAuthenticated, navigate]);
 
-  if (!isAuthenticated || !user) {
-    return null; // or a loading spinner
+  // Show loading while checking authentication
+  if (isLoading || !isAuthenticated || !user) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 transition-colors duration-500 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-aesthetic-violet border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading your profile...</p>
+        </div>
+      </div>
+    );
   }
 
   // Use real user data if available, otherwise fall back to mock data
@@ -137,7 +152,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 dark:from-gray-950 dark:via-aesthetic-violet/5 dark:to-aesthetic-cyan/5 transition-colors duration-500">
+    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 transition-colors duration-500">
       <GenZParticles />
 
       {/* Cover Image & Profile Header */}

@@ -1009,18 +1009,6 @@ export default function Dashboard() {
                     />
                   </Button>
                 </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button
-                    variant="outline"
-                    className="border-4 border-white/60 text-white hover:bg-white/20 px-10 py-8 rounded-full text-xl font-bold backdrop-blur-md shadow-xl"
-                  >
-                    📊 View Dashboard
-                  </Button>
-                </motion.div>
               </div>
 
               <div className="flex items-center gap-8 mt-8 text-white/80">
