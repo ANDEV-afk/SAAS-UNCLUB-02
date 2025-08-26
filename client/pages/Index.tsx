@@ -31,6 +31,7 @@ const featuredEvents = [
     attendees: 2500,
     rating: 4.8,
     category: "Music",
+    ageRestriction: 18,
   },
   {
     id: 2,
