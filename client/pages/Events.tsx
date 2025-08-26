@@ -700,9 +700,8 @@ export default function Events() {
               <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">
                 Ready to Host Your Own Party? 🎊
               </h2>
-              <p className="text-muted-foreground text-lg transition-colors duration-300">
-                Join thousands of successful hosts creating epic party
-                experiences
+              <p className="text-muted-foreground text-lg transition-colors duration-300 max-w-md">
+                Join thousands of successful hosts creating unforgettable party experiences and building amazing communities
               </p>
             </div>
 
