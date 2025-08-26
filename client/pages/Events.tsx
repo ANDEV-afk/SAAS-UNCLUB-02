@@ -697,7 +697,7 @@ export default function Events() {
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h2 className="text-2xl font-bold text-white mb-2">
+              <h2 className="text-2xl font-bold text-foreground mb-2 transition-colors duration-300">
                 Ready to Host Your Own Party? 🎊
               </h2>
               <p className="text-muted-foreground text-lg transition-colors duration-300">
