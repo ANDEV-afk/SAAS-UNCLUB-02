@@ -190,14 +190,28 @@ const EventCard = ({
                 whileTap={{ scale: 0.95 }}
                 className="flex-shrink-0"
               >
-                <Link to={`/event/${event.id}`}>
+                {event.ageRestriction ? (
                   <Button
                     size="sm"
+                    onClick={() => {
+                      alert(`🔞 This event is restricted to ages ${event.ageRestriction}+. Please verify your age before purchasing tickets.`);
+                      // In a real app, you'd check user's age from their profile
+                      window.location.href = `/event/${event.id}`;
+                    }}
                     className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
                   >
                     🎟️ Get Tickets
                   </Button>
-                </Link>
+                ) : (
+                  <Link to={`/event/${event.id}`}>
+                    <Button
+                      size="sm"
+                      className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white rounded-lg shadow-md font-semibold transition-all duration-200 whitespace-nowrap text-xs px-3 py-1.5"
+                    >
+                      🎟️ Get Tickets
+                    </Button>
+                  </Link>
+                )}
               </motion.div>
             </div>
           </CardContent>
@@ -369,7 +383,7 @@ export default function Index() {
                 "🎨 Art Shows",
                 "💻 Tech Meetups",
                 "🏃‍♀️ Fitness",
-                "�� Entertainment",
+                "🎭 Entertainment",
               ].map((tag, index) => (
                 <motion.div
                   key={tag}
