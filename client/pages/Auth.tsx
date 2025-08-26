@@ -456,20 +456,28 @@ const AuthForm = ({
             >
               <Button
                 type="submit"
-                className="w-full h-12 bg-gradient-to-r from-instagram-pink via-instagram-purple to-instagram-orange hover:from-instagram-purple hover:to-instagram-pink text-white rounded-2xl font-bold text-lg shadow-2xl"
+                disabled={isLoading}
+                className="w-full h-12 bg-gradient-to-r from-instagram-pink via-instagram-purple to-instagram-orange hover:from-instagram-purple hover:to-instagram-pink text-white rounded-2xl font-bold text-lg shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <motion.span
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {isLogin ? "Sign In & Explore 🚀" : "Create Account 🎉"}
-                </motion.span>
+                {isLoading ? (
+                  <span className="flex items-center gap-2">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    {isLogin ? "Signing In..." : "Creating Account..."}
+                  </span>
+                ) : (
+                  <motion.span
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {isLogin ? "Sign In & Explore 🚀" : "Create Account 🎉"}
+                  </motion.span>
+                )}
               </Button>
             </motion.div>
           </motion.form>
