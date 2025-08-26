@@ -1372,26 +1372,74 @@ export default function Dashboard() {
               </div>
 
               <motion.div
-                className="text-center mt-12"
+                className="text-center mt-16"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2 }}
               >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{
+                    scale: 1.08,
+                    boxShadow: "0 20px 40px rgba(255, 105, 180, 0.4)",
+                  }}
                   whileTap={{ scale: 0.95 }}
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    y: {
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }
+                  }}
                 >
                   <Button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="bg-gradient-to-r from-aesthetic-violet via-aesthetic-electric to-aesthetic-cyan hover:from-aesthetic-electric hover:via-aesthetic-cyan hover:to-aesthetic-violet text-white px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
+                    className="relative bg-gradient-to-r from-party-pink via-party-red to-party-blue hover:from-party-blue hover:via-party-pink hover:to-party-red text-white px-16 py-8 rounded-full text-2xl font-black shadow-2xl border-4 border-white/30 overflow-hidden"
                   >
-                    <Rocket className="w-6 h-6 mr-3" />
-                    CREATE ANOTHER EPIC EVENT! 🎉
+                    <motion.span
+                      className="relative z-10 flex items-center gap-4"
+                      animate={{
+                        textShadow: [
+                          "0 0 0px rgba(255,255,255,0)",
+                          "0 0 20px rgba(255,255,255,0.8)",
+                          "0 0 0px rgba(255,255,255,0)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    >
+                      <Rocket className="w-8 h-8" />
+                      CREATE ANOTHER EPIC PARTY! 🎊
+                    </motion.span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20"
+                      animate={{
+                        x: ["-100%", "100%"],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
                   </Button>
                 </motion.div>
-                <p className="text-gray-600 mt-4 text-lg">
-                  Ready to create more unforgettable memories?
-                </p>
+                <motion.p
+                  className="text-gray-700 mt-6 text-xl font-bold"
+                  animate={{
+                    color: ["#374151", "#ec4899", "#3b82f6", "#374151"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                >
+                  Ready to create more unforgettable party memories? 🌟
+                </motion.p>
               </motion.div>
             </CardContent>
           </Card>
