@@ -700,7 +700,7 @@ export default function Events() {
               <h2 className="text-2xl font-bold text-white mb-2">
                 Ready to Host Your Own Party? 🎊
               </h2>
-              <p className="text-gray-400 text-lg">
+              <p className="text-muted-foreground text-lg transition-colors duration-300">
                 Join thousands of successful hosts creating epic party
                 experiences
               </p>
@@ -724,7 +724,7 @@ export default function Events() {
               >
                 <Button
                   variant="outline"
-                  className="border-gray-600 text-gray-300 hover:bg-gray-800 px-6 py-3 rounded-xl font-semibold"
+                  className="border-border text-muted-foreground hover:bg-accent hover:text-accent-foreground px-6 py-3 rounded-xl font-semibold transition-colors duration-300"
                 >
                   Learn More
                 </Button>
@@ -775,7 +775,7 @@ export default function Events() {
             >
               <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <div className="relative flex-1">
-                  <Search className="absolute left-3 top-3 w-5 h-5 text-gray-500" />
+                  <Search className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                   <Input
                     placeholder="Search events, locations..."
                     value={searchQuery}
@@ -834,7 +834,7 @@ export default function Events() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm transition-colors duration-300">
                 Found {sortedEvents.length} events
                 {selectedCategory !== "All" && ` in ${selectedCategory}`}
               </p>
@@ -866,8 +866,8 @@ export default function Events() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-8 h-8 text-gray-400" />
+                <div className="w-24 h-24 bg-muted rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                  <Search className="w-8 h-8 text-muted-foreground transition-colors duration-300" />
                 </div>
                 <h3 className="subheading-text text-xl font-semibold mb-2">
                   No events found
