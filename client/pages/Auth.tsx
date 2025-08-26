@@ -287,14 +287,14 @@ const AuthForm = ({
                   transition={{ delay: 1.1 }}
                 >
                   <div className="relative">
-                    <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                    <User className="absolute left-3 top-3 w-5 h-5 text-muted-foreground transition-colors duration-300" />
                     <Input
                       placeholder="Last name"
                       value={formData.lastName}
                       onChange={(e) =>
                         handleInputChange("lastName", e.target.value)
                       }
-                      className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
+                      className="pl-10 border border-border bg-background focus:bg-card transition-colors rounded-2xl h-12 text-foreground placeholder:text-muted-foreground duration-300"
                     />
                   </div>
                 </motion.div>
@@ -639,7 +639,7 @@ export default function Auth() {
             {[
               { number: "50K+", label: "Events", icon: "🎉" },
               { number: "1M+", label: "Members", icon: "👥" },
-              { number: "500+", label: "Cities", icon: "��" },
+              { number: "500+", label: "Cities", icon: "🌍" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
