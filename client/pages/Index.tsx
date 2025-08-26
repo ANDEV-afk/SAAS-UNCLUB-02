@@ -44,6 +44,7 @@ const featuredEvents = [
     attendees: 800,
     rating: 4.9,
     category: "Technology",
+    ageRestriction: 18,
   },
   {
     id: 3,
@@ -56,6 +57,7 @@ const featuredEvents = [
     attendees: 300,
     rating: 4.7,
     category: "Food & Drink",
+    ageRestriction: 21,
   },
   {
     id: 4,
@@ -68,6 +70,7 @@ const featuredEvents = [
     attendees: 150,
     rating: 4.6,
     category: "Art",
+    ageRestriction: null,
   },
   {
     id: 5,
@@ -80,6 +83,7 @@ const featuredEvents = [
     attendees: 200,
     rating: 4.5,
     category: "Business",
+    ageRestriction: 18,
   },
   {
     id: 6,
@@ -92,6 +96,7 @@ const featuredEvents = [
     attendees: 50,
     rating: 4.9,
     category: "Wellness",
+    ageRestriction: null,
   },
 ];
 
