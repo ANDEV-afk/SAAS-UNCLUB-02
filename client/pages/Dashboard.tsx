@@ -445,21 +445,26 @@ const CreateEventModal = ({
                 ))}
               </div>
 
-              <div className="space-y-6 bg-white/70 backdrop-blur-sm rounded-2xl p-6">
+              <div className="space-y-6 bg-gradient-to-br from-white/80 via-party-pink/10 to-party-blue/10 backdrop-blur-md rounded-3xl p-8 border-2 border-white/50 shadow-xl">
                 <div>
-                  <label className="block text-lg font-bold text-gray-700 mb-3">
-                    ✨ Give your event a catchy name
+                  <label className="block text-2xl font-black text-transparent bg-gradient-to-r from-party-pink to-party-blue bg-clip-text mb-4">
+                    🎊 Give your party an EPIC name!
                   </label>
-                  <Input
-                    placeholder="e.g., 'Epic Summer Rooftop Bash' or 'Exclusive VIP Wine Tasting'"
-                    value={eventData.title}
-                    onChange={(e) =>
-                      setEventData({ ...eventData, title: e.target.value })
-                    }
-                    className="rounded-2xl h-14 text-lg border-2 border-gray-200 focus:border-purple-500 bg-white/80"
-                  />
-                  <p className="text-sm text-gray-500 mt-2">
-                    💡 Tip: Use exciting words that make people want to attend!
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileFocus={{ scale: 1.02 }}
+                  >
+                    <Input
+                      placeholder="e.g., 'Ultimate Birthday Bash 2024' or 'Rooftop Dance Party Extravaganza' 🎉"
+                      value={eventData.title}
+                      onChange={(e) =>
+                        setEventData({ ...eventData, title: e.target.value })
+                      }
+                      className="rounded-2xl h-16 text-xl border-3 border-party-pink/30 focus:border-party-pink bg-white/90 font-bold placeholder:text-gray-400 shadow-lg"
+                    />
+                  </motion.div>
+                  <p className="text-base text-party-blue font-semibold mt-3 bg-party-blue/10 rounded-xl p-3">
+                    💡 Pro Tip: Use exciting words like "Epic", "Ultimate", "Exclusive" to make people WANT to attend!
                   </p>
                 </div>
 
