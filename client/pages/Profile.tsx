@@ -248,6 +248,16 @@ export default function Profile() {
                   <Settings className="w-4 h-4 mr-2" />
                   Edit Profile
                 </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    logout();
+                    navigate('/');
+                  }}
+                  className="bg-red-500/20 backdrop-blur-md border-red-400/30 text-red-300 hover:bg-red-500/30 rounded-2xl"
+                >
+                  Logout
+                </Button>
               </motion.div>
             </div>
           </div>
