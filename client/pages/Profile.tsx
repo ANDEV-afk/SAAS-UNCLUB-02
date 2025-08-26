@@ -137,7 +137,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 dark:from-gray-950 dark:via-aesthetic-violet/5 dark:to-aesthetic-cyan/5 transition-colors duration-500">
+    <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15 transition-colors duration-500">
       <GenZParticles />
 
       {/* Cover Image & Profile Header */}
