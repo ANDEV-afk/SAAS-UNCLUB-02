@@ -234,7 +234,7 @@ export default function Index() {
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-unclub-blue/40 to-unclub-pink/40 dark:from-unclub-blue/30 dark:to-unclub-pink/30 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-unclub-blue/40 to-unclub-pink/40 dark:from-unclub-blue/20 dark:to-unclub-pink/20 rounded-full blur-3xl transition-colors duration-500"
           animate={{
             x: [0, 50, 0],
             y: [0, -30, 0],
@@ -247,7 +247,7 @@ export default function Index() {
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-unclub-red/40 to-party-pink/40 dark:from-unclub-red/30 dark:to-party-pink/30 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-unclub-red/40 to-party-pink/40 dark:from-unclub-red/20 dark:to-party-pink/20 rounded-full blur-3xl transition-colors duration-500"
           animate={{
             x: [0, -50, 0],
             y: [0, 30, 0],
