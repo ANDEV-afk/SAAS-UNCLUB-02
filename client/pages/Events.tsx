@@ -485,7 +485,7 @@ const EventCard = ({
         {/* Content Section */}
         <div className="p-6 space-y-4">
           {/* Date */}
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
+          <div className="flex items-center gap-2 text-muted-foreground text-sm transition-colors duration-300">
             <Calendar className="w-4 h-4" />
             <span>{event.date}</span>
           </div>
