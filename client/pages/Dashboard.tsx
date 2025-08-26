@@ -237,34 +237,14 @@ const CreateEventModal = ({
   });
 
   const categories = [
-    {
-      name: "Music & Concerts",
-      icon: "🎵",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      name: "Tech & Innovation",
-      icon: "💻",
-      color: "from-blue-500 to-cyan-500",
-    },
-    { name: "Food & Drink", icon: "🍽️", color: "from-orange-500 to-red-500" },
-    { name: "Art & Culture", icon: "🎨", color: "from-pink-500 to-purple-500" },
-    {
-      name: "Business & Networking",
-      icon: "💼",
-      color: "from-gray-600 to-gray-800",
-    },
-    {
-      name: "Health & Wellness",
-      icon: "🧘",
-      color: "from-green-500 to-teal-500",
-    },
-    {
-      name: "Sports & Fitness",
-      icon: "⚽",
-      color: "from-blue-500 to-green-500",
-    },
-    { name: "Parties & Social", icon: "🎉", color: "from-pink-500 to-red-500" },
+    { name: "Birthday Party", icon: "🎂", color: "from-pink-500 to-red-500" },
+    { name: "Dance Party", icon: "💃", color: "from-purple-500 to-pink-500" },
+    { name: "Pool Party", icon: "🏊‍♀️", color: "from-blue-500 to-cyan-500" },
+    { name: "Costume Party", icon: "🎭", color: "from-orange-500 to-red-500" },
+    { name: "House Party", icon: "🏠", color: "from-green-500 to-teal-500" },
+    { name: "Celebration", icon: "🎊", color: "from-yellow-500 to-orange-500" },
+    { name: "Beach Party", icon: "🏖️", color: "from-cyan-500 to-blue-500" },
+    { name: "Rooftop Party", icon: "🌃", color: "from-purple-500 to-indigo-500" },
   ];
 
   const popularTags = [
