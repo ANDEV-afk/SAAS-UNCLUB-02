@@ -520,26 +520,34 @@ export function Navigation() {
                   transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
                   className="pt-4"
                 >
-                  {isLoggedIn ? (
-                    <Link
-                      to="/profile"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <Button className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg">
-                        <User className="w-5 h-5 mr-2" />
-                        {userProfile.name}
+                  {isAuthenticated && user ? (
+                    <div className="space-y-3">
+                      <Link
+                        to="/profile"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Button className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg">
+                          <User className="w-5 h-5 mr-2" />
+                          {user.name}
+                        </Button>
+                      </Link>
+                      <Button
+                        onClick={() => {
+                          logout();
+                          setIsMobileMenuOpen(false);
+                          navigate('/');
+                        }}
+                        variant="outline"
+                        className="w-full border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-2xl font-bold py-3 text-base"
+                      >
+                        Logout
                       </Button>
-                    </Link>
+                    </div>
                   ) : (
                     <Button
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         navigate("/auth");
-                        // Simulate login success for demo
-                        setTimeout(() => {
-                          setIsLoggedIn(true);
-                          setUserProfile({ name: "John Doe", avatar: null });
-                        }, 2000);
                       }}
                       className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg"
                     >
