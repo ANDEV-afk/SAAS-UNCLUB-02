@@ -204,7 +204,7 @@ const FilterPanel = ({
             onClick={onClose}
           />
           <motion.div
-            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-black/80 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-white/20 overflow-y-auto"
+            className="fixed lg:static top-0 left-0 w-80 h-full lg:h-auto bg-background/95 backdrop-blur-md rounded-none lg:rounded-2xl shadow-xl z-50 border-r lg:border border-border overflow-y-auto transition-colors duration-300"
             initial={{ x: -320 }}
             animate={{ x: 0 }}
             exit={{ x: -320 }}
@@ -393,12 +393,12 @@ const EventCard = ({
                     <Badge className="bg-party-pink text-white font-bold px-3 py-1 text-xs rounded-full mb-2">
                       🎉 {event.category}
                     </Badge>
-                    <h3 className="font-bold text-lg text-white group-hover:text-party-pink transition-colors duration-300">
+                    <h3 className="font-bold text-lg text-foreground group-hover:text-party-pink transition-colors duration-300">
                       {event.title}
                     </h3>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-xl text-white">
+                    <div className="font-bold text-xl text-foreground transition-colors duration-300">
                       ${event.price}
                     </div>
                     <div className="flex items-center gap-1 text-sm text-muted-foreground transition-colors duration-300">
@@ -479,7 +479,7 @@ const EventCard = ({
           )}
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent transition-colors duration-300" />
         </div>
 
         {/* Content Section */}
@@ -491,7 +491,7 @@ const EventCard = ({
           </div>
 
           {/* Title */}
-          <h3 className="text-white font-bold text-xl leading-tight group-hover:text-party-pink transition-colors duration-300">
+          <h3 className="text-foreground font-bold text-xl leading-tight group-hover:text-party-pink transition-colors duration-300">
             {event.title}
           </h3>
 
@@ -505,7 +505,7 @@ const EventCard = ({
           <div className="flex items-center justify-between pt-2">
             {/* Price and Stats */}
             <div className="space-y-2">
-              <div className="text-2xl font-bold text-white">
+              <div className="text-2xl font-bold text-foreground transition-colors duration-300">
                 ${event.price}
               </div>
               <div className="flex items-center gap-4 text-muted-foreground text-sm transition-colors duration-300">
