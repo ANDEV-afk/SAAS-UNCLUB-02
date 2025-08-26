@@ -264,14 +264,61 @@ const CreateEventModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl max-h-[95vh] overflow-y-auto bg-gradient-to-br from-white via-purple-50/50 to-pink-50/50 border-0 rounded-3xl">
-        <DialogHeader>
-          <DialogTitle className="text-4xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent text-center">
-            ✨ Create Your Epic Event ✨
-          </DialogTitle>
-          <p className="text-center text-gray-600 text-lg">
-            Turn your vision into an unforgettable experience!
-          </p>
+      <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto bg-gradient-to-br from-party-pink/20 via-party-blue/20 to-party-red/20 backdrop-blur-xl border-4 border-white/30 rounded-3xl shadow-2xl">
+        <DialogHeader className="relative overflow-hidden rounded-t-3xl p-8 bg-gradient-to-r from-party-pink via-party-blue to-party-red">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-white/20"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  width: `${10 + Math.random() * 20}px`,
+                  height: `${10 + Math.random() * 20}px`,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.3, 0.8, 0.3],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2 + Math.random() * 3,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative z-10"
+          >
+            <DialogTitle className="text-5xl lg:text-6xl font-black text-white text-center mb-4">
+              <motion.span
+                animate={{
+                  textShadow: [
+                    "0 0 20px rgba(255,255,255,0.5)",
+                    "0 0 40px rgba(255,255,255,0.8)",
+                    "0 0 20px rgba(255,255,255,0.5)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
+                🎉 CREATE EPIC PARTY! 🎊
+              </motion.span>
+            </DialogTitle>
+            <p className="text-center text-white/90 text-xl font-bold">
+              Turn your party vision into the most unforgettable experience ever! 🚀
+            </p>
+          </motion.div>
         </DialogHeader>
 
         <motion.div
