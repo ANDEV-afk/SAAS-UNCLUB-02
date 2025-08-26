@@ -29,6 +29,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTheme } from "next-themes";
+import { useAuth } from "../contexts/AuthContext";
 
 const navItems = [
   {
