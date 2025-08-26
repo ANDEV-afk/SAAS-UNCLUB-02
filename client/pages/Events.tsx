@@ -401,14 +401,14 @@ const EventCard = ({
                     <div className="font-bold text-xl text-white">
                       ${event.price}
                     </div>
-                    <div className="flex items-center gap-1 text-sm text-gray-400">
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground transition-colors duration-300">
                       <Star className="w-4 h-4 text-yellow-500 fill-current" />
                       {event.rating}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground transition-colors duration-300 mb-4">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {event.date}
@@ -508,7 +508,7 @@ const EventCard = ({
               <div className="text-2xl font-bold text-white">
                 ${event.price}
               </div>
-              <div className="flex items-center gap-4 text-gray-400 text-sm">
+              <div className="flex items-center gap-4 text-muted-foreground text-sm transition-colors duration-300">
                 <div className="flex items-center gap-1">
                   <Users className="w-4 h-4" />
                   <span>{event.attendees}</span>
@@ -658,7 +658,7 @@ export default function Events() {
                     className={`rounded-xl ${
                       viewMode === "grid"
                         ? "bg-blue-600 text-white"
-                        : "border-gray-600 text-gray-400 hover:text-white"
+                        : "border-border text-muted-foreground hover:text-foreground transition-colors duration-300"
                     }`}
                   >
                     <Grid className="w-4 h-4" />
@@ -675,7 +675,7 @@ export default function Events() {
                     className={`rounded-xl ${
                       viewMode === "list"
                         ? "bg-blue-600 text-white"
-                        : "border-gray-600 text-gray-400 hover:text-white"
+                        : "border-border text-muted-foreground hover:text-foreground transition-colors duration-300"
                     }`}
                   >
                     <List className="w-4 h-4" />
