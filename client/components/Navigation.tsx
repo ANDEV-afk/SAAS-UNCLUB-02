@@ -549,7 +549,7 @@ export function Navigation() {
                         setIsMobileMenuOpen(false);
                         navigate("/auth");
                       }}
-                      className="w-full bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-white rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold py-4 text-lg"
+                      className="w-full bg-gradient-to-r from-primary/30 to-secondary/30 hover:from-primary/50 hover:to-secondary/50 text-primary-foreground dark:text-white rounded-2xl shadow-xl border border-border/50 font-bold py-4 text-lg transition-colors duration-300"
                     >
                       <Sparkles className="w-5 h-5 mr-2" />
                       Join the Party 🎉
