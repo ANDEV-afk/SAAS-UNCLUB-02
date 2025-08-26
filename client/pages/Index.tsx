@@ -156,18 +156,18 @@ const EventCard = ({
             </div>
           </div>
 
-          <CardContent className="p-6">
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
-              <Calendar className="w-4 h-4" />
+          <CardContent className="p-6 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm transition-colors duration-300">
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">
+              <Calendar className="w-4 h-4 text-aesthetic-violet dark:text-aesthetic-cyan transition-colors duration-300" />
               {event.date}
             </div>
 
-            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2 group-hover:text-aesthetic-violet dark:group-hover:text-aesthetic-cyan transition-colors">
+            <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2 group-hover:text-aesthetic-violet dark:group-hover:text-aesthetic-cyan transition-all duration-300 leading-tight">
               {event.title}
             </h3>
 
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-              <MapPin className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 mb-4 transition-colors duration-300">
+              <MapPin className="w-4 h-4 text-aesthetic-electric dark:text-aesthetic-cyan transition-colors duration-300" />
               {event.location}
             </div>
 
@@ -176,8 +176,8 @@ const EventCard = ({
                 <span className="font-bold text-xl text-gray-900 dark:text-gray-100">
                   {event.price}
                 </span>
-                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-                  <Users className="w-4 h-4" />
+                <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                  <Users className="w-4 h-4 text-aesthetic-magenta dark:text-aesthetic-electric transition-colors duration-300" />
                   {event.attendees}
                 </div>
               </div>
@@ -381,7 +381,7 @@ export default function Index() {
                 "🍷 Food & Wine",
                 "🎨 Art Shows",
                 "💻 Tech Meetups",
-                "����‍♀️ Fitness",
+                "🏃‍♀️ Fitness",
                 "🎭 Entertainment",
               ].map((tag, index) => (
                 <motion.div
