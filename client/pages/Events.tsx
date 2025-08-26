@@ -248,7 +248,7 @@ const FilterPanel = ({
                         />
                         <label
                           htmlFor={category}
-                          className="text-sm text-gray-700 dark:text-gray-200 cursor-pointer font-medium"
+                          className="text-sm text-foreground cursor-pointer font-medium transition-colors duration-300"
                         >
                           {category}
                         </label>
@@ -271,7 +271,7 @@ const FilterPanel = ({
                       step={10}
                       className="mb-3"
                     />
-                    <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex justify-between text-sm text-muted-foreground transition-colors duration-300">
                       <span>${priceRange[0]}</span>
                       <span>${priceRange[1]}</span>
                     </div>
@@ -285,7 +285,7 @@ const FilterPanel = ({
                     value={selectedDateRange}
                     onValueChange={setSelectedDateRange}
                   >
-                    <SelectTrigger className="border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                    <SelectTrigger className="border-border bg-background text-foreground transition-colors duration-300">
                       <SelectValue placeholder="Select date range" />
                     </SelectTrigger>
                     <SelectContent>
@@ -318,14 +318,14 @@ const FilterPanel = ({
                         />
                         <label
                           htmlFor={`rating-${rating}`}
-                          className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer flex items-center"
+                          className="text-sm text-foreground cursor-pointer flex items-center transition-colors duration-300"
                         >
                           {rating}+
                           <div className="flex ml-1">
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}
-                                className={`w-3 h-3 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300 dark:text-gray-600"}`}
+                                className={`w-3 h-3 ${i < rating ? "text-yellow-400 fill-current" : "text-muted-foreground"}`}
                               />
                             ))}
                           </div>
