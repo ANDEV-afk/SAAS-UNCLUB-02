@@ -406,7 +406,7 @@ export function Navigation() {
 
                       {/* Aesthetic ring animation */}
                       <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-aesthetic-violet/30"
+                        className="absolute inset-0 rounded-full border-2 border-primary/30"
                         animate={{
                           scale: [1, 1.15, 1],
                           opacity: [0.4, 0.7, 0.4],
