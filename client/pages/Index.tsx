@@ -438,12 +438,12 @@ export default function Index() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/licenses">
+                <Link to="/auth">
                   <Button
                     variant="outline"
                     className="border-3 border-aesthetic-violet text-aesthetic-violet hover:bg-aesthetic-violet hover:text-white px-8 py-6 rounded-3xl text-lg font-bold"
                   >
-                    👑 Upgrade to Pro
+                    👑 Join Community
                   </Button>
                 </Link>
               </motion.div>
