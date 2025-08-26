@@ -608,7 +608,7 @@ export default function Events() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-background dark:bg-gray-950 transition-colors duration-500">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.05),transparent_50%)]" />
 
