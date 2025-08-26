@@ -219,7 +219,7 @@ const FilterPanel = ({
                   variant="ghost"
                   size="sm"
                   onClick={onClose}
-                  className="lg:hidden text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                  className="lg:hidden text-muted-foreground hover:text-foreground transition-colors duration-300"
                 >
                   ×
                 </Button>
