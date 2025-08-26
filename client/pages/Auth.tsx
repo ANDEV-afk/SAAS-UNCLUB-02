@@ -63,7 +63,9 @@ const AuthForm = ({
     email: "",
     password: "",
     confirmPassword: "",
+    dateOfBirth: "",
     agreeToTerms: false,
+    ageVerified: false,
   });
 
   const handleInputChange = (field: string, value: string | boolean) => {
