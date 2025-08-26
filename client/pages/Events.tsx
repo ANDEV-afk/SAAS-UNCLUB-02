@@ -373,7 +373,7 @@ const EventCard = ({
         whileHover={{ x: 4 }}
         className="group"
       >
-        <Card className="bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300">
+        <Card className="bg-card/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border/50 hover:border-border transition-all duration-300">
           <CardContent className="p-6">
             <div className="flex gap-6">
               <motion.div
@@ -453,7 +453,7 @@ const EventCard = ({
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className="group"
     >
-      <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 shadow-xl hover:shadow-2xl">
+      <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border/50 hover:border-border transition-all duration-300 shadow-xl hover:shadow-2xl">
         {/* Image Section */}
         <div className="relative overflow-hidden h-48">
           <Image
@@ -639,7 +639,7 @@ export default function Events() {
                   variant="outline"
                   size="sm"
                   onClick={() => setIsFilterOpen(true)}
-                  className="lg:hidden bg-gray-800/50 border-gray-700/50 text-gray-300 hover:bg-gray-700/50 hover:text-white"
+                  className="lg:hidden bg-secondary/50 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors duration-300"
                 >
                   <SlidersHorizontal className="w-4 h-4 mr-2" />
                   Filters
@@ -693,7 +693,7 @@ export default function Events() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6 lg:p-8 mb-8 mt-4 overflow-hidden"
+          className="relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 lg:p-8 mb-8 mt-4 overflow-hidden transition-colors duration-300"
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
@@ -780,12 +780,12 @@ export default function Events() {
                     placeholder="Search events, locations..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 bg-gray-900/80 border border-gray-700/50 backdrop-blur-sm focus:border-gray-600 transition-colors rounded-xl text-white placeholder:text-gray-500"
+                    className="pl-10 bg-background/80 border border-border/50 backdrop-blur-sm focus:border-border transition-colors rounded-xl text-foreground placeholder:text-muted-foreground duration-300"
                   />
                 </div>
 
                 <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-48 bg-gray-900/80 border border-gray-700/50 backdrop-blur-sm rounded-xl text-white">
+                  <SelectTrigger className="w-48 bg-background/80 border border-border/50 backdrop-blur-sm rounded-xl text-foreground transition-colors duration-300">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
