@@ -227,7 +227,7 @@ export default function Index() {
   const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-unclub-blue/15 via-unclub-pink/15 to-unclub-red/15 dark:from-gray-900 dark:via-unclub-blue/20 dark:to-unclub-pink/15">
+    <div className="min-h-screen bg-gradient-to-br from-unclub-blue/15 via-unclub-pink/15 to-unclub-red/15 dark:from-gray-950 dark:via-unclub-blue/10 dark:to-unclub-pink/10 transition-colors duration-500">
       {/* GenZ Floating Elements */}
       <GenZFloatingElements />
 
