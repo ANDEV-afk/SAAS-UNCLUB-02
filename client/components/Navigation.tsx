@@ -535,7 +535,7 @@ export function Navigation() {
                         onClick={() => {
                           logout();
                           setIsMobileMenuOpen(false);
-                          navigate('/');
+                          navigate("/");
                         }}
                         variant="outline"
                         className="w-full border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-2xl font-bold py-3 text-base"

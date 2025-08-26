@@ -201,7 +201,9 @@ const AuthForm = ({
                 if (!isLogin) {
                   // Age verification for signup
                   if (!formData.ageVerified) {
-                    setError("🔞 You must be 18 years or older to create an account.");
+                    setError(
+                      "🔞 You must be 18 years or older to create an account.",
+                    );
                     setIsLoading(false);
                     return;
                   }
@@ -213,19 +215,26 @@ const AuthForm = ({
                     let age = today.getFullYear() - birthDate.getFullYear();
                     const monthDiff = today.getMonth() - birthDate.getMonth();
 
-                    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                    if (
+                      monthDiff < 0 ||
+                      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+                    ) {
                       age--;
                     }
 
                     if (age < 18) {
-                      setError("🔞 You must be 18 years or older to create an account. Please come back when you're older!");
+                      setError(
+                        "🔞 You must be 18 years or older to create an account. Please come back when you're older!",
+                      );
                       setIsLoading(false);
                       return;
                     }
                   }
 
                   if (!formData.agreeToTerms) {
-                    setError("📋 Please agree to the Terms of Service and Privacy Policy.");
+                    setError(
+                      "📋 Please agree to the Terms of Service and Privacy Policy.",
+                    );
                     setIsLoading(false);
                     return;
                   }
@@ -238,14 +247,16 @@ const AuthForm = ({
 
                   // Sign up user
                   await signup(formData);
-                  navigate('/profile'); // Redirect to profile after signup
+                  navigate("/profile"); // Redirect to profile after signup
                 } else {
                   // Log in user
                   await login(formData.email, formData.password);
-                  navigate('/profile'); // Redirect to profile after login
+                  navigate("/profile"); // Redirect to profile after login
                 }
               } catch (error: any) {
-                setError(error.message || "Something went wrong. Please try again.");
+                setError(
+                  error.message || "Something went wrong. Please try again.",
+                );
               } finally {
                 setIsLoading(false);
               }
@@ -376,7 +387,13 @@ const AuthForm = ({
                       handleInputChange("dateOfBirth", e.target.value)
                     }
                     className="pl-10 border-0 bg-gray-50 focus:bg-white transition-colors rounded-2xl h-12"
-                    max={new Date(new Date().setFullYear(new Date().getFullYear() - 13)).toISOString().split('T')[0]}
+                    max={
+                      new Date(
+                        new Date().setFullYear(new Date().getFullYear() - 13),
+                      )
+                        .toISOString()
+                        .split("T")[0]
+                    }
                   />
                 </div>
               </motion.div>
@@ -397,8 +414,13 @@ const AuthForm = ({
                       handleInputChange("ageVerified", checked as boolean)
                     }
                   />
-                  <label htmlFor="age-verification" className="text-sm text-gray-600">
-                    <span className="font-semibold text-red-600">🔞 I confirm that I am 18 years old or older</span>
+                  <label
+                    htmlFor="age-verification"
+                    className="text-sm text-gray-600"
+                  >
+                    <span className="font-semibold text-red-600">
+                      🔞 I confirm that I am 18 years old or older
+                    </span>
                   </label>
                 </div>
 

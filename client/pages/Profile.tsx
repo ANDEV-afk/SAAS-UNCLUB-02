@@ -25,7 +25,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GenZParticles } from "@/components/GenZParticles";
 
-
 const recentActivity = [
   {
     id: 1,
@@ -82,7 +81,7 @@ export default function Profile() {
   // Redirect to auth if not logged in
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/auth');
+      navigate("/auth");
     }
   }, [isAuthenticated, navigate]);
 
@@ -93,9 +92,12 @@ export default function Profile() {
   // Use real user data if available, otherwise fall back to mock data
   const userData = {
     name: user.name || "Alex Chen",
-    username: `@${user.name?.toLowerCase().replace(' ', '') || 'alexpartyking'}`,
-    avatar: user.avatar || "https://images.unsplash.com/photo-1494790108755-2616b9e2b36e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-    coverImage: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    username: `@${user.name?.toLowerCase().replace(" ", "") || "alexpartyking"}`,
+    avatar:
+      user.avatar ||
+      "https://images.unsplash.com/photo-1494790108755-2616b9e2b36e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+    coverImage:
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     bio: "Party planner extraordinaire 🎉 | Event enthusiast | Making memories one party at a time ✨",
     location: "Los Angeles, CA",
     joinDate: "March 2024",
@@ -252,7 +254,7 @@ export default function Profile() {
                   variant="outline"
                   onClick={() => {
                     logout();
-                    navigate('/');
+                    navigate("/");
                   }}
                   className="bg-red-500/20 backdrop-blur-md border-red-400/30 text-red-300 hover:bg-red-500/30 rounded-2xl"
                 >

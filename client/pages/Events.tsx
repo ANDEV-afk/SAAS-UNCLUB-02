@@ -701,7 +701,8 @@ export default function Events() {
                 Ready to Host Your Own Party? 🎊
               </h2>
               <p className="text-gray-400 text-lg">
-                Join thousands of successful hosts creating epic party experiences
+                Join thousands of successful hosts creating epic party
+                experiences
               </p>
             </div>
 

@@ -194,7 +194,9 @@ const EventCard = ({
                   <Button
                     size="sm"
                     onClick={() => {
-                      alert(`🔞 This event is restricted to ages ${event.ageRestriction}+. Please verify your age before purchasing tickets.`);
+                      alert(
+                        `🔞 This event is restricted to ages ${event.ageRestriction}+. Please verify your age before purchasing tickets.`,
+                      );
                       // In a real app, you'd check user's age from their profile
                       window.location.href = `/event/${event.id}`;
                     }}

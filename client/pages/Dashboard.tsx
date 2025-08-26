@@ -244,7 +244,11 @@ const CreateEventModal = ({
     { name: "House Party", icon: "🏠", color: "from-green-500 to-teal-500" },
     { name: "Celebration", icon: "🎊", color: "from-yellow-500 to-orange-500" },
     { name: "Beach Party", icon: "🏖️", color: "from-cyan-500 to-blue-500" },
-    { name: "Rooftop Party", icon: "🌃", color: "from-purple-500 to-indigo-500" },
+    {
+      name: "Rooftop Party",
+      icon: "🌃",
+      color: "from-purple-500 to-indigo-500",
+    },
   ];
 
   const popularTags = [
@@ -316,7 +320,8 @@ const CreateEventModal = ({
               </motion.span>
             </DialogTitle>
             <p className="text-center text-white/90 text-xl font-bold">
-              Turn your party vision into the most unforgettable experience ever! 🚀
+              Turn your party vision into the most unforgettable experience
+              ever! 🚀
             </p>
           </motion.div>
         </DialogHeader>
@@ -329,9 +334,24 @@ const CreateEventModal = ({
           {/* Enhanced Progress Steps */}
           <div className="flex items-center justify-center gap-8 mb-12">
             {[
-              { num: 1, label: "🎯 Party Concept", desc: "What's your party vision?", emoji: "🎨" },
-              { num: 2, label: "🎪 Party Details", desc: "Add the magical details", emoji: "✨" },
-              { num: 3, label: "🚀 Launch Party", desc: "Share with the world!", emoji: "🎉" },
+              {
+                num: 1,
+                label: "🎯 Party Concept",
+                desc: "What's your party vision?",
+                emoji: "🎨",
+              },
+              {
+                num: 2,
+                label: "🎪 Party Details",
+                desc: "Add the magical details",
+                emoji: "✨",
+              },
+              {
+                num: 3,
+                label: "🚀 Launch Party",
+                desc: "Share with the world!",
+                emoji: "🎉",
+              },
             ].map((stepInfo, index) => (
               <motion.div
                 key={stepInfo.num}
@@ -347,12 +367,16 @@ const CreateEventModal = ({
                       ? "bg-gradient-to-br from-party-pink via-party-blue to-party-red text-white"
                       : "bg-gray-200 text-gray-500"
                   }`}
-                  animate={stepInfo.num <= step ? {
-                    boxShadow: [
-                      "0 0 0 0 rgba(255, 105, 180, 0.4)",
-                      "0 0 0 20px rgba(255, 105, 180, 0)",
-                    ],
-                  } : {}}
+                  animate={
+                    stepInfo.num <= step
+                      ? {
+                          boxShadow: [
+                            "0 0 0 0 rgba(255, 105, 180, 0.4)",
+                            "0 0 0 20px rgba(255, 105, 180, 0)",
+                          ],
+                        }
+                      : {}
+                  }
                   transition={{
                     duration: 1.5,
                     repeat: Infinity,
@@ -365,7 +389,9 @@ const CreateEventModal = ({
                 </motion.div>
                 <div className="text-center">
                   <div className="font-black text-base">{stepInfo.label}</div>
-                  <div className="text-sm opacity-70 font-semibold">{stepInfo.desc}</div>
+                  <div className="text-sm opacity-70 font-semibold">
+                    {stepInfo.desc}
+                  </div>
                 </div>
                 {stepInfo.num < 3 && (
                   <motion.div
@@ -400,9 +426,12 @@ const CreateEventModal = ({
                   🎉 What Epic Party Will You Create? 🚀
                 </motion.h3>
                 <p className="text-gray-600 text-xl font-semibold">
-                  Choose your party style and let's create the most unforgettable experience ever!
+                  Choose your party style and let's create the most
+                  unforgettable experience ever!
                   <br />
-                  <span className="text-party-pink">✨ Every great party starts with a vision! ✨</span>
+                  <span className="text-party-pink">
+                    ✨ Every great party starts with a vision! ✨
+                  </span>
                 </p>
               </div>
 
@@ -464,7 +493,8 @@ const CreateEventModal = ({
                     />
                   </motion.div>
                   <p className="text-base text-party-blue font-semibold mt-3 bg-party-blue/10 rounded-xl p-3">
-                    💡 Pro Tip: Use exciting words like "Epic", "Ultimate", "Exclusive" to make people WANT to attend!
+                    💡 Pro Tip: Use exciting words like "Epic", "Ultimate",
+                    "Exclusive" to make people WANT to attend!
                   </p>
                 </div>
 
@@ -941,7 +971,7 @@ export default function Dashboard() {
                       duration: 3,
                       repeat: Infinity,
                       ease: "easeInOut",
-                    }
+                    },
                   }}
                   className="relative"
                 >
@@ -1391,7 +1421,7 @@ export default function Dashboard() {
                       duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut",
-                    }
+                    },
                   }}
                 >
                   <Button
