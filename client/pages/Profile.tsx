@@ -121,6 +121,63 @@ const upcomingEvents = [
 
 export default function Profile() {
   const [selectedTab, setSelectedTab] = useState("overview");
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect to auth if not logged in
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth');
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (!isAuthenticated || !user) {
+    return null; // or a loading spinner
+  }
+
+  // Use real user data if available, otherwise fall back to mock data
+  const userData = {
+    name: user.name || "Alex Chen",
+    username: `@${user.name?.toLowerCase().replace(' ', '') || 'alexpartyking'}`,
+    avatar: user.avatar || "https://images.unsplash.com/photo-1494790108755-2616b9e2b36e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+    coverImage: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    bio: "Party planner extraordinaire 🎉 | Event enthusiast | Making memories one party at a time ✨",
+    location: "Los Angeles, CA",
+    joinDate: "March 2024",
+    isVerified: user.isVerified || false,
+    stats: {
+      eventsAttended: 47,
+      eventsHosted: 12,
+      friends: 2847,
+      rating: 4.9,
+    },
+    badges: [
+      {
+        id: 1,
+        name: "Party Legend",
+        icon: Crown,
+        color: "from-aesthetic-magenta to-aesthetic-electric",
+      },
+      {
+        id: 2,
+        name: "Social Butterfly",
+        icon: Users,
+        color: "from-aesthetic-violet to-aesthetic-cyan",
+      },
+      {
+        id: 3,
+        name: "Event Master",
+        icon: Trophy,
+        color: "from-aesthetic-electric to-aesthetic-violet",
+      },
+      {
+        id: 4,
+        name: "Super Host",
+        icon: Medal,
+        color: "from-aesthetic-cyan to-aesthetic-magenta",
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-aesthetic-violet/15 via-aesthetic-electric/15 to-aesthetic-cyan/15">
