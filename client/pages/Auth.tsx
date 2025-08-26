@@ -181,41 +181,63 @@ const AuthForm = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
+              setError(null);
+              setIsLoading(true);
 
-              if (!isLogin) {
-                // Age verification for signup
-                if (!formData.ageVerified) {
-                  alert("🔞 You must be 18 years or older to create an account.");
-                  return;
-                }
-
-                // Check date of birth if provided
-                if (formData.dateOfBirth) {
-                  const birthDate = new Date(formData.dateOfBirth);
-                  const today = new Date();
-                  let age = today.getFullYear() - birthDate.getFullYear();
-                  const monthDiff = today.getMonth() - birthDate.getMonth();
-
-                  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-                    age--;
-                  }
-
-                  if (age < 18) {
-                    alert("🔞 You must be 18 years or older to create an account. Please come back when you're older!");
+              try {
+                if (!isLogin) {
+                  // Age verification for signup
+                  if (!formData.ageVerified) {
+                    setError("🔞 You must be 18 years or older to create an account.");
+                    setIsLoading(false);
                     return;
                   }
-                }
 
-                if (!formData.agreeToTerms) {
-                  alert("📋 Please agree to the Terms of Service and Privacy Policy.");
-                  return;
+                  // Check date of birth if provided
+                  if (formData.dateOfBirth) {
+                    const birthDate = new Date(formData.dateOfBirth);
+                    const today = new Date();
+                    let age = today.getFullYear() - birthDate.getFullYear();
+                    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+                    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                      age--;
+                    }
+
+                    if (age < 18) {
+                      setError("🔞 You must be 18 years or older to create an account. Please come back when you're older!");
+                      setIsLoading(false);
+                      return;
+                    }
+                  }
+
+                  if (!formData.agreeToTerms) {
+                    setError("📋 Please agree to the Terms of Service and Privacy Policy.");
+                    setIsLoading(false);
+                    return;
+                  }
+
+                  if (formData.password !== formData.confirmPassword) {
+                    setError("🔐 Passwords don't match. Please try again.");
+                    setIsLoading(false);
+                    return;
+                  }
+
+                  // Sign up user
+                  await signup(formData);
+                  navigate('/profile'); // Redirect to profile after signup
+                } else {
+                  // Log in user
+                  await login(formData.email, formData.password);
+                  navigate('/profile'); // Redirect to profile after login
                 }
+              } catch (error: any) {
+                setError(error.message || "Something went wrong. Please try again.");
+              } finally {
+                setIsLoading(false);
               }
-
-              // Handle form submission
-              console.log("Form submitted:", formData);
             }}
           >
             {!isLogin && (
