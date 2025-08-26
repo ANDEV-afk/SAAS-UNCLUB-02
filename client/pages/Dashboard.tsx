@@ -833,16 +833,57 @@ export default function Dashboard() {
                 that people will talk about forever!
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{
+                    scale: 1.08,
+                    boxShadow: "0 25px 50px rgba(255, 255, 255, 0.3)",
+                  }}
                   whileTap={{ scale: 0.95 }}
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  }}
+                  transition={{
+                    backgroundPosition: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }
+                  }}
+                  className="relative"
                 >
                   <Button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="bg-gradient-to-r from-aesthetic-cyan to-aesthetic-electric hover:from-aesthetic-electric hover:to-aesthetic-cyan text-black px-12 py-6 rounded-3xl text-xl font-black shadow-2xl"
+                    className="relative bg-gradient-to-r from-party-pink via-party-red to-party-blue hover:from-party-blue hover:via-party-pink hover:to-party-red text-white px-16 py-8 rounded-full text-2xl font-black shadow-2xl overflow-hidden border-4 border-white/30"
+                    style={{ backgroundSize: "300% 300%" }}
                   >
-                    🎉 CREATE MY EVENT NOW!
+                    <motion.span
+                      className="relative z-10 flex items-center gap-3"
+                      animate={{
+                        textShadow: [
+                          "0 0 0px rgba(255,255,255,0)",
+                          "0 0 20px rgba(255,255,255,0.8)",
+                          "0 0 0px rgba(255,255,255,0)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    >
+                      🎉 CREATE EPIC PARTY! 🚀
+                    </motion.span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20"
+                      animate={{
+                        x: ["-100%", "100%"],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
                   </Button>
                 </motion.div>
 
@@ -852,9 +893,9 @@ export default function Dashboard() {
                 >
                   <Button
                     variant="outline"
-                    className="border-3 border-white/50 text-white hover:bg-white/10 px-8 py-6 rounded-3xl text-lg font-bold backdrop-blur-sm"
+                    className="border-4 border-white/60 text-white hover:bg-white/20 px-10 py-8 rounded-full text-xl font-bold backdrop-blur-md shadow-xl"
                   >
-                    📊 View My Stats
+                    📊 View Dashboard
                   </Button>
                 </motion.div>
               </div>
