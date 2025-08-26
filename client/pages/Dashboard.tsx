@@ -327,32 +327,53 @@ const CreateEventModal = ({
           className="p-8"
         >
           {/* Enhanced Progress Steps */}
-          <div className="flex items-center justify-center gap-6 mb-10">
+          <div className="flex items-center justify-center gap-8 mb-12">
             {[
-              { num: 1, label: "🎯 Concept", desc: "What's your vision?" },
-              { num: 2, label: "📝 Details", desc: "Fill in the magic" },
-              { num: 3, label: "🚀 Launch", desc: "Share with the world" },
-            ].map((stepInfo) => (
+              { num: 1, label: "🎯 Party Concept", desc: "What's your party vision?", emoji: "🎨" },
+              { num: 2, label: "🎪 Party Details", desc: "Add the magical details", emoji: "✨" },
+              { num: 3, label: "🚀 Launch Party", desc: "Share with the world!", emoji: "🎉" },
+            ].map((stepInfo, index) => (
               <motion.div
                 key={stepInfo.num}
-                className={`flex flex-col items-center gap-2 ${stepInfo.num <= step ? "text-purple-600" : "text-gray-400"}`}
-                whileHover={{ scale: 1.05 }}
+                className={`flex flex-col items-center gap-3 ${stepInfo.num <= step ? "text-party-pink" : "text-gray-400"}`}
+                whileHover={{ scale: 1.1, y: -5 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
               >
-                <div
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-lg shadow-lg ${
+                <motion.div
+                  className={`relative w-20 h-20 rounded-full flex items-center justify-center font-bold text-xl shadow-2xl ${
                     stepInfo.num <= step
-                      ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                      ? "bg-gradient-to-br from-party-pink via-party-blue to-party-red text-white"
                       : "bg-gray-200 text-gray-500"
                   }`}
+                  animate={stepInfo.num <= step ? {
+                    boxShadow: [
+                      "0 0 0 0 rgba(255, 105, 180, 0.4)",
+                      "0 0 0 20px rgba(255, 105, 180, 0)",
+                    ],
+                  } : {}}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                  }}
                 >
-                  {stepInfo.num}
-                </div>
+                  <span className="text-2xl">{stepInfo.emoji}</span>
+                  <div className="absolute -bottom-1 -right-1 text-xs bg-white rounded-full w-6 h-6 flex items-center justify-center text-gray-800 font-black border-2 border-party-pink">
+                    {stepInfo.num}
+                  </div>
+                </motion.div>
                 <div className="text-center">
-                  <div className="font-bold text-sm">{stepInfo.label}</div>
-                  <div className="text-xs opacity-70">{stepInfo.desc}</div>
+                  <div className="font-black text-base">{stepInfo.label}</div>
+                  <div className="text-sm opacity-70 font-semibold">{stepInfo.desc}</div>
                 </div>
                 {stepInfo.num < 3 && (
-                  <div className="w-20 h-px bg-gradient-to-r from-purple-300 to-pink-300" />
+                  <motion.div
+                    className="w-24 h-1 rounded-full bg-gradient-to-r from-party-pink to-party-blue"
+                    initial={{ width: 0 }}
+                    animate={{ width: stepInfo.num < step ? 96 : 0 }}
+                    transition={{ duration: 0.5 }}
+                  />
                 )}
               </motion.div>
             ))}
