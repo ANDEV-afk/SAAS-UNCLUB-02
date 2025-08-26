@@ -17,7 +17,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge, getCategoryBadgeVariant } from "@/components/ui/badge";
-import { Sparkles, Confetti, AnimatedCard } from "@/components/AnimatedEffects";
 import { Slider } from "@/components/ui/slider";
 import {
   Select,
@@ -624,10 +623,10 @@ export default function Events() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex-1">
               <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2 leading-tight">
-                Discover Events
+                ���� Discover Parties
               </h1>
               <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
-                Find your next unforgettable experience
+                Find your next epic party experience
               </p>
             </div>
 
@@ -699,10 +698,10 @@ export default function Events() {
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <h2 className="text-2xl font-bold text-white mb-2">
-                Ready to Host Your Own Event?
+                Ready to Host Your Own Party? 🎊
               </h2>
               <p className="text-gray-400 text-lg">
-                Join thousands of successful hosts creating amazing experiences
+                Join thousands of successful hosts creating epic party experiences
               </p>
             </div>
 
