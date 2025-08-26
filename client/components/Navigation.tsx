@@ -385,7 +385,7 @@ export function Navigation() {
                 </DialogContent>
               </Dialog>
 
-              {isLoggedIn ? (
+              {isAuthenticated && user ? (
                 // Profile Icon with Neon Glow
                 <motion.div
                   whileHover={{ scale: 1.1 }}
@@ -394,10 +394,10 @@ export function Navigation() {
                 >
                   <Link to="/profile">
                     <div className="relative w-10 h-10 rounded-full border-2 border-aesthetic-violet/50 bg-gradient-to-br from-aesthetic-violet/20 to-aesthetic-cyan/20 flex items-center justify-center hover:border-aesthetic-violet transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(115,115,175,0.6)]">
-                      {userProfile.avatar ? (
+                      {user.avatar ? (
                         <img
-                          src={userProfile.avatar}
-                          alt={userProfile.name}
+                          src={user.avatar}
+                          alt={user.name}
                           className="w-full h-full rounded-full object-cover"
                         />
                       ) : (
@@ -427,14 +427,7 @@ export function Navigation() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Button
-                    onClick={() => {
-                      navigate("/auth");
-                      // Simulate login success for demo
-                      setTimeout(() => {
-                        setIsLoggedIn(true);
-                        setUserProfile({ name: "John Doe", avatar: null });
-                      }, 2000);
-                    }}
+                    onClick={() => navigate("/auth")}
                     className="bg-gradient-to-r from-aesthetic-violet/30 to-aesthetic-cyan/30 hover:from-aesthetic-violet/50 hover:to-aesthetic-cyan/50 text-primary-foreground rounded-2xl shadow-xl border border-aesthetic-electric/50 font-bold px-4 sm:px-6 py-2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(115,115,175,0.6)]"
                   >
                     <motion.span className="text-sm sm:text-base flex items-center gap-2">
